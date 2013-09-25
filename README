@@ -1,1 +1,9 @@
-Début du dépôt !
+Avant commencer, je ecris cette README pour aider les personnes que veulent participer du projet electronique pour 2014 (et pour souvenir que je [Felipe] suis bresilien, donc il aura des erreurs de français [ne hesite pas en corrigir])
+Pour utilizer correctement ce repositoire, les pas suivants doivent etre suivis:
+-2. Inscrivez-vous sur https://github.com/ (c'est facile, il demande seulement un nom d'utilisateur, mot de passe et e-mail)
+-1. Comuniquez au responsable (Loic, je pense) pour vous inscriver sur elec_2014
+0. Lisez cette README.
+1. Telechargez le derniere version de KiCAD
+2. Telechargez le GitHub (le method le plus facile est cliquer sur le bouton "Clone in Desktop")
+3. Avec GitHub instalé, faisez le login sur le logiciel et demandez pour que le repositoire être syncronisé.
+4. Les archives vont être dans <~/Mes Documents/GitHub>. Vous pouvez leur changer, mais aprés vous devez faire la syncronisation avec GitHub
