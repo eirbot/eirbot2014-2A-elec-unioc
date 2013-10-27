@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="exmachine">
+		<CBX_INST_ENTRY INSTANCE_NAME="|exmachine|COUNTEUR_XYR:counterxyr1|lpm_add_sub:Add5" CBX_FILE_NAME="add_sub_7ri.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|exmachine|COUNTEUR_XYR:counterxyr2|lpm_add_sub:Add5" CBX_FILE_NAME="add_sub_7ri.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

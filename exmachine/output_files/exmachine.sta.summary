@@ -1,0 +1,101 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'H'
+Slack : -11.784
+TNS   : -2305.167
+
+Type  : Slow Model Setup 'SPI_SLAVE:spi|DATA_RCV'
+Slack : -8.403
+TNS   : -1279.596
+
+Type  : Slow Model Setup 'TIME_GENERATOR:timer|int_micros[4]'
+Slack : -4.727
+TNS   : -108.829
+
+Type  : Slow Model Setup 'CLOCK_SPI'
+Slack : -3.159
+TNS   : -61.528
+
+Type  : Slow Model Hold 'CLOCK_SPI'
+Slack : -2.527
+TNS   : -2.527
+
+Type  : Slow Model Hold 'H'
+Slack : -1.883
+TNS   : -6.409
+
+Type  : Slow Model Hold 'TIME_GENERATOR:timer|int_micros[4]'
+Slack : 0.499
+TNS   : 0.000
+
+Type  : Slow Model Hold 'SPI_SLAVE:spi|DATA_RCV'
+Slack : 1.040
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'H'
+Slack : -1.941
+TNS   : -509.469
+
+Type  : Slow Model Minimum Pulse Width 'CLOCK_SPI'
+Slack : -1.941
+TNS   : -42.009
+
+Type  : Slow Model Minimum Pulse Width 'SPI_SLAVE:spi|DATA_RCV'
+Slack : -0.742
+TNS   : -403.648
+
+Type  : Slow Model Minimum Pulse Width 'TIME_GENERATOR:timer|int_micros[4]'
+Slack : -0.742
+TNS   : -53.424
+
+Type  : Fast Model Setup 'H'
+Slack : -3.281
+TNS   : -540.106
+
+Type  : Fast Model Setup 'SPI_SLAVE:spi|DATA_RCV'
+Slack : -2.357
+TNS   : -263.370
+
+Type  : Fast Model Setup 'TIME_GENERATOR:timer|int_micros[4]'
+Slack : -0.930
+TNS   : -15.675
+
+Type  : Fast Model Setup 'CLOCK_SPI'
+Slack : -0.415
+TNS   : -5.413
+
+Type  : Fast Model Hold 'CLOCK_SPI'
+Slack : -1.332
+TNS   : -1.332
+
+Type  : Fast Model Hold 'H'
+Slack : -1.223
+TNS   : -14.261
+
+Type  : Fast Model Hold 'SPI_SLAVE:spi|DATA_RCV'
+Slack : 0.080
+TNS   : 0.000
+
+Type  : Fast Model Hold 'TIME_GENERATOR:timer|int_micros[4]'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'H'
+Slack : -1.380
+TNS   : -343.380
+
+Type  : Fast Model Minimum Pulse Width 'CLOCK_SPI'
+Slack : -1.380
+TNS   : -28.380
+
+Type  : Fast Model Minimum Pulse Width 'SPI_SLAVE:spi|DATA_RCV'
+Slack : -0.500
+TNS   : -272.000
+
+Type  : Fast Model Minimum Pulse Width 'TIME_GENERATOR:timer|int_micros[4]'
+Slack : -0.500
+TNS   : -36.000
+
+------------------------------------------------------------
