@@ -3,99 +3,123 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'H'
-Slack : -11.784
-TNS   : -2305.167
+Slack : -10.510
+TNS   : -5518.367
 
-Type  : Slow Model Setup 'SPI_SLAVE:spi|DATA_RCV'
-Slack : -8.403
-TNS   : -1279.596
+Type  : Slow Model Setup 'RESET'
+Slack : -7.010
+TNS   : -190.664
 
-Type  : Slow Model Setup 'TIME_GENERATOR:timer|int_micros[4]'
-Slack : -4.727
-TNS   : -108.829
+Type  : Slow Model Setup 'RD'
+Slack : -1.418
+TNS   : -543.635
 
-Type  : Slow Model Setup 'CLOCK_SPI'
-Slack : -3.159
-TNS   : -61.528
+Type  : Slow Model Hold 'RESET'
+Slack : -0.828
+TNS   : -1.073
 
-Type  : Slow Model Hold 'CLOCK_SPI'
-Slack : -2.527
-TNS   : -2.527
+Type  : Slow Model Hold 'RD'
+Slack : -0.186
+TNS   : -0.265
 
 Type  : Slow Model Hold 'H'
-Slack : -1.883
-TNS   : -6.409
-
-Type  : Slow Model Hold 'TIME_GENERATOR:timer|int_micros[4]'
 Slack : 0.499
 TNS   : 0.000
 
-Type  : Slow Model Hold 'SPI_SLAVE:spi|DATA_RCV'
-Slack : 1.040
+Type  : Slow Model Recovery 'H'
+Slack : -3.474
+TNS   : -603.055
+
+Type  : Slow Model Recovery 'RESET'
+Slack : -1.869
+TNS   : -40.660
+
+Type  : Slow Model Recovery 'RD'
+Slack : 0.594
+TNS   : 0.000
+
+Type  : Slow Model Removal 'RD'
+Slack : -1.626
+TNS   : -1085.005
+
+Type  : Slow Model Removal 'H'
+Slack : -0.021
+TNS   : -0.357
+
+Type  : Slow Model Removal 'RESET'
+Slack : 0.066
 TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'H'
+Slack : -2.567
+TNS   : -2774.581
+
+Type  : Slow Model Minimum Pulse Width 'RESET'
 Slack : -1.941
-TNS   : -509.469
+TNS   : -1.941
 
-Type  : Slow Model Minimum Pulse Width 'CLOCK_SPI'
-Slack : -1.941
-TNS   : -42.009
-
-Type  : Slow Model Minimum Pulse Width 'SPI_SLAVE:spi|DATA_RCV'
-Slack : -0.742
-TNS   : -403.648
-
-Type  : Slow Model Minimum Pulse Width 'TIME_GENERATOR:timer|int_micros[4]'
-Slack : -0.742
-TNS   : -53.424
+Type  : Slow Model Minimum Pulse Width 'RD'
+Slack : -1.777
+TNS   : -1521.393
 
 Type  : Fast Model Setup 'H'
-Slack : -3.281
-TNS   : -540.106
+Slack : -3.614
+TNS   : -1132.468
 
-Type  : Fast Model Setup 'SPI_SLAVE:spi|DATA_RCV'
-Slack : -2.357
-TNS   : -263.370
+Type  : Fast Model Setup 'RESET'
+Slack : -1.663
+TNS   : -36.954
 
-Type  : Fast Model Setup 'TIME_GENERATOR:timer|int_micros[4]'
-Slack : -0.930
-TNS   : -15.675
+Type  : Fast Model Setup 'RD'
+Slack : -0.019
+TNS   : -0.029
 
-Type  : Fast Model Setup 'CLOCK_SPI'
-Slack : -0.415
-TNS   : -5.413
-
-Type  : Fast Model Hold 'CLOCK_SPI'
-Slack : -1.332
-TNS   : -1.332
-
-Type  : Fast Model Hold 'H'
-Slack : -1.223
-TNS   : -14.261
-
-Type  : Fast Model Hold 'SPI_SLAVE:spi|DATA_RCV'
-Slack : 0.080
+Type  : Fast Model Hold 'RD'
+Slack : 0.084
 TNS   : 0.000
 
-Type  : Fast Model Hold 'TIME_GENERATOR:timer|int_micros[4]'
+Type  : Fast Model Hold 'H'
 Slack : 0.215
 TNS   : 0.000
 
+Type  : Fast Model Hold 'RESET'
+Slack : 0.408
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'H'
+Slack : -0.457
+TNS   : -70.915
+
+Type  : Fast Model Recovery 'RESET'
+Slack : -0.423
+TNS   : -7.752
+
+Type  : Fast Model Recovery 'RD'
+Slack : 0.321
+TNS   : 0.000
+
+Type  : Fast Model Removal 'RD'
+Slack : -0.419
+TNS   : -206.928
+
+Type  : Fast Model Removal 'H'
+Slack : -0.017
+TNS   : -0.289
+
+Type  : Fast Model Removal 'RESET'
+Slack : 0.044
+TNS   : 0.000
+
 Type  : Fast Model Minimum Pulse Width 'H'
+Slack : -2.000
+TNS   : -2025.380
+
+Type  : Fast Model Minimum Pulse Width 'RESET'
 Slack : -1.380
-TNS   : -343.380
+TNS   : -1.380
 
-Type  : Fast Model Minimum Pulse Width 'CLOCK_SPI'
-Slack : -1.380
-TNS   : -28.380
-
-Type  : Fast Model Minimum Pulse Width 'SPI_SLAVE:spi|DATA_RCV'
-Slack : -0.500
-TNS   : -272.000
-
-Type  : Fast Model Minimum Pulse Width 'TIME_GENERATOR:timer|int_micros[4]'
-Slack : -0.500
-TNS   : -36.000
+Type  : Fast Model Minimum Pulse Width 'RD'
+Slack : -1.222
+TNS   : -1025.222
 
 ------------------------------------------------------------

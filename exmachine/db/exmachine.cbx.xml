@@ -1,7 +1,6 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="exmachine">
-		<CBX_INST_ENTRY INSTANCE_NAME="|exmachine|COUNTEUR_XYR:counterxyr1|lpm_add_sub:Add5" CBX_FILE_NAME="add_sub_7ri.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|exmachine|COUNTEUR_XYR:counterxyr2|lpm_add_sub:Add5" CBX_FILE_NAME="add_sub_7ri.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|EBI_SLAVE|COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|altsyncram:TABLE_rtl_0" CBX_FILE_NAME="altsyncram_pdp1.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

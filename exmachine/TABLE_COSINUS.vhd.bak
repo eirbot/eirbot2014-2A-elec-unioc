@@ -1,0 +1,28 @@
+--   _______    __    ______     ______     _____    ________
+--  |   ____|  |  |  |   _  \   |   _  \   / __  \  |___  ___|
+--  |  |____   |  |  |  |_|  |  |  |_| /  | |  | |     |  |
+--  |   ____|  |  |  |       |  |   _  \  | |  | |     |  |
+--  |  |____   |  |  |  |\  \   |  |_| |  | |__| |     |  |
+--  |_______|  |__|  |__| \__\  |______/   \_____/     |__|
+--
+-- Module: TABLE_COSINUS
+-- But: Infere une ROM avec SINUS
+--
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity TABLE_COSINUS is Port ( 
+	ANGLE   : in  STD_LOGIC_VECTOR(14 downto 0);
+	COSINUS : out STD_LOGIC_VECTOR(15 downto 0);
+);
+end TABLE_COSINUS;
+
+architecture Behavioral of TABLE_SINUS is
+type tableSinus is array (0 to (360*64-1)) of STD_LOGIC_VECTOR (15 downto 0);
+signal TABLE_SINUS : tableSinus := (
+
+);
+begin
+	SINUS <= TABLE_SINUS(TO_INTEGER(UNSIGNED(ANGLE)));
+end architecture;

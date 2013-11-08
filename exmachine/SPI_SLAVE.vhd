@@ -38,45 +38,47 @@ begin
       DATA_RCV <= '0';
       MISO <= '0';
     else
-      if(CLOCK'event and CLOCK='1' and CS='1')then
-        case etat is
-        when "000" =>
-            buffSortie <= DATAMISO(7 downto 1);
-            DATA_RCV <= '1';
-            MISO <= DATAMISO(0);
-            buffEntree(0) <= MOSI;
-            etat <= "001";
-        when "001" =>
-            MISO <= buffSortie(1);
-            buffEntree(1) <= MOSI;
-            etat <= "010";
-        when "010" =>
-            MISO <= buffSortie(2);
-            buffEntree(2) <= MOSI;
-            etat <= "011";
-        when "011" =>
-            MISO <= buffSortie(3);
-            buffEntree(3) <= MOSI;
-            etat <= "100";
-        when "100" =>
-            MISO <= buffSortie(4);
-            buffEntree(4) <= MOSI;
-            etat <= "101";
-        when "101" =>
-            MISO <= buffSortie(5);
-            buffEntree(5) <= MOSI;
-            etat <= "110";
-        when "110" =>
-            MISO <= buffSortie(6);
-            buffEntree(6) <= MOSI;
-            etat <= "111";
-        when OTHERS =>
-            MISO <= buffSortie(7);
-            DATAMOSI(6 downto 0) <= buffEntree;
-            DATAMOSI(7)          <= MOSI;
-            DATA_RCV <= '0';
-            etat <= "000";
-        end case;
+      if(CLOCK'event and CLOCK='1')then
+			if(CS='1')then 
+				case etat is
+					when "000" =>
+						buffSortie <= DATAMISO(7 downto 1);
+						DATA_RCV <= '1';
+						MISO <= DATAMISO(0);
+						buffEntree(0) <= MOSI;
+						etat <= "001";
+					when "001" =>
+						MISO <= buffSortie(1);
+						buffEntree(1) <= MOSI;
+						etat <= "010";
+					when "010" =>
+						MISO <= buffSortie(2);
+						buffEntree(2) <= MOSI;
+						etat <= "011";
+					when "011" =>
+						MISO <= buffSortie(3);
+						buffEntree(3) <= MOSI;
+						etat <= "100";
+					when "100" =>
+						MISO <= buffSortie(4);
+						buffEntree(4) <= MOSI;
+						etat <= "101";
+					when "101" =>
+						MISO <= buffSortie(5);
+						buffEntree(5) <= MOSI;
+						etat <= "110";
+					when "110" =>
+						MISO <= buffSortie(6);
+						buffEntree(6) <= MOSI;
+						etat <= "111";
+					when OTHERS =>
+						MISO <= buffSortie(7);
+						DATAMOSI(6 downto 0) <= buffEntree;
+						DATAMOSI(7)          <= MOSI;
+						DATA_RCV <= '0';
+						etat <= "000";
+				end case;
+			end if;
       end if;
     end if;
   end process;

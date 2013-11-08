@@ -20,8 +20,8 @@ entity COUNTEUR_XYR is
           CODEUR1 : IN STD_LOGIC_VECTOR (1  downto 0);
           CODEUR2 : IN STD_LOGIC_VECTOR (1  downto 0);
 			 RELATION: IN STD_LOGIC_VECTOR (15 downto 0);
-          POSX    : OUT STD_LOGIC_VECTOR (21 downto 0);
-          POSY    : OUT STD_LOGIC_VECTOR (21 downto 0);
+          POSX    : OUT STD_LOGIC_VECTOR (31 downto 0);
+          POSY    : OUT STD_LOGIC_VECTOR (31 downto 0);
           ROT     : OUT STD_LOGIC_VECTOR (8 downto 0);  --0-360 degrees
           RESET   : IN STD_LOGIC;
 			 H       : IN STD_LOGIC
@@ -109,19 +109,19 @@ signal SINUS : tableSinus := (
 signal intRot : Integer; --degrees (9 bit) * 65536 (16) => 25 bits
 signal intPosX : Integer; --pas (22 bit) * 10 bits => 32 bits
 signal intPosY : Integer; --pas (22 bit) * 10 bits => 32 bits
-signal buffPosX : std_logic_vector(31 downto 0); 
-signal buffPosY : std_logic_vector(31 downto 0); 
+signal buffPosX : std_logic_vector(41 downto 0); 
+signal buffPosY : std_logic_vector(41 downto 0); 
 signal buffRot :  std_logic_vector(24 downto 0); 
 signal lastCod1, lastCod2: std_logic_vector(1 downto 0);
 signal internalRot: Integer;
 begin
-  POSX <= buffPosX(31 downto 10);
-  POSY <= buffPosY(31 downto 10);
+  POSX <= buffPosX(41 downto 10);
+  POSY <= buffPosY(41 downto 10);
   ROT  <=  buffRot(24 downto 16);
   internalRot <= TO_INTEGER(UNSIGNED(buffRot(24 downto 16)));
   
-  buffPosX <= std_logic_vector(to_unsigned(intPosX,32));
-  buffPosY <= std_logic_vector(to_unsigned(intPosY,32));
+  buffPosX <= std_logic_vector(to_unsigned(intPosX,42));
+  buffPosY <= std_logic_vector(to_unsigned(intPosY,42));
   buffRot  <= std_logic_vector(to_unsigned(intRot,25)) ;
   
   onHorloge : process (H)
@@ -153,6 +153,7 @@ begin
 				elsif(lastCod1(1)/= CODEUR1(1))then
 					if(CODEUR1(1)='1')then
 						intRot <= intRot - TO_INTEGER(UNSIGNED(RELATION));
+						
 						if( (internalRot<90) or (internalRot>270))then
 							intPosX <= intPosX - TO_INTEGER(UNSIGNED(COSINUS(internalRot)));
 						else
@@ -163,16 +164,33 @@ begin
 						else
 							intPosY <= intPosY - TO_INTEGER(UNSIGNED(SINUS(internalRot)));
 						end if;
+						
 					end if;
 					lastCod1(1) <= CODEUR1(1);
 				elsif(lastCod2(0)/= CODEUR2(0))then
 					if(CODEUR2(0)='1')then
 						intRot <= intRot + TO_INTEGER(UNSIGNED(RELATION));
+						
+						
+						
+						if( (internalRot<90) or (internalRot>270))then
+							intPosX <= intPosX - TO_INTEGER(UNSIGNED(COSINUS(internalRot)));
+						else
+							intPosX <= intPosX + TO_INTEGER(UNSIGNED(COSINUS(internalRot)));
+						end if;
+						if(internalRot<180)then
+							intPosY <= intPosY + TO_INTEGER(UNSIGNED(SINUS(internalRot)));
+						else
+							intPosY <= intPosY - TO_INTEGER(UNSIGNED(SINUS(internalRot)));
+						end if;
+						
 					end if;
 					lastCod2(0) <= CODEUR2(0);
 				elsif(lastCod2(1)/= CODEUR2(1))then
 					if(CODEUR2(1)='1')then
 						intRot <= intRot - TO_INTEGER(UNSIGNED(RELATION));
+						
+						
 						if( (internalRot<90) or (internalRot>270))then
 							intPosX <= intPosX + TO_INTEGER(UNSIGNED(COSINUS(internalRot)));
 						else
@@ -183,6 +201,8 @@ begin
 						else
 							intPosY <= intPosY + TO_INTEGER(UNSIGNED(SINUS(internalRot)));
 						end if;
+						
+						
 					end if;
 					lastCod2(1) <= CODEUR2(1);
 				else

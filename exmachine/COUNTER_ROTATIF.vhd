@@ -14,13 +14,12 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity COUNTER_ROTATIF is
-    Port ( 
-		H    : in  STD_LOGIC;
-		SIG  : in  STD_LOGIC_VECTOR (1 downto 0);
-		SORT : out STD_LOGIC_VECTOR (1 downto 0);
-		RESET: in  STD_LOGIC
-	);
+entity COUNTER_ROTATIF is Port ( 
+	H    : in  STD_LOGIC;
+	SIG  : in  STD_LOGIC_VECTOR (1 downto 0);
+	SORT : out STD_LOGIC_VECTOR (1 downto 0);
+	RESET: in  STD_LOGIC
+);
 end COUNTER_ROTATIF;
 
 architecture Behavioral of COUNTER_ROTATIF is

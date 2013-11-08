@@ -1,0 +1,43 @@
+--   _______    __    ______     ______     _____    ________
+--  |   ____|  |  |  |   _  \   |   _  \   / __  \  |___  ___|
+--  |  |____   |  |  |  |_|  |  |  |_| /  | |  | |     |  |
+--  |   ____|  |  |  |       |  |   _  \  | |  | |     |  |
+--  |  |____   |  |  |  |\  \   |  |_| |  | |__| |     |  |
+--  |_______|  |__|  |__| \__\  |______/   \_____/     |__|
+--
+-- Module: DEBUGGER
+-- But: Faire du debug des variables avec une communication serial 115200@8n1
+--
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity DEBUGGER is Port ( 
+	H     : in  STD_LOGIC;
+   RESET : in  STD_LOGIC;
+	BOUTON: in  STD_LOGIC;
+	VAR   : OUT STD_LOGIC_VECTOR(31 downto 0);
+);
+end DEBUGGER;
+
+architecture Behavioral of DEBUGGER is
+SIGNAL intCompteur :Integer;
+SIGNAL intDebouncer: Integer;
+SIGNAL lastBouton: STD_LOGIC;
+begin
+	VAR <= STD_LOGIC_VECTOR(TO_UNSIGNED(intCompteur,32));
+	process(H)
+	begin
+		if(H'event and H='1')then
+			if(RESET='1')then
+				intCompteur <= 7000;
+				intDebouncer <= 0;
+			else
+				
+				
+			end if;
+		end if;
+	end process;
+end Behavioral;
+

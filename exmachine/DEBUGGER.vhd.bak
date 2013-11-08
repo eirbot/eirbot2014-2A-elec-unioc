@@ -1,0 +1,132 @@
+--   _______    __    ______     ______     _____    ________
+--  |   ____|  |  |  |   _  \   |   _  \   / __  \  |___  ___|
+--  |  |____   |  |  |  |_|  |  |  |_| /  | |  | |     |  |
+--  |   ____|  |  |  |       |  |   _  \  | |  | |     |  |
+--  |  |____   |  |  |  |\  \   |  |_| |  | |__| |     |  |
+--  |_______|  |__|  |__| \__\  |______/   \_____/     |__|
+--
+-- Module: DEBUGGER
+-- But: Faire du debug des variables avec une communication serial 115200@8n1
+--
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity DEBUGGER is Port ( 
+	H     : in  STD_LOGIC;
+   RESET : in  STD_LOGIC;
+	ENABLE: in  STD_LOGIC;
+	VAR1  : in  STD_LOGIC_VECTOR(31 downto 0);
+	VAR2  : in  STD_LOGIC_VECTOR(31 downto 0);
+	VAR3  : in  STD_LOGIC_VECTOR(31 downto 0);
+	VAR4  : in  STD_LOGIC_VECTOR(31 downto 0);
+	SERIAL: OUT STD_LOGIC
+);
+end DEBUGGER;
+
+architecture Behavioral of DEBUGGER is
+CONSTANT H_FREQ  : INTEGER := 50000000;
+CONSTANT BAUD    : INTEGER := 115200;
+CONSTANT MSGSIZE : INTEGER := 64;
+TYPE msg is array(0 to (MSGSIZE-1)) of STD_LOGIC_VECTOR(7 downto 0);
+SIGNAL BAUDCOUNTER : Integer;
+SIGNAL MSG_BUFFER: msg;
+SIGNAL BITETAT : STD_LOGIC_VECTOR(3 downto 0);
+SIGNAL OCTETAT : Integer;
+SIGNAL RUN     : STD_LOGIC;
+
+function TO_ASCII_HEX(a:STD_LOGIC_VECTOR(3 downto 0) )return STD_LOGIC_VECTOR is
+begin
+	if(a(3) and (a(2) or a(1)))then
+		return "01000" & (a(2)and(a(1)or a(0))) & (a(1) xnor a(0) ) &not a(0);
+	else
+		return "0011" & a;
+	end if;
+end function;
+
+begin
+	
+	process(H)
+	begin
+		if(H'event and H='1')then 
+			if(RESET = '1')then
+				RUN <= '0';
+				SERIAL <= '1';
+				BAUDCOUNTER <= 0;
+				BITETAT <= "0000";
+				OCTETAT <= 0;
+				for a in 0 to (MSGSIZE-1) loop
+					MSG_BUFFER(a) <= "00000000";
+				end loop;
+			else
+				if(ENABLE = '1' and RUN = '0')then 
+					MSG_BUFFER(0 ) <= TO_ASCII_HEX(VAR1(3  downto 0));
+					MSG_BUFFER(1 ) <= TO_ASCII_HEX(VAR1(7  downto 4));
+					MSG_BUFFER(2 ) <= TO_ASCII_HEX(VAR1(11 downto 8));
+					MSG_BUFFER(3 ) <= TO_ASCII_HEX(VAR1(15 downto 12));
+					MSG_BUFFER(4 ) <= TO_ASCII_HEX(VAR1(19 downto 16));
+					MSG_BUFFER(5 ) <= TO_ASCII_HEX(VAR1(23 downto 20));
+					MSG_BUFFER(6 ) <= TO_ASCII_HEX(VAR1(27 downto 24));
+					MSG_BUFFER(7 ) <= TO_ASCII_HEX(VAR1(31 downto 28));
+					MSG_BUFFER(8 ) <= "00100000";--ESPACE
+					MSG_BUFFER(9 ) <= TO_ASCII_HEX(VAR2(3  downto 0));
+					MSG_BUFFER(10) <= TO_ASCII_HEX(VAR2(7  downto 4));
+					MSG_BUFFER(11) <= TO_ASCII_HEX(VAR2(11 downto 8));
+					MSG_BUFFER(12) <= TO_ASCII_HEX(VAR2(15 downto 12));
+					MSG_BUFFER(13) <= TO_ASCII_HEX(VAR2(19 downto 16));
+					MSG_BUFFER(14) <= TO_ASCII_HEX(VAR2(23 downto 20));
+					MSG_BUFFER(15) <= TO_ASCII_HEX(VAR2(27 downto 24));
+					MSG_BUFFER(16) <= TO_ASCII_HEX(VAR2(31 downto 28));
+					MSG_BUFFER(17) <= "00100000";--ESPACE
+					MSG_BUFFER(18) <= TO_ASCII_HEX(VAR3(3  downto 0));
+					MSG_BUFFER(19) <= TO_ASCII_HEX(VAR3(7  downto 4));
+					MSG_BUFFER(20) <= TO_ASCII_HEX(VAR3(11 downto 8));
+					MSG_BUFFER(21) <= TO_ASCII_HEX(VAR3(15 downto 12));
+					MSG_BUFFER(22) <= TO_ASCII_HEX(VAR3(19 downto 16));
+					MSG_BUFFER(23) <= TO_ASCII_HEX(VAR3(23 downto 20));
+					MSG_BUFFER(24) <= TO_ASCII_HEX(VAR3(27 downto 24));
+					MSG_BUFFER(25) <= TO_ASCII_HEX(VAR3(31 downto 28));
+					MSG_BUFFER(26) <= "00100000";--ESPACE
+					MSG_BUFFER(27) <= TO_ASCII_HEX(VAR4(3  downto 0));
+					MSG_BUFFER(28) <= TO_ASCII_HEX(VAR4(7  downto 4));
+					MSG_BUFFER(29) <= TO_ASCII_HEX(VAR4(11 downto 8));
+					MSG_BUFFER(30) <= TO_ASCII_HEX(VAR4(15 downto 12));
+					MSG_BUFFER(31) <= TO_ASCII_HEX(VAR4(19 downto 16));
+					MSG_BUFFER(32) <= TO_ASCII_HEX(VAR4(23 downto 20));
+					MSG_BUFFER(33) <= TO_ASCII_HEX(VAR4(27 downto 24));
+					MSG_BUFFER(34) <= TO_ASCII_HEX(VAR4(31 downto 28));
+					MSG_BUFFER(35) <= "00001010";--NL
+					
+					RUN <= '1'; 
+				end if;
+				if(RUN = '1')then
+					BAUDCOUNTER <= BAUDCOUNTER + 1;
+					if(BAUDCOUNTER = (H_FREQ/BAUD))then
+						BAUDCOUNTER <= 0;
+						case BITETAT is
+							when "0000" => SERIAL <= '0';                    BITETAT<="0001";
+							when "0001" => SERIAL <= MSG_BUFFER(OCTETAT)(0); BITETAT<="0010";
+							when "0010" => SERIAL <= MSG_BUFFER(OCTETAT)(1); BITETAT<="0011";
+							when "0011" => SERIAL <= MSG_BUFFER(OCTETAT)(2); BITETAT<="0100";
+							when "0100" => SERIAL <= MSG_BUFFER(OCTETAT)(3); BITETAT<="0101";
+							when "0101" => SERIAL <= MSG_BUFFER(OCTETAT)(4); BITETAT<="0110";
+							when "0110" => SERIAL <= MSG_BUFFER(OCTETAT)(5); BITETAT<="0111";
+							when "0111" => SERIAL <= MSG_BUFFER(OCTETAT)(6); BITETAT<="1000";
+							when "1000" => SERIAL <= MSG_BUFFER(OCTETAT)(7); BITETAT<="1001";
+							when "1001" => SERIAL <= '1';                    BITETAT<="1010";
+							when others => BITETAT <= "0000";
+												OCTETAT <= OCTETAT + 1;
+						end case;
+					end if;
+					if(OCTETAT=MSGSIZE)then
+						OCTETAT <= 0;
+						RUN <= '0';
+					end if;
+				end if;
+			end if;
+		end if;
+	end process;
+	  
+end Behavioral;
+
