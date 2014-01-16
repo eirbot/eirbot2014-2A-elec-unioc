@@ -15,7 +15,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity SERIAL_RECEIVER is Port ( 
 	H     : in  STD_LOGIC;
-   RESET : in  STD_LOGIC;
+    RESET : in  STD_LOGIC;
 	RX    : in  STD_LOGIC;
 	VAR   : out STD_LOGIC_VECTOR(7 downto 0);
 	READY : out STD_LOGIC;
@@ -31,14 +31,14 @@ SIGNAL etat: STD_LOGIC_VECTOR(9 downto 0);
 SIGNAL buffSortie: STD_LOGIC_VECTOR(9 downto 0);
 begin
 	VAR <= buffSortie(8 downto 1);
+	ERROR <= not RX;
 	process(H)
 	begin
 		if(H'event and H='1')then
 			if(RESET = '1')then
 				delayer <= 0;
-				READY <= '1';
+				READY <= '0';
 				etat <= "0000000000";
-				ERROR <= '0';
 			else
 				if(etat="0000000000")then
 					if(RX='0')then
@@ -48,21 +48,18 @@ begin
 						buffSortie <= "0000000000";
 					end if;
 				else
-					delayer <= delayer -1;
-					if(delayer = 0)then
+					if(delayer /= 0)then
+						delayer <= delayer -1;
+						READY <= '0';
+					else
 						if(etat(9)='1')then
 							etat <= "0000000000";
-							if(buffSortie(0)='0' and RX='1')then
-								ERROR <= '0';
-								READY <= '1';
-							else
-								ERROR <= '1';
-								READY <= '1';
-							end if;
+							READY <= '1';
 						else
-							buffSortie <= buffSortie or (etat and (9 downto 0=>RX));
+							buffSortie <= RX & buffSortie(9 downto 1);
 							etat <= etat(8 downto 0)&'0';
 							delayer <= H_FREQ/BAUD;
+						    READY <= '0';
 						end if;
 					end if;
 				end if;

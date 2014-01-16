@@ -1,0 +1,53 @@
+--   _______    __    ______     ______     _____    ________
+--  |   ____|  |  |  |   _  \   |   _  \   / __  \  |___  ___|
+--  |  |____   |  |  |  |_|  |  |  |_| /  | |  | |     |  |
+--  |   ____|  |  |  |       |  |   _  \  | |  | |     |  |
+--  |  |____   |  |  |  |\  \   |  |_| |  | |__| |     |  |
+--  |_______|  |__|  |__| \__\  |______/   \_____/     |__|
+--
+-- Module: TOP_UNIOC
+-- But: Interconnecter les elements
+--
+library ieee;
+use ieee.std_logic_1164.all;
+use IEEE.NUMERIC_STD.ALL;
+
+entity TOP_UNIOC is port(
+	H        : in    STD_LOGIC;
+	RESET    : in    STD_LOGIC;
+	--Connections avec l'AVR
+	DATA     : inout STD_LOGIC_VECTOR(7 downto 0);
+	ADDR     : in    STD_LOGIC_VECTOR(7 downto 0);
+	RD       : in    STD_LOGIC;
+	WR       : in    STD_LOGIC;
+	ALE      : in    STD_LOGIC;
+	DIRBUF1  : out   STD_LOGIC;
+	DIRBUF2  : out   STD_LOGIC;
+	--Sorties pour les actuateurs
+	MOT1     : out STD_LOGIC_VECTOR(1 downto 0);
+	MOT2     : out STD_LOGIC_VECTOR(1 downto 0);
+	SERVO_D  : out STD_LOGIC;
+	SERVO_C1 : out STD_LOGIC;
+	SERVO_C2 : out STD_LOGIC;
+	SERVO_C3 : out STD_LOGIC;
+	SERVO_C4 : out STD_LOGIC;
+	--Entrees des senseurs
+	CODEUR1  : in  STD_LOGIC_VECTOR(1 downto 0);
+	CODEUR2  : in  STD_LOGIC_VECTOR(1 downto 0);
+	CODEUR3  : in  STD_LOGIC_VECTOR(1 downto 0);
+	CODEUR4  : in  STD_LOGIC_VECTOR(1 downto 0);
+	LED      : OUT STD_LOGIC
+);
+end TOP_UNIOC;
+
+architecture comportement of TOP_UNIOC is
+
+
+
+
+begin
+
+
+
+
+end architecture;

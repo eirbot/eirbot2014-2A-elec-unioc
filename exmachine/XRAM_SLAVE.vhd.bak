@@ -1,0 +1,73 @@
+--   _______    __    ______     ______     _____    ________
+--  |   ____|  |  |  |   _  \   |   _  \   / __  \  |___  ___|
+--  |  |____   |  |  |  |_|  |  |  |_| /  | |  | |     |  |
+--  |   ____|  |  |  |       |  |   _  \  | |  | |     |  |
+--  |  |____   |  |  |  |\  \   |  |_| |  | |__| |     |  |
+--  |_______|  |__|  |__| \__\  |______/   \_____/     |__|
+--
+-- Module: XRAM_SLAVE
+-- But: Faire la connection entre l'AVR sur une port External RAM
+--
+library ieee;
+use ieee.std_logic_1164.all;
+use IEEE.NUMERIC_STD.ALL;
+
+entity XRAM_SLAVE is port(
+	H          : in    STD_LOGIC;
+	RESET      : in    STD_LOGIC;
+	AD         : in    STD_LOGIC_VECTOR(7 downto 0);--\
+	DA         : inout STD_LOGIC_VECTOR(7 downto 0);--|
+	RD         : in    STD_LOGIC;---------------------|__Atmega
+	WR         : in    STD_LOGIC;---------------------|
+	DIR        : out   STD_LOGIC;---------------------|
+	ALE        : in    STD_LOGIC;---------------------/
+	STROBE     : out   STD_LOGIC;----------------------\
+	WRITE_EN   : out   STD_LOGIC;----------------------|
+	WRITE_DATA : in    STD_LOGIC_VECTOR(7 downto 0);---|--internal
+	READ_DATA  : out   STD_LOGIC_VECTOR(7 downto 0);---|
+	ADDRESS    : out   STD_LOGIC_VECTOR(15 downto 0);--/
+	
+port(
+	AD (6 downto 0)
+	DA (7 downto 0)
+	ALE
+	RD
+	WR
+	DIR
+	
+	
+signals:
+write, strobe, cycle : STD_LOGIC
+writedata, debug : STD_LOGIC_VECTOR(7 downto 0)
+address: STD_LOGIC_VECTOR(14 downto 0)
+
+syncro: process(clk, reset, RD, RW, write, strobe)
+	if(reset ='1')then
+		strobe <= 0
+		write <= 0
+		cycle <= 0
+		address <= 0
+		writedata <= 0
+		debug <= 1
+	elsif rising_edge(clk)
+		if(ALE = '1')then
+			adress(14 downto 8) <= AD
+			address(7 DOWNTO 0) <= DA
+		end if;
+		writedata <= DA
+		--signal controls
+		strobe <= not(RD and WR)
+		cycle <= not(RD and WR)
+		write <= not WR
+		
+	end if
+end process
+
+wbm_write <= write
+wbm_strobe <= strobe
+wbm_cycle <= cycle
+wbm_address <= address
+wbm_writedata <= writedata when(write='1') else 0000000000
+DIR <= '1' when( write = '0' and strobe = '1') else '0'
+DA <= wbm_readdata when( write='0' ans strobe='1') else ZZZZZZZZZZZZZZZZZZZZ;
+		

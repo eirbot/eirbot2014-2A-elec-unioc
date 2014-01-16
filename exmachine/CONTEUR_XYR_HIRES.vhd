@@ -35,7 +35,7 @@ signal intPosY : Integer; --pas (32 bit) * 14 bits => 46 bits
 signal buffPosX : std_logic_vector(46 downto 0); 
 signal buffPosY : std_logic_vector(46 downto 0); 
 signal buffRot :  std_logic_vector(31 downto 0); 
-signal lastCod1, lastCod2: std_logic_vector(1 downto 0);
+--signal lastCod1, lastCod2: std_logic_vector(1 downto 0);
 signal SINUS, COSINUS: STD_LOGIC_VECTOR(15 downto 0);
 
 component TABLE_SINUS is Port (  
@@ -68,11 +68,11 @@ begin
 				intPosX<=0;
 				intPosY<=0;
 				intRot <=0;
-				lastCod1 <= CODEUR1;
-				lastCod2 <= CODEUR2;
+				--lastCod1 <= CODEUR1;
+				--lastCod2 <= CODEUR2;
 			else
 				
-				if(lastCod1(0)/= CODEUR1(0))then
+				--if( lastCod1(0)/= CODEUR1(0))then
 					if(CODEUR1(0)='1')then
 						intRot <= intRot + TO_INTEGER(UNSIGNED(RELATION));
 						if(COSINUS(15)='0')then --cosinus>0
@@ -85,13 +85,14 @@ begin
 						else
 							intPosY <= intPosY + TO_INTEGER(UNSIGNED(SINUS(14 downto 0)));
 						end if;
-					end if;
-					lastCod1(0) <= CODEUR1(0);
-				elsif(lastCod1(1)/= CODEUR1(1))then
-					if(CODEUR1(1)='1')then
+					--end if;
+					--lastCod1(0) <= CODEUR1(0);
+				--elsif(lastCod1(1)/= CODEUR1(1))then
+					elsif(CODEUR1(1)='1')then
 						intRot <= intRot - TO_INTEGER(UNSIGNED(RELATION));
 						if(COSINUS(15)='0')then --cosinus>0
-							intPosX <= intPosX - TO_INTEGER(UNSIGNED(COSINUS(14 downto 0)));
+							intPosX <=
+							intPosX - TO_INTEGER(UNSIGNED(COSINUS(14 downto 0)));
 						else
 							intPosX <= intPosX + TO_INTEGER(UNSIGNED(COSINUS(14 downto 0)));
 						end if;
@@ -100,10 +101,10 @@ begin
 						else
 							intPosY <= intPosY - TO_INTEGER(UNSIGNED(SINUS(14 downto 0)));
 						end if;
-					end if;
-					lastCod1(1) <= CODEUR1(1);
-				elsif(lastCod2(0)/= CODEUR2(0))then
-					if(CODEUR2(0)='1')then
+					--end if;
+					--lastCod1(1) <= CODEUR1(1);
+				--elsif(lastCod2(0)/= CODEUR2(0))then
+					elsif(CODEUR2(0)='1')then
 						intRot <= intRot + TO_INTEGER(UNSIGNED(RELATION));
 						if(COSINUS(15)='0')then --cosinus>0, mais ici on subtraient
 							intPosX <= intPosX - TO_INTEGER(UNSIGNED(COSINUS(14 downto 0)));
@@ -115,10 +116,10 @@ begin
 						else
 							intPosY <= intPosY - TO_INTEGER(UNSIGNED(SINUS(14 downto 0)));
 						end if;
-					end if;
-					lastCod2(0) <= CODEUR2(0);
-				elsif(lastCod2(1)/= CODEUR2(1))then
-					if(CODEUR2(1)='1')then
+					--end if;
+					--lastCod2(0) <= CODEUR2(0);
+				--elsif(lastCod2(1)/= CODEUR2(1))then
+					elsif(CODEUR2(1)='1')then
 						intRot <= intRot - TO_INTEGER(UNSIGNED(RELATION));
 						if(COSINUS(15)='0')then --cosinus>0
 							intPosX <= intPosX + TO_INTEGER(UNSIGNED(COSINUS(14 downto 0)));
@@ -130,12 +131,12 @@ begin
 						else
 							intPosY <= intPosY + TO_INTEGER(UNSIGNED(SINUS(14 downto 0)));
 						end if;
+					--end if;
+					--lastCod2(1) <= CODEUR2(1);
+					else
+						if(intRot<0)then intRot <= intRot + 360*256*256*128;
+						elsif(intRot>=360*256*256*128)then intRot <= intRot - 360*256*256*128;  end if;
 					end if;
-					lastCod2(1) <= CODEUR2(1);
-				else
-					if(intRot<0)then intRot <= intRot + 360*256*256*128;
-					elsif(intRot>=360*256*256*128)then intRot <= intRot - 360*256*256*128;  end if;
-				end if;
 			end if;
 		end if;
 	end process;

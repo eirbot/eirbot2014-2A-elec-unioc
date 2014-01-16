@@ -26,7 +26,11 @@ entity EBI_SLAVE is port(
 	--Sorties pour les actuateurs
 	MOT1     : out STD_LOGIC_VECTOR(1 downto 0);
 	MOT2     : out STD_LOGIC_VECTOR(1 downto 0);
-	SERVO    : out STD_LOGIC_VECTOR(15 downto 0);
+	SERVO_D  : out STD_LOGIC;
+	SERVO_C1 : out STD_LOGIC;
+	SERVO_C2 : out STD_LOGIC;
+	SERVO_C3 : out STD_LOGIC;
+	SERVO_C4 : out STD_LOGIC;
 	--Entrees des senseurs
 	CODEUR1  : in  STD_LOGIC_VECTOR(1 downto 0);
 	CODEUR2  : in  STD_LOGIC_VECTOR(1 downto 0);
@@ -54,12 +58,8 @@ COMPONENT PWM_GEN is Port (
 	RESET : in  STD_LOGIC;
 	VAL1 : in  STD_LOGIC_VECTOR (7 downto 0);
 	VAL2 : in  STD_LOGIC_VECTOR (7 downto 0);
-	VAL3 : in  STD_LOGIC_VECTOR (7 downto 0);
-	VAL4 : in  STD_LOGIC_VECTOR (7 downto 0);
 	PWM1 : out STD_LOGIC_VECTOR (1 downto 0);
-	PWM2 : out STD_LOGIC_VECTOR (1 downto 0);
-	PWM3 : out STD_LOGIC_VECTOR (1 downto 0);
-	PWM4 : out STD_LOGIC_VECTOR (1 downto 0)
+	PWM2 : out STD_LOGIC_VECTOR (1 downto 0)
 );
 end COMPONENT;
 COMPONENT TIME_GENERATOR is Port ( 
@@ -70,7 +70,7 @@ COMPONENT TIME_GENERATOR is Port (
 	SEC: out STD_LOGIC_VECTOR (9 downto 0)
 );
 end COMPONENT;
-COMPONENT SERVO_GEN is Port ( 
+COMPONENT SERVO_SERIAL is Port ( 
 	H     : in  STD_LOGIC;
 	RESET : in  STD_LOGIC;
 	VAL0  : in  STD_LOGIC_VECTOR (15 downto 0);
@@ -89,7 +89,11 @@ COMPONENT SERVO_GEN is Port (
 	VAL13 : in  STD_LOGIC_VECTOR (15 downto 0);
 	VAL14 : in  STD_LOGIC_VECTOR (15 downto 0);
 	VAL15 : in  STD_LOGIC_VECTOR (15 downto 0);
-	PWM   : out STD_LOGIC_VECTOR (15 downto 0)
+	DATA_OUT: out STD_LOGIC;
+	CLK0_OUT: out STD_LOGIC;
+	CLK1_OUT: out STD_LOGIC;
+	CLK2_OUT: out STD_LOGIC;
+	CLK3_OUT: out STD_LOGIC
 );
 end COMPONENT;
 COMPONENT COUNTER_ROTATIF is Port ( 
@@ -137,17 +141,43 @@ component SERIAL_ASSEMBLER is Port (
 	ERROR : out STD_LOGIC
 );
 end component;
-
+component XRAM_SLAVE is port(
+	H          : in    STD_LOGIC;
+	RESET      : in    STD_LOGIC;
+	AD         : in    STD_LOGIC_VECTOR(7 downto 0);--\
+	DA         : inout STD_LOGIC_VECTOR(7 downto 0);--|
+	RD         : in    STD_LOGIC;---------------------|__Atmega
+	WR         : in    STD_LOGIC;---------------------|
+	DIR        : out   STD_LOGIC;---------------------|
+	ALE        : in    STD_LOGIC;---------------------/
+	STROBE     : out   STD_LOGIC;----------------------\
+	WRITE_EN   : out   STD_LOGIC;----------------------|
+	WRITE_DATA : out   STD_LOGIC_VECTOR(7 downto 0);---|--internal
+	READ_DATA  : in    STD_LOGIC_VECTOR(7 downto 0);---|
+	ADDRESS    : out   STD_LOGIC_VECTOR(15 downto 0)---/
+);
+end component;
+component COMPTEUR_32 is port(
+	H     : in  STD_LOGIC;
+	RESET : in  STD_LOGIC;
+	INC   : in  STD_LOGIC;
+	DEC   : in  STD_LOGIC;
+	V     : OUT STD_LOGIC_VECTOR(31 downto 0)
+);
+end component;
 --------------------------------_DECLARATION DE SIGNAUX----------------------------
 TYPE RAMBLOCK is array(0 to 255) of STD_LOGIC_VECTOR(7 downto 0);
 SIGNAL RAM: RAMBLOCK; 
 SIGNAL DATA_IN, DATA_OUT: STD_LOGIC_VECTOR(7 downto 0);
+SIGNAL ADDRESS : STD_LOGIC_VECTOR(15 downto 0);
 SIGNAL MILIS, MICROS, SEC:STD_LOGIC_VECTOR(9 downto 0);
 SIGNAL COD1, COD2, COD3, COD4: STD_LOGIC_VECTOR(1 downto 0);
 SIGNAL POSX_CONTEUR, POSY_CONTEUR: STD_LOGIC_VECTOR(31 downto 0);
 SIGNAL ROT_CONTEUR: STD_LOGIC_VECTOR(15 downto 0);
 SIGNAL RELATION_CONTEUR: STD_LOGIC_VECTOR(23 downto 0);
-
+SIGNAL COMP1, COMP2, COMP3, COMP4 : STD_LOGIC_VECTOR(31 downto 0);
+Signal datarcv, wrt, comm: STD_LOGIC;
+Signal inta: Integer;
 --deprecated
 SIGNAL MOT3, MOT4: STD_LOGIC_VECTOR(1 downto 0);
 
@@ -155,8 +185,8 @@ begin
 -----------------------------MEMORY MAP----------------------------
 --  1-MOT1
 --  2-MOT2
---  3-MOT3 *
---  4-MOT4 *
+--  3-RESERVED
+--  4-RESERVED
 --  6-  5-PWM1
 --  8-  7-PWM2
 --  9-  8-PWM3
@@ -195,17 +225,79 @@ RAM(142) <= ROT_CONTEUR(7 downto 0);
 RAM(143) <= ROT_CONTEUR(15 downto 8);
 RAM(144) <= "00000000";
 RAM(145) <= "00000000";
+RAM(148) <= COMP1(7 downto 0);
+RAM(149) <= COMP1(15 downto 8);
+RAM(150) <= COMP1(23 downto 16);
+RAM(151) <= COMP1(31 downto 24);
+RAM(152) <= COMP2(7 downto 0);
+RAM(153) <= COMP2(15 downto 8);
+RAM(154) <= COMP2(23 downto 16);
+RAM(155) <= COMP2(31 downto 24);
+RAM(156) <= COMP3(7 downto 0);
+RAM(157) <= COMP3(15 downto 8);
+RAM(158) <= COMP3(23 downto 16);
+RAM(159) <= COMP3(31 downto 24);
+RAM(160) <= COMP4(7 downto 0);
+RAM(161) <= COMP4(15 downto 8);
+RAM(162) <= COMP4(23 downto 16);
+RAM(163) <= COMP4(31 downto 24);
 
+	com1: COMPTEUR_32 port map(
+		H     => H,
+		RESET => RESET,
+		INC   => COD1(0),
+		DEC   => COD1(1),
+		V     => COMP1
+	);
+	com2: COMPTEUR_32 port map(
+		H     => H,
+		RESET => RESET,
+		INC   => COD2(0),
+		DEC   => COD2(1),
+		V     => COMP2
+	);
+	com3: COMPTEUR_32 port map(
+		H     => H,
+		RESET => RESET,
+		INC   => COD3(0),
+		DEC   => COD3(1),
+		V     => COMP3
+	);
+	com4: COMPTEUR_32 port map(
+		H     => H,
+		RESET => RESET,
+		INC   => COD4(0),
+		DEC   => COD4(1),
+		V     => COMP4
+	);
+	xram: XRAM_SLAVE port map(
+		H          => H,
+		RESET      => RESET,
+		AD         => ADDR,
+		DA         => DATA,
+		RD         => RD,
+		WR         => WR,
+		DIR        => DIRBUF1,
+		ALE        => ALE,
+		STROBE     => datarcv,
+		WRITE_EN   => wrt,
+		WRITE_DATA => DATA_IN,
+		READ_DATA  => DATA_OUT,
+		ADDRESS    => ADDRESS
+	);
+	--LED <= RESET;
+	DIRBUF2 <= '0';--ADDR(15 downto 0) toujours entre à la FPGA
 	debug: DEBUGGER PORT MAP (
 		H      => H,
 		RESET  => RESET or RAM(127)(5),
-		ENABLE => MILIS(6) and not(MILIS(5)or MILIS(4)or MILIS(3)or MILIS(2)or MILIS(1)),
+		ENABLE => MILIS(5) and not( MILIS(4)or MILIS(3)or MILIS(2)or MILIS(1)),
 		VAR1   => POSX_CONTEUR,
 		VAR2   => POSY_CONTEUR,
 		VAR3   => "0000000000000000"&ROT_CONTEUR,
-		VAR4   => "0000000000000000000000"&SEC,
-		SERIAL => LED
+		VAR4   => RAM(3)&RAM(2)&RAM(1)&RAM(0),
+		SERIAL => comm
 	);
+	--LED <= MILIS(5);
 	counterxyr1: COUNTEUR_XYR_HIRES PORT MAP (
 		CODEUR1 => COD2,
 		CODEUR2 => COD4,
@@ -228,17 +320,25 @@ RAM(145) <= "00000000";
 		SORT => COD2,
 		RESET=> RESET or RAM(127)(1)
 	);
+	counterrot3: COUNTER_ROTATIF PORT MAP (
+		H    => H,
+		SIG  => CODEUR3, 
+		SORT => COD3,
+		RESET=> RESET or RAM(127)(1)
+	);
+	counterrot4: COUNTER_ROTATIF PORT MAP (
+		H    => H,
+		SIG  => CODEUR4, 
+		SORT => COD4,
+		RESET=> RESET or RAM(127)(1)
+	);
 	pwm: PWM_GEN PORT MAP (
 		H    => H,
 		RESET => RESET or RAM(127)(3),
 		VAL1 => RAM(0),
 		VAL2 => RAM(1),
-		VAL3 => RAM(2),
-		VAL4 => RAM(3),
 		PWM1 => MOT1,
-		PWM2 => MOT2,
-		PWM3 => MOT3,
-		PWM4 => MOT4
+		PWM2 => MOT2
 	);
 	timer: TIME_GENERATOR PORT MAP ( 
 		H => H,
@@ -247,13 +347,13 @@ RAM(145) <= "00000000";
 		MILIS => MILIS,
 		SEC => SEC
 	);
-	servos: SERVO_GEN PORT MAP(
+	servos: SERVO_SERIAL Port MAP (
 		H     => H,
 		RESET => RESET or RAM(127)(2),
-		VAL0  => RAM(5 )&RAM(4 ),
-		VAL1  => RAM(7 )&RAM(6 ),
-		VAL2  => RAM(9 )&RAM(8 ),
-		VAL3  => RAM(11)&RAM(10),
+		VAL0  => STD_LOGIC_VECTOR(TO_UNSIGNED(100,16)),--RAM(5 )&RAM(4 ),
+		VAL1  => STD_LOGIC_VECTOR(TO_UNSIGNED(500,16)),--RAM(7 )&RAM(6 ),
+		VAL2  => STD_LOGIC_VECTOR(TO_UNSIGNED(1000,16)),--RAM(9 )&RAM(8 ),
+		VAL3  => STD_LOGIC_VECTOR(TO_UNSIGNED(1500,16)),--RAM(11)&RAM(10),
 		VAL4  => RAM(13)&RAM(12),
 		VAL5  => RAM(15)&RAM(14),
 		VAL6  => RAM(17)&RAM(16),
@@ -266,40 +366,22 @@ RAM(145) <= "00000000";
 		VAL13 => RAM(31)&RAM(30),
 		VAL14	=> RAM(33)&RAM(32),
 		VAL15 => RAM(35)&RAM(34),
-		PWM => SERVO
+		DATA_OUT => SERVO_D,
+		CLK0_OUT => SERVO_C1,
+		CLK1_OUT => SERVO_C2,
+		CLK2_OUT => SERVO_C3,
+		CLK3_OUT => SERVO_C4 
 	);
-	DATA_OUT <= RAM(TO_INTEGER(UNSIGNED(ADDR)));
-	DIRBUF2 <= '0'; -- ADDR toujor entre à la FPGA
-	onWR:process(RESET,H)
+	DATA_OUT <= RAM(TO_INTEGER(UNSIGNED(ADDRESS(7 downto 0))));
+	onXRAMcomm: process(datarcv, RESET)
 	begin
 		if(RESET='1')then
-			DATA <= "ZZZZZZZZ";
-			DATA_IN <= "00000000";
-			DIRBUF1 <= '0';
-		else
-			if(H'event and H='1')then
-				if(WR='1')then
-					DATA <= "ZZZZZZZZ";
-					DIRBUF1 <= '0';
-				else
-					DIRBUF1 <= '1';
-					DATA <= DATA_OUT;
-				end if;
-				DATA_IN <= DATA;
-			end if;
-		end if;
-	end process;
-	onCommunication:process(RESET, RD)
-	begin
-		if(RESET = '1')then
 			for a in 0 to 127 loop
 				RAM(a) <= "00000000";
 			end loop;
-		else
-			if(RD'event and RD='1')then
-				if(ADDR(7)='0')then
-					RAM(TO_INTEGER(UNSIGNED(ADDR(6 downto 0)))) <= DATA_IN;
-				end if;
+		elsif(datarcv'event and datarcv = '1')then
+			if(wrt = '1')then
+				RAM(TO_INTEGER(UNSIGNED(ADDRESS(6 downto 0)))) <= DATA_IN;
 			end if;
 		end if;
 	end process;

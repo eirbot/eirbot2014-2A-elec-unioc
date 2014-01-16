@@ -37,8 +37,8 @@ entity SERVO_GEN is Port (
 end SERVO_GEN;
 
 architecture Behavioral of SERVO_GEN is
-SIGNAL H_FREQ : Integer := 50000000;
-SIGNAL SERVO_FREQ : Integer := 1000000;
+CONSTANT H_FREQ : Integer := 50000000;
+CONSTANT SERVO_FREQ : Integer := 1000000;
 SIGNAL compteur: INTEGER;
 SIGNAL int1, int2, int3, int4: INTEGER;
 SIGNAL int5, int6, int7, int8: INTEGER;

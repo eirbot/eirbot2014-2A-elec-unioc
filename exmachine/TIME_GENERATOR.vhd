@@ -14,20 +14,22 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity TIME_GENERATOR is
-    Port ( H : in  STD_LOGIC;
-           RESET : in  STD_LOGIC;
-           MICROS: out STD_LOGIC_VECTOR (9 downto 0);
-           MILIS: out STD_LOGIC_VECTOR (9 downto 0);
-           SEC: out STD_LOGIC_VECTOR (9 downto 0)
-            );
+entity TIME_GENERATOR is Port ( 
+	H : in  STD_LOGIC;
+	RESET : in  STD_LOGIC;
+	MICROS: out STD_LOGIC_VECTOR (9 downto 0);
+	MILIS: out STD_LOGIC_VECTOR (9 downto 0);
+	SEC: out STD_LOGIC_VECTOR (9 downto 0)
+);
 end TIME_GENERATOR;
 
 architecture Behavioral of TIME_GENERATOR is
 CONSTANT H_FREQ :INTEGER := 50000000;
 CONSTANT PAS_TO_US :INTEGER := H_FREQ/1000000;
-SIGNAL compteur: INTEGER;
-SIGNAL int_micros, int_milis, int_sec:INTEGER;
+SIGNAL compteur: INTEGER := 0;
+SIGNAL int_micros: INTEGER := 0;
+SIGNAL int_milis:INTEGER :=0;
+SIGNAL int_sec:INTEGER:= 0;
 begin
   MICROS <= std_logic_vector(to_unsigned(int_micros,10));
   MILIS <= std_logic_vector(to_unsigned(int_milis,10));

@@ -1,0 +1,79 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity VGA_DRIVER is Port ( 
+	H     : in  STD_LOGIC;
+	RESET : in  STD_LOGIC;
+	R_OUT : out STD_LOGIC;-- \
+	G_OUT : out STD_LOGIC;-- |
+	B_OUT : out STD_LOGIC;-- |--connectées au borne VGA
+	H_SYNC: out STD_LOGIC;-- |
+	V_SYNC: out STD_LOGIC;-- /
+	RAM_IN: in  STD_LOGIC_VECTOR(2 downto 0);--RGB \
+	X_ADDR: out STD_LOGIC_VECTOR(9 downto 0);--640 |--connectées à RAM DP
+	Y_ADDR: out STD_LOGIC_VECTOR(8 downto 0) --480 /
+);
+end VGA_DRIVER;
+
+architecture Behavioral of VGA_DRIVER is
+SIGNAL H_FREQ : Integer := 50000000;
+SIGNAL X_INT, Y_INT : Integer;
+SIGNAL SORTIE_ENABLE: STD_LOGIC;
+SIGNAL ETAT_LIGNE, ETAT_COL: Integer;
+begin
+	X_ADDR <= STD_LOGIC_VECTOR(TO_UNSIGNED(X_INT,10));
+	Y_ADDR <= STD_LOGIC_VECTOR(TO_UNSIGNED(Y_INT,9));
+	R_OUT <= RAM_IN(2) and SORTIE_ENABLE;
+	G_OUT <= RAM_IN(1) and SORTIE_ENABLE;
+	B_OUT <= RAM_IN(0) and SORTIE_ENABLE;
+	onHorloge : process (H, RESET)
+	begin
+		if(RESET = '1')then
+			X_INT <= 0;
+			Y_INT <= 0;
+			SORTIE_ENABLE <= '0';
+			ETAT_COL <= 0;
+			ETAT_LIGNE <= 0;
+			H_SYNC <= '0';
+			V_SYNC <= '0';
+		else
+			if(H'event and H='1')then
+				if(ETAT_COL=27800)then
+					if(ETAT_LIGNE=131)then
+						X_INT <= X_INT + 1;
+						if(X_INT=640)then
+							SORTIE_ENABLE <= '0';
+							ETAT_LIGNE <= 132;
+						end if;
+					else
+						ETAT_LIGNE <= ETAT_LIGNE + 1;
+						if(ETAT_LIGNE=130)then
+							X_INT <= 0;
+							SORTIE_ENABLE <= '1';
+						elsif(ETAT_LIGNE=85)then
+							H_SYNC <= '1';
+						elsif(ETAT_LIGNE=147)then
+							H_SYNC <= '0';
+							Y_INT <= Y_INT + 1;
+							ETAT_LIGNE <= 0;
+							if(Y_INT=480)then
+							  ETAT_COL <= 27801;
+						  end if;
+					  end if;
+					end if;
+				else
+					ETAT_COL <= ETAT_COL + 1;
+					if(ETAT_COL=1600)then
+						V_SYNC <= '1';
+					elsif(ETAT_LIGNE=35750)then
+						V_SYNC <= '0';
+						ETAT_LIGNE <= 0;
+						Y_INT <= 0;
+					end if;
+						
+				end if;
+			end if;
+		end if;
+	end process;					
+end Behavioral;

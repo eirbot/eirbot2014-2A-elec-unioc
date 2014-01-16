@@ -15,11 +15,10 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity SERIAL_ASSEMBLER is Port ( 
 	H     : in  STD_LOGIC;
-   RESET : in  STD_LOGIC;
+	RESET : in  STD_LOGIC;
 	RX    : in  STD_LOGIC;
 	VAR   : out STD_LOGIC_VECTOR(31 downto 0);
-	READY : out STD_LOGIC;
-	ERROR : out STD_LOGIC
+	READY : out STD_LOGIC
 );
 end SERIAL_ASSEMBLER;
 
@@ -60,29 +59,31 @@ begin
 		READY => serialReady,
 		ERROR => serialError
 	);
-	process(RESET, serialReady)
+	process(H)
 	begin
-		if(RESET = '1')then
-			bufferIn <= (others=>'0');
-			VAR <= (others=>'0');
-			READY <='1';
-			ERROR <='0';
-		else
-			if(serialReady'event and serialReady='1')then
-				if(inVar = ESCAPE)then
-					READY <= '1';
-					ERROR <= serialError;
-					VAR(31 downto 28) <= A_TO_HEX(bufferIn(63 downto 56));
-					VAR(27 downto 24) <= A_TO_HEX(bufferIn(55 downto 48));
-					VAR(23 downto 20) <= A_TO_HEX(bufferIn(47 downto 40));
-					VAR(19 downto 16) <= A_TO_HEX(bufferIn(39 downto 32));
-					VAR(15 downto 12) <= A_TO_HEX(bufferIn(31 downto 24));
-					VAR(11 downto 8 ) <= A_TO_HEX(bufferIn(23 downto 16));
-					VAR(7  downto 4 ) <= A_TO_HEX(bufferIn(15 downto 8 ));
-					VAR(3  downto 0 ) <= A_TO_HEX(bufferIn(7  downto 0 ));
-					bufferIn <= (others => '0');
+		if(H'event and H='1')then
+			if(RESET = '1')then
+				bufferIn <= (others=>'0');
+				VAR <= (others=>'0');
+				READY <='1';
+			else
+				if(serialReady='1')then
+					if(inVar = ESCAPE)then
+						READY <= '1';
+						VAR(31 downto 28) <= A_TO_HEX(bufferIn(63 downto 56));
+						VAR(27 downto 24) <= A_TO_HEX(bufferIn(55 downto 48));
+						VAR(23 downto 20) <= A_TO_HEX(bufferIn(47 downto 40));
+						VAR(19 downto 16) <= A_TO_HEX(bufferIn(39 downto 32));
+						VAR(15 downto 12) <= A_TO_HEX(bufferIn(31 downto 24));
+						VAR(11 downto 8 ) <= A_TO_HEX(bufferIn(23 downto 16));
+						VAR(7  downto 4 ) <= A_TO_HEX(bufferIn(15 downto 8 ));
+						VAR(3  downto 0 ) <= A_TO_HEX(bufferIn(7  downto 0 ));
+						bufferIn <= (others => '0');
+					else
+						bufferIn <= bufferIn(55 downto 0) & inVar;
+						READY <= '0';
+					end if;
 				else
-					bufferIn <= bufferIn(55 downto 0) & inVar;
 					READY <= '0';
 				end if;
 			end if;

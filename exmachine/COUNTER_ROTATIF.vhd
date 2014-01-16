@@ -25,7 +25,8 @@ end COUNTER_ROTATIF;
 architecture Behavioral of COUNTER_ROTATIF is
 SIGNAL BUFFIN: STD_LOGIC_VECTOR (1 downto 0);
 SIGNAL BUFFOUT: STD_LOGIC_VECTOR(1 downto 0);
-SIGNAL DIR: STD_LOGIC;
+SIGNAL ETAT : STD_LOGIC_VECTOR(2 downto 0);
+--SIGNAL DIR: STD_LOGIC;
 signal lastSig, lastBuffin: STD_LOGIC_VECTOR(1 downto 0);
 begin
 	SORT <= BUFFOUT;
@@ -45,25 +46,52 @@ begin
 			lastSig <= SIG;
 		end if;
 	end process;
+	
 	counter: process(H)
 	begin
 		if(H'event and H='1')then
 			if(RESET='1')then
 				BUFFOUT <= "00";
+				ETAT <= "000";
 			else
-				if(lastBuffin /= BUFFIN)then
-					if(BUFFIN = "00" and BUFFOUT="00")then 
-						BUFFOUT(0) <= DIR;
-						BUFFOUT(1) <= not DIR;
-					end if;
-					if(BUFFIN = "11")then 
-						BUFFOUT <= "00"; 
-					end if;
-					DIR <= BUFFIN(0);
-				end if;
+				case ETAT is
+					--   +
+					when "101"=> ETAT <= '1' & BUFFIN;        BUFFOUT <= "00";
+					when "111"=> ETAT <= '1' & BUFFIN;        BUFFOUT <= "00";
+					when "110"=> ETAT <= '1' & BUFFIN;        BUFFOUT <= '0' & (not BUFFIN(1));
+					when "100"=> ETAT <= BUFFIN(0) & BUFFIN;  BUFFOUT <= "00";
+					--   -
+					when "010"=> ETAT <= '0' & BUFFIN;        BUFFOUT <= "00";
+					when "011"=> ETAT <= '0' & BUFFIN;        BUFFOUT <= "00";
+					when "001"=> ETAT <= '0' & BUFFIN;        BUFFOUT <= (not BUFFIN(0)) & '0';
+					when "000"=> ETAT <= BUFFIN(0) & BUFFIN;  BUFFOUT <= "00";
+					
+				end case;
 			end if;
-			lastBuffin <= BUFFIN;
 		end if;
 	end process;
+	
+	--counter: process(H)
+	--begin
+	--	if(H'event and H='1')then
+	--		if(RESET='1')then
+	--			BUFFOUT <= "00";
+	--		else
+	--			if(lastBuffin /= BUFFIN)then
+	--				if(BUFFIN = "00" and BUFFOUT="00")then 
+	--					BUFFOUT(0) <= DIR;
+	--					BUFFOUT(1) <= not DIR;
+	--				else
+	--					BUFFOUT <= "00";
+	--				end if;
+	--				DIR <= BUFFIN(0);
+	--			else
+	--				BUFFOUT <= "00";
+	--			end if;
+	--		end if;
+	--		lastBuffin <= BUFFIN;
+	--	end if;
+	--end process;
+	
 end Behavioral;
 

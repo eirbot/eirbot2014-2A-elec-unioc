@@ -1,0 +1,73 @@
+--   _______    __    ______     ______     _____    ________
+--  |   ____|  |  |  |   _  \   |   _  \   / __  \  |___  ___|
+--  |  |____   |  |  |  |_|  |  |  |_| /  | |  | |     |  |
+--  |   ____|  |  |  |       |  |   _  \  | |  | |     |  |
+--  |  |____   |  |  |  |\  \   |  |_| |  | |__| |     |  |
+--  |_______|  |__|  |__| \__\  |______/   \_____/     |__|
+--
+-- Module: UART_RX_FIFO
+-- But: Implementer une memoire tipe FIFO sur une reception serial
+--
+library ieee;
+use ieee.std_logic_1164.all;
+use IEEE.NUMERIC_STD.ALL;
+entity UART_RX_FIFO is port(
+	H           : in  STD_LOGIC;
+	RESET       : in  STD_LOGIC;
+	RX          : in  STD_LOGIC;
+	READ_STROBE : in  STD_LOGIC;
+	READ_DATA   : out STD_LOGIC_VECTOR(7 downto 0);
+	AVAILABLE   : out STD_LOGIC_VECTOR(7 downto 0)
+);
+end UART_RX_FIFO;
+architecture comportement of UART_RX_FIFO is
+component UART_RX is Port ( 
+	H     : in  STD_LOGIC;
+	RESET : in  STD_LOGIC;
+	RX    : in  STD_LOGIC;
+	VAR   : out STD_LOGIC_VECTOR(7 downto 0);
+	READY : out STD_LOGIC
+);
+end component;
+TYPE RAMFIFO is array(0 to 63) of STD_LOGIC_VECTOR(7 downto 0);
+Signal fifo: RAMFIFO;
+Signal wpos: Integer := 0;
+Signal rpos: Integer := 0;
+Signal varin :STD_LOGIC_VECTOR(7 downto 0);
+Signal rcv: STD_LOGIC;
+begin
+	uart: UART_RX port map ( 
+		H     => H,
+		RESET => RESET,
+		RX    => RX,
+		VAR   => varin,
+		READY => rcv
+	);
+	AVAILABLE <= "00"&STD_LOGIC_VECTOR(TO_UNSIGNED(wpos-rpos,6));
+	READ_DATA <= fifo(rpos);
+	process(H)
+	begin
+		if(H'event and H='1')then
+			if(RESET='1')then
+				wpos <= 0;
+				rpos <= 0;
+			else
+				if(rcv='1')then
+					fifo(wpos) <= varin;
+					if(wpos=63)then
+						wpos <= 0;
+					else
+						wpos <= wpos +1;
+					end if;
+				end if;
+				if(READ_STROBE='1')then
+					if(rpos=63)then
+						rpos <= 0;
+					else
+						rpos <= wpos +1;
+					end if;
+				end if;
+			end if;
+		end if;
+	end process;
+end architecture;

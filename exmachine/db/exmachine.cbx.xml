@@ -1,6 +1,14 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="exmachine">
-		<CBX_INST_ENTRY INSTANCE_NAME="|EBI_SLAVE|COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|altsyncram:TABLE_rtl_0" CBX_FILE_NAME="altsyncram_pdp1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|altsyncram:TABLE_rtl_0" CBX_FILE_NAME="altsyncram_pdp1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_UNIOC|UART_RX_FIFO:rx4|altsyncram:fifo_rtl_0" CBX_FILE_NAME="altsyncram_m5c1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_UNIOC|UART_TX_FIFO:tx4|altsyncram:fifo_rtl_0" CBX_FILE_NAME="altsyncram_m5c1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_UNIOC|UART_RX_FIFO:rx1|altsyncram:fifo_rtl_0" CBX_FILE_NAME="altsyncram_m5c1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_UNIOC|UART_RX_FIFO:rx3|altsyncram:fifo_rtl_0" CBX_FILE_NAME="altsyncram_m5c1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_UNIOC|UART_TX_FIFO:tx1|altsyncram:fifo_rtl_0" CBX_FILE_NAME="altsyncram_m5c1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_UNIOC|UART_TX_FIFO:tx3|altsyncram:fifo_rtl_0" CBX_FILE_NAME="altsyncram_m5c1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_UNIOC|UART_RX_FIFO:rx2|altsyncram:fifo_rtl_0" CBX_FILE_NAME="altsyncram_m5c1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_UNIOC|UART_TX_FIFO:tx2|altsyncram:fifo_rtl_0" CBX_FILE_NAME="altsyncram_m5c1.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

@@ -135,7 +135,7 @@ GND                          : 68        : gnd    :                   :         
 WR                           : 69        : input  : 3.3-V LVTTL       :         : 4         : Y              
 ALE                          : 70        : input  : 3.3-V LVTTL       :         : 4         : Y              
 GND*                         : 71        :        :                   :         : 4         :                
-GND*                         : 72        :        :                   :         : 4         :                
+RESET                        : 72        : input  : 3.3-V LVTTL       :         : 4         : Y              
 CODEUR1[1]                   : 73        : input  : 3.3-V LVTTL       :         : 3         : Y              
 CODEUR1[0]                   : 74        : input  : 3.3-V LVTTL       :         : 3         : Y              
 CODEUR2[1]                   : 75        : input  : 3.3-V LVTTL       :         : 3         : Y              
@@ -151,7 +151,7 @@ MSEL1                        : 84        :        :                   :         
 MSEL0                        : 85        :        :                   :         : 3         :                
 CODEUR3[0]                   : 86        : input  : 3.3-V LVTTL       :         : 3         : Y              
 CODEUR4[1]                   : 87        : input  : 3.3-V LVTTL       :         : 3         : Y              
-RESET                        : 88        : input  : 3.3-V LVTTL       :         : 3         : Y              
+GND+                         : 88        :        :                   :         : 3         :                
 GND+                         : 89        :        :                   :         : 3         :                
 GND+                         : 90        :        :                   :         : 3         :                
 GND+                         : 91        :        :                   :         : 3         :                
@@ -160,14 +160,14 @@ MOT1[0]                      : 93        : output : 3.3-V LVTTL       :         
 GND*                         : 94        :        :                   :         : 3         :                
 VCCIO3                       : 95        : power  :                   : 3.3V    : 3         :                
 MOT1[1]                      : 96        : output : 3.3-V LVTTL       :         : 3         : Y              
-LED                          : 97        : output : 3.3-V LVTTL       :         : 3         : Y              
+UART_TX_1                    : 97        : output : 3.3-V LVTTL       :         : 3         : Y              
 GND                          : 98        : gnd    :                   :         :           :                
 MOT2[0]                      : 99        : output : 3.3-V LVTTL       :         : 3         : Y              
 MOT2[1]                      : 100       : output : 3.3-V LVTTL       :         : 3         : Y              
-SERVO[15]                    : 101       : output : 3.3-V LVTTL       :         : 3         : Y              
+SERVO_C1                     : 101       : output : 3.3-V LVTTL       :         : 3         : Y              
 VCCIO3                       : 102       : power  :                   : 3.3V    : 3         :                
-SERVO[14]                    : 103       : output : 3.3-V LVTTL       :         : 3         : Y              
-SERVO[13]                    : 104       : output : 3.3-V LVTTL       :         : 3         : Y              
+SERVO_C2                     : 103       : output : 3.3-V LVTTL       :         : 3         : Y              
+SERVO_C4                     : 104       : output : 3.3-V LVTTL       :         : 3         : Y              
 GND                          : 105       : gnd    :                   :         :           :                
 GND_PLL2                     : 106       : gnd    :                   :         :           :                
 VCCD_PLL2                    : 107       : power  :                   : 1.2V    :           :                
@@ -175,36 +175,36 @@ GND_PLL2                     : 108       : gnd    :                   :         
 VCCA_PLL2                    : 109       : power  :                   : 1.2V    :           :                
 GNDA_PLL2                    : 110       : gnd    :                   :         :           :                
 GND                          : 111       : gnd    :                   :         :           :                
-SERVO[12]                    : 112       : output : 3.3-V LVTTL       :         : 2         : Y              
-SERVO[11]                    : 113       : output : 3.3-V LVTTL       :         : 2         : Y              
-SERVO[10]                    : 114       : output : 3.3-V LVTTL       :         : 2         : Y              
-SERVO[9]                     : 115       : output : 3.3-V LVTTL       :         : 2         : Y              
+SERVO_D                      : 112       : output : 3.3-V LVTTL       :         : 2         : Y              
+SERVO_C3                     : 113       : output : 3.3-V LVTTL       :         : 2         : Y              
+UART_TX_4                    : 114       : output : 3.3-V LVTTL       :         : 2         : Y              
+UART_TX_3                    : 115       : output : 3.3-V LVTTL       :         : 2         : Y              
 VCCIO2                       : 116       : power  :                   : 3.3V    : 2         :                
 GND                          : 117       : gnd    :                   :         :           :                
 GND*                         : 118       :        :                   :         : 2         :                
 GND*                         : 119       :        :                   :         : 2         :                
-SERVO[8]                     : 120       : output : 3.3-V LVTTL       :         : 2         : Y              
-SERVO[7]                     : 121       : output : 3.3-V LVTTL       :         : 2         : Y              
-SERVO[6]                     : 122       : output : 3.3-V LVTTL       :         : 2         : Y              
+UART_TX_2                    : 120       : output : 3.3-V LVTTL       :         : 2         : Y              
+GND*                         : 121       :        :                   :         : 2         :                
+UART_RX_4                    : 122       : input  : 3.3-V LVTTL       :         : 2         : Y              
 GND                          : 123       : gnd    :                   :         :           :                
 VCCINT                       : 124       : power  :                   : 1.2V    :           :                
-SERVO[5]                     : 125       : output : 3.3-V LVTTL       :         : 2         : Y              
+GND*                         : 125       :        :                   :         : 2         :                
 GND*                         : 126       :        :                   :         : 2         :                
 VCCIO2                       : 127       : power  :                   : 3.3V    : 2         :                
 GND                          : 128       : gnd    :                   :         :           :                
-SERVO[4]                     : 129       : output : 3.3-V LVTTL       :         : 2         : Y              
+GND*                         : 129       :        :                   :         : 2         :                
 GND                          : 130       : gnd    :                   :         :           :                
 VCCINT                       : 131       : power  :                   : 1.2V    :           :                
 GND*                         : 132       :        :                   :         : 2         :                
-SERVO[3]                     : 133       : output : 3.3-V LVTTL       :         : 2         : Y              
-SERVO[2]                     : 134       : output : 3.3-V LVTTL       :         : 2         : Y              
+UART_RX_3                    : 133       : input  : 3.3-V LVTTL       :         : 2         : Y              
+GND*                         : 134       :        :                   :         : 2         :                
 GND*                         : 135       :        :                   :         : 2         :                
-SERVO[1]                     : 136       : output : 3.3-V LVTTL       :         : 2         : Y              
+UART_RX_2                    : 136       : input  : 3.3-V LVTTL       :         : 2         : Y              
 GND*                         : 137       :        :                   :         : 2         :                
 VCCIO2                       : 138       : power  :                   : 3.3V    : 2         :                
 GND*                         : 139       :        :                   :         : 2         :                
 GND                          : 140       : gnd    :                   :         :           :                
-SERVO[0]                     : 141       : output : 3.3-V LVTTL       :         : 2         : Y              
+UART_RX_1                    : 141       : input  : 3.3-V LVTTL       :         : 2         : Y              
 GND*                         : 142       :        :                   :         : 2         :                
 GND*                         : 143       :        :                   :         : 2         :                
 GND*                         : 144       :        :                   :         : 2         :                
