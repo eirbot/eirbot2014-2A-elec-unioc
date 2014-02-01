@@ -3,11 +3,11 @@ JedecChain;
 	FileRevision(JESD32A);
 	DefaultMfr(6E);
 
-	P ActionCode(Cfg)
-		Device PartName(EP2C5T144) Path("C:/Users/Makara/Documents/GitHub/elec_2014/exmachine/output_files/") File("exmachine.sof") MfrSpec(OpMask(1));
+	P ActionCode(Vfy)
+		Device PartName(EPCS1) Path("C:/Users/Makara/Documents/GitHub/elec_2014/exmachine/output_files/") File("exmachine.pof") MfrSpec(OpMask(2) Child_OpMask(1 2));
 
 ChainEnd;
 
 AlteraBegin;
-	ChainType(JTAG);
+	ChainType(asc);
 AlteraEnd;

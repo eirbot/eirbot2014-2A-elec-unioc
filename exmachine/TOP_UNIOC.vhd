@@ -37,14 +37,18 @@ entity TOP_UNIOC is port(
 	CODEUR3   : in    STD_LOGIC_VECTOR(1 downto 0);
 	CODEUR4   : in    STD_LOGIC_VECTOR(1 downto 0);
 	--Connections UART
-	UART_TX_1 : OUT   STD_LOGIC;
-	UART_RX_1 : IN    STD_LOGIC;
-	UART_TX_2 : OUT   STD_LOGIC;
-	UART_RX_2 : IN    STD_LOGIC;
-	UART_TX_3 : OUT   STD_LOGIC;
-	UART_RX_3 : IN    STD_LOGIC;
-	UART_TX_4 : OUT   STD_LOGIC;
-	UART_RX_4 : IN    STD_LOGIC
+	UART_TX_1  : OUT   STD_LOGIC;
+	UART_RX_1  : IN    STD_LOGIC;
+	UART_TX_2  : OUT   STD_LOGIC;
+	UART_RX_2  : IN    STD_LOGIC;
+	SPI_MISO_1 : OUT   STD_LOGIC;
+	SPI_MOSI_1 : IN    STD_LOGIC;
+	SPI_MISO_2 : OUT   STD_LOGIC;
+	SPI_MOSI_2 : IN    STD_LOGIC;
+	SPI_H_1    : IN    STD_LOGIC;
+	SPI_H_2    : IN    STD_LOGIC;
+	SPI_SS_1   : IN    STD_LOGIC;
+	SPI_SS_2   : IN    STD_LOGIC
 );
 end TOP_UNIOC;
 
@@ -353,28 +357,28 @@ begin
 	);
 	com1: COMPTEUR_32 port map(
 		H     => H,
-		RESET => RESET,
+		RESET => RESET or SOFT_RESET(7),
 		INC   => cod1(0),
 		DEC   => cod1(1),
 		V     => COMPT1
 	);
 	com2: COMPTEUR_32 port map(
 		H     => H,
-		RESET => RESET,
+		RESET => RESET or SOFT_RESET(7),
 		INC   => cod2(0),
 		DEC   => cod2(1),
 		V     => COMPT2
 	);
 	com3: COMPTEUR_32 port map(
 		H     => H,
-		RESET => RESET,
+		RESET => RESET or SOFT_RESET(7),
 		INC   => cod3(0),
 		DEC   => cod3(1),
 		V     => COMPT3
 	);
 	com4: COMPTEUR_32 port map(
 		H     => H,
-		RESET => RESET,
+		RESET => RESET or SOFT_RESET(7),
 		INC   => cod4(0),
 		DEC   => cod4(1),
 		V     => COMPT4
@@ -412,38 +416,60 @@ begin
 		READ_DATA   => UART_RX_2_DATA,
 		AVAILABLE   => UART_RX_2_AVA
 	);
-	tx3: UART_TX_FIFO port map(
-		H            => H,
-		RESET        => RESET,
-		TX           => UART_TX_3,
-		WRITE_STROBE => tx3c,
-		WRITE_DATA   => UART_TX_3_DATA,
-		AVAILABLE    => UART_TX_3_AVA
-	);
-	rx3: UART_RX_FIFO port map(
-		H           => H,
-		RESET       => RESET,
-		RX          => UART_RX_3,
-		READ_STROBE => rx3c,
-		READ_DATA   => UART_RX_3_DATA,
-		AVAILABLE   => UART_RX_3_AVA
-	);
-	tx4: UART_TX_FIFO port map(
-		H            => H,
-		RESET        => RESET,
-		TX           => UART_TX_4,
-		WRITE_STROBE => tx4c,
-		WRITE_DATA   => UART_TX_4_DATA,
-		AVAILABLE    => UART_TX_4_AVA
-	);
-	rx4: UART_RX_FIFO port map(
-		H           => H,
-		RESET       => RESET,
-		RX          => UART_RX_4,
-		READ_STROBE => rx4c,
-		READ_DATA   => UART_RX_4_DATA,
-		AVAILABLE   => UART_RX_4_AVA
-	);
+--	tx3: UART_TX_FIFO port map(
+--		H            => H,
+--		RESET        => RESET,
+--		TX           => UART_TX_3,
+--		WRITE_STROBE => tx3c,
+--		WRITE_DATA   => UART_TX_3_DATA,
+--		AVAILABLE    => UART_TX_3_AVA
+--	);
+--	rx3: UART_RX_FIFO port map(
+--		H           => H,
+--		RESET       => RESET,
+--		RX          => SPI_MOSI_1,
+--		READ_STROBE => rx3c,
+--		READ_DATA   => UART_RX_3_DATA,
+--		AVAILABLE   => UART_RX_3_AVA
+--	);
+UART_RX_3_DATA <= "00000000";
+UART_RX_3_AVA  <= "00000000";
+UART_TX_3_AVA  <= "00000000";
+
+--	tx4: UART_TX_FIFO port map(
+--		H            => H,
+--		RESET        => RESET,
+--		TX           => UART_TX_4,
+--		WRITE_STROBE => tx4c,
+--		WRITE_DATA   => UART_TX_4_DATA,
+--		AVAILABLE    => UART_TX_4_AVA
+--	);
+
+UART_RX_4_DATA <= "00000000";
+UART_RX_4_AVA  <= "00000000";
+UART_TX_4_AVA  <= "00000000";
+
+--	UART_TX_1 <= MILIS_FPGA(7);
+--	UART_TX_2 <= MILIS_FPGA(8);
+	SPI_MISO_1 <= MILIS_FPGA(9);
+--	tx4: DEBUGGER port map ( 
+--		H      => H,
+--		RESET  => RESET,
+--		ENABLE => MILIS_FPGA(7) and not( MILIS_FPGA(6)or MILIS_FPGA(5)or MILIS_FPGA(4)or MILIS_FPGA(3)or MILIS_FPGA(2)or MILIS_FPGA(1)),
+--		VAR1   => COMPT1,
+--		VAR2   => COMPT2,
+--		VAR3   => COMPT3,
+--		VAR4   => COMPT4,
+--		SERIAL => SPI_MISO_2
+--	);
+--	rx4: UART_RX_FIFO port map(
+--		H           => H,
+--		RESET       => RESET,
+--		RX          => SPI_MOSI_2,
+--		READ_STROBE => rx4c,
+--		READ_DATA   => UART_RX_4_DATA,
+--		AVAILABLE   => UART_RX_4_AVA
+--	);
 	
 	
 	xram: XRAM_SLAVE port map(
@@ -463,16 +489,6 @@ begin
 	);
 	DIRBUF2 <= '0';--ADDR(15 downto 7) toujours entre à la FPGA
 	
-	--debug: DEBUGGER PORT MAP (
-	--	H      => H,
-	--	RESET  => RESET or RAM(127)(5),
-	--	ENABLE => MILIS(5) and not( MILIS(4)or MILIS(3)or MILIS(2)or MILIS(1)),
-	--	VAR1   => POSX_CONTEUR,
-	--	VAR2   => POSY_CONTEUR,
-	--	VAR3   => "0000000000000000"&ROT_CONTEUR,
-	--	VAR4   => RAM(3)&RAM(2)&RAM(1)&RAM(0),
-	--	SERIAL => comm
-	--);
 	LectureAssincrone: Process(ADDRESS, MOTEUR1, MOTEUR2, MOTEUR3, MOTEUR4, SERVO1, SERVO2, 
 		SERVO3, SERVO4, SERVO5, SERVO6, SERVO7, SERVO8, SERVO9, SERVO10, SERVO11, SERVO12, SERVO13,
 		SERVO14, SERVO15, SERVO16, RELATION, SOFT_RESET, MICROS_FPGA, MILIS_FPGA, SEC_FPGA, 
@@ -580,15 +596,15 @@ begin
 		end case;
 	end process;
 	
-	tx1c <= '1' when ((writestrobe='1')and(ADDRESS=x"0028"))else '0';
-	tx2c <= '1' when ((writestrobe='1')and(ADDRESS=x"0029"))else '0';
-	tx3c <= '1' when ((writestrobe='1')and(ADDRESS=x"002A"))else '0';
-	tx4c <= '1' when ((writestrobe='1')and(ADDRESS=x"002B"))else '0';
+	tx1c <= '1' when ((writestrobe='1')and(ADDRESS(7 downto 0)=x"28"))else '0';
+	tx2c <= '1' when ((writestrobe='1')and(ADDRESS(7 downto 0)=x"29"))else '0';
+	tx3c <= '1' when ((writestrobe='1')and(ADDRESS(7 downto 0)=x"2A"))else '0';
+	tx4c <= '1' when ((writestrobe='1')and(ADDRESS(7 downto 0)=x"2B"))else '0';
 	
-	rx1c <= '1' when ((readstrobe='1')and(ADDRESS=x"00A8"))else '0';
-	rx2c <= '1' when ((readstrobe='1')and(ADDRESS=x"00A9"))else '0';
-	rx3c <= '1' when ((readstrobe='1')and(ADDRESS=x"00AA"))else '0';
-	rx4c <= '1' when ((readstrobe='1')and(ADDRESS=x"00AB"))else '0';
+	rx1c <= '1' when ((readstrobe='1')and(ADDRESS(7 downto 0)=x"A8"))else '0';
+	rx2c <= '1' when ((readstrobe='1')and(ADDRESS(7 downto 0)=x"A9"))else '0';
+	rx3c <= '1' when ((readstrobe='1')and(ADDRESS(7 downto 0)=x"AA"))else '0';
+	rx4c <= '1' when ((readstrobe='1')and(ADDRESS(7 downto 0)=x"AB"))else '0';
 	
 	Ecriture: Process(H)
 	begin

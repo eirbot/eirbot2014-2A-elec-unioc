@@ -1,5 +1,5 @@
 Analysis & Synthesis report for exmachine
-Thu Jan 16 17:34:25 2014
+Thu Jan 30 22:26:16 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -24,26 +24,19 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  16. Multiplexer Restructuring Statistics (Restructuring Performed)
  17. Source assignments for UART_TX_FIFO:tx1|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated
  18. Source assignments for UART_TX_FIFO:tx2|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated
- 19. Source assignments for UART_TX_FIFO:tx3|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated
- 20. Source assignments for UART_TX_FIFO:tx4|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated
- 21. Source assignments for UART_RX_FIFO:rx1|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated
- 22. Source assignments for UART_RX_FIFO:rx2|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated
- 23. Source assignments for UART_RX_FIFO:rx3|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated
- 24. Source assignments for UART_RX_FIFO:rx4|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated
- 25. Source assignments for COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|altsyncram:TABLE_rtl_0|altsyncram_pdp1:auto_generated
- 26. Parameter Settings for Inferred Entity Instance: UART_TX_FIFO:tx1|altsyncram:fifo_rtl_0
- 27. Parameter Settings for Inferred Entity Instance: UART_TX_FIFO:tx2|altsyncram:fifo_rtl_0
- 28. Parameter Settings for Inferred Entity Instance: UART_TX_FIFO:tx3|altsyncram:fifo_rtl_0
- 29. Parameter Settings for Inferred Entity Instance: UART_TX_FIFO:tx4|altsyncram:fifo_rtl_0
- 30. Parameter Settings for Inferred Entity Instance: UART_RX_FIFO:rx1|altsyncram:fifo_rtl_0
- 31. Parameter Settings for Inferred Entity Instance: UART_RX_FIFO:rx2|altsyncram:fifo_rtl_0
- 32. Parameter Settings for Inferred Entity Instance: UART_RX_FIFO:rx3|altsyncram:fifo_rtl_0
- 33. Parameter Settings for Inferred Entity Instance: UART_RX_FIFO:rx4|altsyncram:fifo_rtl_0
- 34. Parameter Settings for Inferred Entity Instance: COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|altsyncram:TABLE_rtl_0
- 35. altsyncram Parameter Settings by Entity Instance
- 36. Port Connectivity Checks: "COUNTEUR_XYR_HIRES:counterxyr1"
- 37. Elapsed Time Per Partition
- 38. Analysis & Synthesis Messages
+ 19. Source assignments for UART_RX_FIFO:rx1|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated
+ 20. Source assignments for UART_RX_FIFO:rx2|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated
+ 21. Source assignments for COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|altsyncram:TABLE_rtl_0|altsyncram_pdp1:auto_generated
+ 22. Parameter Settings for Inferred Entity Instance: UART_TX_FIFO:tx1|altsyncram:fifo_rtl_0
+ 23. Parameter Settings for Inferred Entity Instance: UART_TX_FIFO:tx2|altsyncram:fifo_rtl_0
+ 24. Parameter Settings for Inferred Entity Instance: UART_RX_FIFO:rx1|altsyncram:fifo_rtl_0
+ 25. Parameter Settings for Inferred Entity Instance: UART_RX_FIFO:rx2|altsyncram:fifo_rtl_0
+ 26. Parameter Settings for Inferred Entity Instance: COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|altsyncram:TABLE_rtl_0
+ 27. altsyncram Parameter Settings by Entity Instance
+ 28. Port Connectivity Checks: "XRAM_SLAVE:xram"
+ 29. Port Connectivity Checks: "COUNTEUR_XYR_HIRES:counterxyr1"
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
 
 
 
@@ -69,18 +62,18 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jan 16 17:34:25 2014           ;
+; Analysis & Synthesis Status        ; Successful - Thu Jan 30 22:26:16 2014           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; exmachine                                       ;
 ; Top-level Entity Name              ; TOP_UNIOC                                       ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 4,488                                           ;
-;     Total combinational functions  ; 3,836                                           ;
-;     Dedicated logic registers      ; 2,077                                           ;
-; Total registers                    ; 2077                                            ;
-; Total pins                         ; 48                                              ;
+; Total logic elements               ; 3,542                                           ;
+;     Total combinational functions  ; 2,953                                           ;
+;     Dedicated logic registers      ; 1,656                                           ;
+; Total registers                    ; 1656                                            ;
+; Total pins                         ; 52                                              ;
 ; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 47,296                                          ;
+; Total memory bits                  ; 45,248                                          ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
 ; Total PLLs                         ; 0                                               ;
 +------------------------------------+-------------------------------------------------+
@@ -224,29 +217,29 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 4,488 ;
+; Estimated Total logic elements              ; 3,542 ;
 ;                                             ;       ;
-; Total combinational functions               ; 3836  ;
+; Total combinational functions               ; 2953  ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 1909  ;
-;     -- 3 input functions                    ; 643   ;
-;     -- <=2 input functions                  ; 1284  ;
+;     -- 4 input functions                    ; 1381  ;
+;     -- 3 input functions                    ; 653   ;
+;     -- <=2 input functions                  ; 919   ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 2755  ;
-;     -- arithmetic mode                      ; 1081  ;
+;     -- normal mode                          ; 2140  ;
+;     -- arithmetic mode                      ; 813   ;
 ;                                             ;       ;
-; Total registers                             ; 2077  ;
-;     -- Dedicated logic registers            ; 2077  ;
+; Total registers                             ; 1656  ;
+;     -- Dedicated logic registers            ; 1656  ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 48    ;
-; Total memory bits                           ; 47296 ;
+; I/O pins                                    ; 52    ;
+; Total memory bits                           ; 45248 ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ; Maximum fan-out node                        ; H     ;
-; Maximum fan-out                             ; 2153  ;
-; Total fan-out                               ; 19346 ;
-; Average fan-out                             ; 3.20  ;
+; Maximum fan-out                             ; 1700  ;
+; Total fan-out                               ; 14836 ;
+; Average fan-out                             ; 3.15  ;
 +---------------------------------------------+-------+
 
 
@@ -255,38 +248,30 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                             ; Library Name ;
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+--------------+
-; |TOP_UNIOC                                   ; 3836 (579)        ; 2077 (348)   ; 47296       ; 0            ; 0       ; 0         ; 48   ; 0            ; |TOP_UNIOC                                                                                                      ; work         ;
+; |TOP_UNIOC                                   ; 2953 (534)        ; 1656 (349)   ; 45248       ; 0            ; 0       ; 0         ; 52   ; 0            ; |TOP_UNIOC                                                                                                      ; work         ;
 ;    |COMPTEUR_32:com1|                        ; 65 (65)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COMPTEUR_32:com1                                                                                     ; work         ;
 ;    |COMPTEUR_32:com2|                        ; 65 (65)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COMPTEUR_32:com2                                                                                     ; work         ;
 ;    |COMPTEUR_32:com3|                        ; 65 (65)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COMPTEUR_32:com3                                                                                     ; work         ;
 ;    |COMPTEUR_32:com4|                        ; 65 (65)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COMPTEUR_32:com4                                                                                     ; work         ;
-;    |COUNTER_ROTATIF:counterrot1|             ; 7 (7)             ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTER_ROTATIF:counterrot1                                                                          ; work         ;
-;    |COUNTER_ROTATIF:counterrot2|             ; 7 (7)             ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTER_ROTATIF:counterrot2                                                                          ; work         ;
-;    |COUNTER_ROTATIF:counterrot3|             ; 7 (7)             ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTER_ROTATIF:counterrot3                                                                          ; work         ;
-;    |COUNTER_ROTATIF:counterrot4|             ; 7 (7)             ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTER_ROTATIF:counterrot4                                                                          ; work         ;
+;    |COUNTER_ROTATIF:counterrot1|             ; 28 (28)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTER_ROTATIF:counterrot1                                                                          ; work         ;
+;    |COUNTER_ROTATIF:counterrot2|             ; 28 (28)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTER_ROTATIF:counterrot2                                                                          ; work         ;
+;    |COUNTER_ROTATIF:counterrot3|             ; 28 (28)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTER_ROTATIF:counterrot3                                                                          ; work         ;
+;    |COUNTER_ROTATIF:counterrot4|             ; 28 (28)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTER_ROTATIF:counterrot4                                                                          ; work         ;
 ;    |COUNTEUR_XYR_HIRES:counterxyr1|          ; 293 (286)         ; 96 (96)      ; 43200       ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1                                                                       ; work         ;
 ;       |TABLE_SINUS:sin|                      ; 7 (7)             ; 0 (0)        ; 43200       ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin                                                       ; work         ;
 ;          |altsyncram:TABLE_rtl_0|            ; 0 (0)             ; 0 (0)        ; 43200       ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|altsyncram:TABLE_rtl_0                                ; work         ;
 ;             |altsyncram_pdp1:auto_generated| ; 0 (0)             ; 0 (0)        ; 43200       ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|altsyncram:TABLE_rtl_0|altsyncram_pdp1:auto_generated ; work         ;
 ;    |PWM_GEN:moteurs|                         ; 191 (191)         ; 82 (82)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|PWM_GEN:moteurs                                                                                      ; work         ;
-;    |SERVO_SERIAL:servos|                     ; 516 (516)         ; 325 (325)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|SERVO_SERIAL:servos                                                                                  ; work         ;
+;    |SERVO_SERIAL:servos|                     ; 495 (495)         ; 325 (325)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|SERVO_SERIAL:servos                                                                                  ; work         ;
 ;    |TIME_GENERATOR:timer|                    ; 156 (156)         ; 106 (106)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|TIME_GENERATOR:timer                                                                                 ; work         ;
-;    |UART_RX_FIFO:rx1|                        ; 238 (127)         ; 131 (79)     ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx1                                                                                     ; work         ;
-;       |UART_RX:uart|                         ; 111 (111)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart                                                                        ; work         ;
+;    |UART_RX_FIFO:rx1|                        ; 236 (126)         ; 130 (79)     ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx1                                                                                     ; work         ;
+;       |UART_RX:uart|                         ; 110 (110)         ; 51 (51)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart                                                                        ; work         ;
 ;       |altsyncram:fifo_rtl_0|                ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx1|altsyncram:fifo_rtl_0                                                               ; work         ;
 ;          |altsyncram_m5c1:auto_generated|    ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx1|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated                                ; work         ;
-;    |UART_RX_FIFO:rx2|                        ; 238 (127)         ; 131 (79)     ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx2                                                                                     ; work         ;
-;       |UART_RX:uart|                         ; 111 (111)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart                                                                        ; work         ;
+;    |UART_RX_FIFO:rx2|                        ; 256 (146)         ; 130 (79)     ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx2                                                                                     ; work         ;
+;       |UART_RX:uart|                         ; 110 (110)         ; 51 (51)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart                                                                        ; work         ;
 ;       |altsyncram:fifo_rtl_0|                ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx2|altsyncram:fifo_rtl_0                                                               ; work         ;
 ;          |altsyncram_m5c1:auto_generated|    ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx2|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated                                ; work         ;
-;    |UART_RX_FIFO:rx3|                        ; 238 (127)         ; 131 (79)     ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx3                                                                                     ; work         ;
-;       |UART_RX:uart|                         ; 111 (111)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx3|UART_RX:uart                                                                        ; work         ;
-;       |altsyncram:fifo_rtl_0|                ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx3|altsyncram:fifo_rtl_0                                                               ; work         ;
-;          |altsyncram_m5c1:auto_generated|    ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx3|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated                                ; work         ;
-;    |UART_RX_FIFO:rx4|                        ; 271 (160)         ; 131 (79)     ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx4                                                                                     ; work         ;
-;       |UART_RX:uart|                         ; 111 (111)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx4|UART_RX:uart                                                                        ; work         ;
-;       |altsyncram:fifo_rtl_0|                ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx4|altsyncram:fifo_rtl_0                                                               ; work         ;
-;          |altsyncram_m5c1:auto_generated|    ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx4|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated                                ; work         ;
 ;    |UART_TX_FIFO:tx1|                        ; 200 (70)          ; 105 (54)     ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx1                                                                                     ; work         ;
 ;       |UART_TX:uart|                         ; 130 (130)         ; 51 (51)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx1|UART_TX:uart                                                                        ; work         ;
 ;       |altsyncram:fifo_rtl_0|                ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx1|altsyncram:fifo_rtl_0                                                               ; work         ;
@@ -295,15 +280,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;       |UART_TX:uart|                         ; 130 (130)         ; 51 (51)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx2|UART_TX:uart                                                                        ; work         ;
 ;       |altsyncram:fifo_rtl_0|                ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx2|altsyncram:fifo_rtl_0                                                               ; work         ;
 ;          |altsyncram_m5c1:auto_generated|    ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx2|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated                                ; work         ;
-;    |UART_TX_FIFO:tx3|                        ; 200 (70)          ; 105 (54)     ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx3                                                                                     ; work         ;
-;       |UART_TX:uart|                         ; 130 (130)         ; 51 (51)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx3|UART_TX:uart                                                                        ; work         ;
-;       |altsyncram:fifo_rtl_0|                ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx3|altsyncram:fifo_rtl_0                                                               ; work         ;
-;          |altsyncram_m5c1:auto_generated|    ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx3|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated                                ; work         ;
-;    |UART_TX_FIFO:tx4|                        ; 200 (70)          ; 105 (54)     ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx4                                                                                     ; work         ;
-;       |UART_TX:uart|                         ; 130 (130)         ; 51 (51)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx4|UART_TX:uart                                                                        ; work         ;
-;       |altsyncram:fifo_rtl_0|                ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx4|altsyncram:fifo_rtl_0                                                               ; work         ;
-;          |altsyncram_m5c1:auto_generated|    ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx4|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated                                ; work         ;
-;    |XRAM_SLAVE:xram|                         ; 28 (28)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|XRAM_SLAVE:xram                                                                                      ; work         ;
+;    |XRAM_SLAVE:xram|                         ; 20 (20)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|XRAM_SLAVE:xram                                                                                      ; work         ;
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -316,38 +293,26 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|altsyncram:TABLE_rtl_0|altsyncram_pdp1:auto_generated|ALTSYNCRAM ; AUTO ; True Dual Port   ; 3600         ; 12           ; 3600         ; 12           ; 43200 ; db/exmachine.ram0_TABLE_SINUS_137f8e1b.hdl.mif ;
 ; UART_RX_FIFO:rx1|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated|ALTSYNCRAM                                ; AUTO ; Simple Dual Port ; 64           ; 8            ; 64           ; 8            ; 512   ; None                                           ;
 ; UART_RX_FIFO:rx2|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated|ALTSYNCRAM                                ; AUTO ; Simple Dual Port ; 64           ; 8            ; 64           ; 8            ; 512   ; None                                           ;
-; UART_RX_FIFO:rx3|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated|ALTSYNCRAM                                ; AUTO ; Simple Dual Port ; 64           ; 8            ; 64           ; 8            ; 512   ; None                                           ;
-; UART_RX_FIFO:rx4|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated|ALTSYNCRAM                                ; AUTO ; Simple Dual Port ; 64           ; 8            ; 64           ; 8            ; 512   ; None                                           ;
 ; UART_TX_FIFO:tx1|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated|ALTSYNCRAM                                ; AUTO ; Simple Dual Port ; 64           ; 8            ; 64           ; 8            ; 512   ; None                                           ;
 ; UART_TX_FIFO:tx2|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated|ALTSYNCRAM                                ; AUTO ; Simple Dual Port ; 64           ; 8            ; 64           ; 8            ; 512   ; None                                           ;
-; UART_TX_FIFO:tx3|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated|ALTSYNCRAM                                ; AUTO ; Simple Dual Port ; 64           ; 8            ; 64           ; 8            ; 512   ; None                                           ;
-; UART_TX_FIFO:tx4|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated|ALTSYNCRAM                                ; AUTO ; Simple Dual Port ; 64           ; 8            ; 64           ; 8            ; 512   ; None                                           ;
 +-----------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                ;
-+-----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
-+-----------------------------------------------------+---------------------+------------------------+
-; XRAM_SLAVE:xram|addr_ff[1]                          ; ALE                 ; yes                    ;
-; XRAM_SLAVE:xram|addr_ff[2]                          ; ALE                 ; yes                    ;
-; XRAM_SLAVE:xram|addr_ff[3]                          ; ALE                 ; yes                    ;
-; XRAM_SLAVE:xram|addr_ff[4]                          ; ALE                 ; yes                    ;
-; XRAM_SLAVE:xram|addr_ff[5]                          ; ALE                 ; yes                    ;
-; XRAM_SLAVE:xram|addr_ff[6]                          ; ALE                 ; yes                    ;
-; XRAM_SLAVE:xram|addr_ff[7]                          ; ALE                 ; yes                    ;
-; XRAM_SLAVE:xram|addr_ff[0]                          ; ALE                 ; yes                    ;
-; XRAM_SLAVE:xram|addr_ff[8]                          ; ALE                 ; yes                    ;
-; XRAM_SLAVE:xram|addr_ff[9]                          ; ALE                 ; yes                    ;
-; XRAM_SLAVE:xram|addr_ff[10]                         ; ALE                 ; yes                    ;
-; XRAM_SLAVE:xram|addr_ff[11]                         ; ALE                 ; yes                    ;
-; XRAM_SLAVE:xram|addr_ff[12]                         ; ALE                 ; yes                    ;
-; XRAM_SLAVE:xram|addr_ff[13]                         ; ALE                 ; yes                    ;
-; XRAM_SLAVE:xram|addr_ff[14]                         ; ALE                 ; yes                    ;
-; XRAM_SLAVE:xram|addr_ff[15]                         ; ALE                 ; yes                    ;
-; Number of user-specified and inferred latches = 16  ;                     ;                        ;
-+-----------------------------------------------------+---------------------+------------------------+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; XRAM_SLAVE:xram|addr_ff[1]                         ; ALE                 ; yes                    ;
+; XRAM_SLAVE:xram|addr_ff[2]                         ; ALE                 ; yes                    ;
+; XRAM_SLAVE:xram|addr_ff[3]                         ; ALE                 ; yes                    ;
+; XRAM_SLAVE:xram|addr_ff[4]                         ; ALE                 ; yes                    ;
+; XRAM_SLAVE:xram|addr_ff[5]                         ; ALE                 ; yes                    ;
+; XRAM_SLAVE:xram|addr_ff[6]                         ; ALE                 ; yes                    ;
+; XRAM_SLAVE:xram|addr_ff[7]                         ; ALE                 ; yes                    ;
+; XRAM_SLAVE:xram|addr_ff[0]                         ; ALE                 ; yes                    ;
+; Number of user-specified and inferred latches = 8  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
@@ -370,18 +335,6 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; UART_TX_FIFO:tx2|fifo_rtl_0_bypass[6]                          ; Merged with UART_TX_FIFO:tx2|rpos[2]   ;
 ; UART_TX_FIFO:tx2|fifo_rtl_0_bypass[4]                          ; Merged with UART_TX_FIFO:tx2|rpos[1]   ;
 ; UART_TX_FIFO:tx2|fifo_rtl_0_bypass[2]                          ; Merged with UART_TX_FIFO:tx2|rpos[0]   ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[12]                         ; Merged with UART_TX_FIFO:tx3|rpos[5]   ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[10]                         ; Merged with UART_TX_FIFO:tx3|rpos[4]   ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[8]                          ; Merged with UART_TX_FIFO:tx3|rpos[3]   ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[6]                          ; Merged with UART_TX_FIFO:tx3|rpos[2]   ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[4]                          ; Merged with UART_TX_FIFO:tx3|rpos[1]   ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[2]                          ; Merged with UART_TX_FIFO:tx3|rpos[0]   ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[12]                         ; Merged with UART_TX_FIFO:tx4|rpos[5]   ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[10]                         ; Merged with UART_TX_FIFO:tx4|rpos[4]   ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[8]                          ; Merged with UART_TX_FIFO:tx4|rpos[3]   ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[6]                          ; Merged with UART_TX_FIFO:tx4|rpos[2]   ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[4]                          ; Merged with UART_TX_FIFO:tx4|rpos[1]   ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[2]                          ; Merged with UART_TX_FIFO:tx4|rpos[0]   ;
 ; UART_RX_FIFO:rx1|fifo_rtl_0_bypass[6]                          ; Merged with UART_RX_FIFO:rx1|rpos[2]   ;
 ; UART_RX_FIFO:rx1|fifo_rtl_0_bypass[4]                          ; Merged with UART_RX_FIFO:rx1|rpos[1]   ;
 ; UART_RX_FIFO:rx1|fifo_rtl_0_bypass[2]                          ; Merged with UART_RX_FIFO:rx1|rpos[0]   ;
@@ -394,28 +347,14 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; UART_RX_FIFO:rx2|fifo_rtl_0_bypass[8]                          ; Merged with UART_RX_FIFO:rx2|rpos[3]   ;
 ; UART_RX_FIFO:rx2|fifo_rtl_0_bypass[10]                         ; Merged with UART_RX_FIFO:rx2|rpos[4]   ;
 ; UART_RX_FIFO:rx2|fifo_rtl_0_bypass[12]                         ; Merged with UART_RX_FIFO:rx2|rpos[5]   ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[6]                          ; Merged with UART_RX_FIFO:rx3|rpos[2]   ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[4]                          ; Merged with UART_RX_FIFO:rx3|rpos[1]   ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[2]                          ; Merged with UART_RX_FIFO:rx3|rpos[0]   ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[8]                          ; Merged with UART_RX_FIFO:rx3|rpos[3]   ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[10]                         ; Merged with UART_RX_FIFO:rx3|rpos[4]   ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[12]                         ; Merged with UART_RX_FIFO:rx3|rpos[5]   ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[6]                          ; Merged with UART_RX_FIFO:rx4|rpos[2]   ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[4]                          ; Merged with UART_RX_FIFO:rx4|rpos[1]   ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[2]                          ; Merged with UART_RX_FIFO:rx4|rpos[0]   ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[8]                          ; Merged with UART_RX_FIFO:rx4|rpos[3]   ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[10]                         ; Merged with UART_RX_FIFO:rx4|rpos[4]   ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[12]                         ; Merged with UART_RX_FIFO:rx4|rpos[5]   ;
 ; UART_TX_FIFO:tx1|rpos[6..31]                                   ; Lost fanout                            ;
 ; UART_TX_FIFO:tx2|rpos[6..31]                                   ; Lost fanout                            ;
-; UART_TX_FIFO:tx3|rpos[6..31]                                   ; Lost fanout                            ;
-; UART_TX_FIFO:tx4|rpos[6..31]                                   ; Lost fanout                            ;
 ; SERVO_SERIAL:servos|com0[13..31]                               ; Lost fanout                            ;
 ; SERVO_SERIAL:servos|com1[13..31]                               ; Lost fanout                            ;
 ; SERVO_SERIAL:servos|com2[13..31]                               ; Lost fanout                            ;
 ; SERVO_SERIAL:servos|com3[13..31]                               ; Lost fanout                            ;
 ; TIME_GENERATOR:timer|int_sec[10..31]                           ; Lost fanout                            ;
-; Total Number of Removed Registers = 258                        ;                                        ;
+; Total Number of Removed Registers = 182                        ;                                        ;
 +----------------------------------------------------------------+----------------------------------------+
 
 
@@ -442,24 +381,6 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ;                              ;                    ; UART_TX_FIFO:tx2|rpos[12], UART_TX_FIFO:tx2|rpos[11], UART_TX_FIFO:tx2|rpos[10], ;
 ;                              ;                    ; UART_TX_FIFO:tx2|rpos[9], UART_TX_FIFO:tx2|rpos[8], UART_TX_FIFO:tx2|rpos[7],    ;
 ;                              ;                    ; UART_TX_FIFO:tx2|rpos[6]                                                         ;
-; UART_TX_FIFO:tx3|rpos[31]    ; Lost Fanouts       ; UART_TX_FIFO:tx3|rpos[30], UART_TX_FIFO:tx3|rpos[29], UART_TX_FIFO:tx3|rpos[28], ;
-;                              ;                    ; UART_TX_FIFO:tx3|rpos[27], UART_TX_FIFO:tx3|rpos[26], UART_TX_FIFO:tx3|rpos[25], ;
-;                              ;                    ; UART_TX_FIFO:tx3|rpos[24], UART_TX_FIFO:tx3|rpos[23], UART_TX_FIFO:tx3|rpos[22], ;
-;                              ;                    ; UART_TX_FIFO:tx3|rpos[21], UART_TX_FIFO:tx3|rpos[20], UART_TX_FIFO:tx3|rpos[19], ;
-;                              ;                    ; UART_TX_FIFO:tx3|rpos[18], UART_TX_FIFO:tx3|rpos[17], UART_TX_FIFO:tx3|rpos[16], ;
-;                              ;                    ; UART_TX_FIFO:tx3|rpos[15], UART_TX_FIFO:tx3|rpos[14], UART_TX_FIFO:tx3|rpos[13], ;
-;                              ;                    ; UART_TX_FIFO:tx3|rpos[12], UART_TX_FIFO:tx3|rpos[11], UART_TX_FIFO:tx3|rpos[10], ;
-;                              ;                    ; UART_TX_FIFO:tx3|rpos[9], UART_TX_FIFO:tx3|rpos[8], UART_TX_FIFO:tx3|rpos[7],    ;
-;                              ;                    ; UART_TX_FIFO:tx3|rpos[6]                                                         ;
-; UART_TX_FIFO:tx4|rpos[31]    ; Lost Fanouts       ; UART_TX_FIFO:tx4|rpos[30], UART_TX_FIFO:tx4|rpos[29], UART_TX_FIFO:tx4|rpos[28], ;
-;                              ;                    ; UART_TX_FIFO:tx4|rpos[27], UART_TX_FIFO:tx4|rpos[26], UART_TX_FIFO:tx4|rpos[25], ;
-;                              ;                    ; UART_TX_FIFO:tx4|rpos[24], UART_TX_FIFO:tx4|rpos[23], UART_TX_FIFO:tx4|rpos[22], ;
-;                              ;                    ; UART_TX_FIFO:tx4|rpos[21], UART_TX_FIFO:tx4|rpos[20], UART_TX_FIFO:tx4|rpos[19], ;
-;                              ;                    ; UART_TX_FIFO:tx4|rpos[18], UART_TX_FIFO:tx4|rpos[17], UART_TX_FIFO:tx4|rpos[16], ;
-;                              ;                    ; UART_TX_FIFO:tx4|rpos[15], UART_TX_FIFO:tx4|rpos[14], UART_TX_FIFO:tx4|rpos[13], ;
-;                              ;                    ; UART_TX_FIFO:tx4|rpos[12], UART_TX_FIFO:tx4|rpos[11], UART_TX_FIFO:tx4|rpos[10], ;
-;                              ;                    ; UART_TX_FIFO:tx4|rpos[9], UART_TX_FIFO:tx4|rpos[8], UART_TX_FIFO:tx4|rpos[7],    ;
-;                              ;                    ; UART_TX_FIFO:tx4|rpos[6]                                                         ;
 ; SERVO_SERIAL:servos|com0[31] ; Lost Fanouts       ; SERVO_SERIAL:servos|com0[30], SERVO_SERIAL:servos|com0[29],                      ;
 ;                              ;                    ; SERVO_SERIAL:servos|com0[28], SERVO_SERIAL:servos|com0[27],                      ;
 ;                              ;                    ; SERVO_SERIAL:servos|com0[26], SERVO_SERIAL:servos|com0[25],                      ;
@@ -504,12 +425,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 2077  ;
-; Number of registers using Synchronous Clear  ; 192   ;
-; Number of registers using Synchronous Load   ; 12    ;
+; Total registers                              ; 1656  ;
+; Number of registers using Synchronous Clear  ; 92    ;
+; Number of registers using Synchronous Load   ; 6     ;
 ; Number of registers using Asynchronous Clear ; 106   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1534  ;
+; Number of registers using Clock Enable       ; 1261  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -527,41 +448,33 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; SERVO_SERIAL:servos|diviseur[31]           ; 2       ;
 ; SERVO_SERIAL:servos|compteur[31]           ; 2       ;
 ; SERVO_SERIAL:servos|compteur[0]            ; 4       ;
-; SERVO_SERIAL:servos|com0[0]                ; 10      ;
-; SERVO_SERIAL:servos|com1[0]                ; 8       ;
-; SERVO_SERIAL:servos|com2[0]                ; 11      ;
-; SERVO_SERIAL:servos|com3[0]                ; 11      ;
+; SERVO_SERIAL:servos|com0[0]                ; 6       ;
+; SERVO_SERIAL:servos|com1[0]                ; 5       ;
+; SERVO_SERIAL:servos|com2[0]                ; 5       ;
+; SERVO_SERIAL:servos|com3[0]                ; 6       ;
 ; UART_TX_FIFO:tx1|UART_TX:uart|delayer[0]   ; 2       ;
 ; UART_TX_FIFO:tx1|UART_TX:uart|delayer[31]  ; 2       ;
 ; UART_TX_FIFO:tx2|UART_TX:uart|delayer[0]   ; 2       ;
 ; UART_TX_FIFO:tx2|UART_TX:uart|delayer[31]  ; 2       ;
-; UART_TX_FIFO:tx3|UART_TX:uart|delayer[0]   ; 2       ;
-; UART_TX_FIFO:tx3|UART_TX:uart|delayer[31]  ; 2       ;
-; UART_TX_FIFO:tx4|UART_TX:uart|delayer[0]   ; 2       ;
-; UART_TX_FIFO:tx4|UART_TX:uart|delayer[31]  ; 2       ;
 ; COMPTEUR_32:com4|compt[0]                  ; 2       ;
+; COMPTEUR_32:com3|compt[0]                  ; 2       ;
 ; COMPTEUR_32:com1|compt[0]                  ; 2       ;
 ; COMPTEUR_32:com2|compt[0]                  ; 2       ;
-; COMPTEUR_32:com3|compt[0]                  ; 2       ;
 ; COUNTEUR_XYR_HIRES:counterxyr1|intPosX[31] ; 9       ;
-; COUNTEUR_XYR_HIRES:counterxyr1|intPosY[31] ; 9       ;
+; COUNTEUR_XYR_HIRES:counterxyr1|intPosY[31] ; 2       ;
 ; COMPTEUR_32:com4|compt[31]                 ; 2       ;
 ; COUNTEUR_XYR_HIRES:counterxyr1|intRot[31]  ; 9       ;
-; COMPTEUR_32:com1|compt[31]                 ; 2       ;
 ; COMPTEUR_32:com2|compt[31]                 ; 2       ;
+; COMPTEUR_32:com1|compt[31]                 ; 2       ;
 ; COMPTEUR_32:com3|compt[31]                 ; 2       ;
 ; COUNTEUR_XYR_HIRES:counterxyr1|intRot[0]   ; 3       ;
 ; COUNTEUR_XYR_HIRES:counterxyr1|intPosY[0]  ; 1       ;
 ; COUNTEUR_XYR_HIRES:counterxyr1|intPosX[0]  ; 1       ;
-; UART_RX_FIFO:rx4|UART_RX:uart|delayer[0]   ; 3       ;
-; UART_RX_FIFO:rx4|UART_RX:uart|delayer[31]  ; 3       ;
-; UART_RX_FIFO:rx3|UART_RX:uart|delayer[0]   ; 3       ;
-; UART_RX_FIFO:rx3|UART_RX:uart|delayer[31]  ; 3       ;
 ; UART_RX_FIFO:rx2|UART_RX:uart|delayer[0]   ; 3       ;
 ; UART_RX_FIFO:rx2|UART_RX:uart|delayer[31]  ; 3       ;
 ; UART_RX_FIFO:rx1|UART_RX:uart|delayer[0]   ; 3       ;
 ; UART_RX_FIFO:rx1|UART_RX:uart|delayer[31]  ; 3       ;
-; Total number of inverted registers = 42    ;         ;
+; Total number of inverted registers = 34    ;         ;
 +--------------------------------------------+---------+
 
 
@@ -612,48 +525,6 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; UART_TX_FIFO:tx2|fifo_rtl_0_bypass[18] ; UART_TX_FIFO:tx2|fifo_rtl_0 ;
 ; UART_TX_FIFO:tx2|fifo_rtl_0_bypass[19] ; UART_TX_FIFO:tx2|fifo_rtl_0 ;
 ; UART_TX_FIFO:tx2|fifo_rtl_0_bypass[20] ; UART_TX_FIFO:tx2|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[0]  ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[1]  ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[2]  ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[3]  ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[4]  ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[5]  ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[6]  ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[7]  ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[8]  ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[9]  ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[10] ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[11] ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[12] ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[13] ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[14] ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[15] ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[16] ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[17] ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[18] ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[19] ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx3|fifo_rtl_0_bypass[20] ; UART_TX_FIFO:tx3|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[0]  ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[1]  ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[2]  ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[3]  ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[4]  ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[5]  ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[6]  ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[7]  ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[8]  ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[9]  ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[10] ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[11] ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[12] ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[13] ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[14] ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[15] ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[16] ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[17] ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[18] ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[19] ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
-; UART_TX_FIFO:tx4|fifo_rtl_0_bypass[20] ; UART_TX_FIFO:tx4|fifo_rtl_0 ;
 ; UART_RX_FIFO:rx1|fifo_rtl_0_bypass[0]  ; UART_RX_FIFO:rx1|fifo_rtl_0 ;
 ; UART_RX_FIFO:rx1|fifo_rtl_0_bypass[1]  ; UART_RX_FIFO:rx1|fifo_rtl_0 ;
 ; UART_RX_FIFO:rx1|fifo_rtl_0_bypass[2]  ; UART_RX_FIFO:rx1|fifo_rtl_0 ;
@@ -696,48 +567,6 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; UART_RX_FIFO:rx2|fifo_rtl_0_bypass[18] ; UART_RX_FIFO:rx2|fifo_rtl_0 ;
 ; UART_RX_FIFO:rx2|fifo_rtl_0_bypass[19] ; UART_RX_FIFO:rx2|fifo_rtl_0 ;
 ; UART_RX_FIFO:rx2|fifo_rtl_0_bypass[20] ; UART_RX_FIFO:rx2|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[0]  ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[1]  ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[2]  ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[3]  ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[4]  ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[5]  ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[6]  ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[7]  ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[8]  ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[9]  ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[10] ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[11] ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[12] ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[13] ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[14] ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[15] ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[16] ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[17] ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[18] ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[19] ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx3|fifo_rtl_0_bypass[20] ; UART_RX_FIFO:rx3|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[0]  ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[1]  ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[2]  ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[3]  ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[4]  ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[5]  ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[6]  ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[7]  ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[8]  ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[9]  ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[10] ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[11] ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[12] ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[13] ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[14] ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[15] ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[16] ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[17] ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[18] ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[19] ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
-; UART_RX_FIFO:rx4|fifo_rtl_0_bypass[20] ; UART_RX_FIFO:rx4|fifo_rtl_0 ;
 +----------------------------------------+-----------------------------+
 
 
@@ -756,137 +585,108 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 3:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|PWM_GEN:moteurs|diviseur[11]                ;
-; 3:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|diviseur[24]            ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |TOP_UNIOC|PWM_GEN:moteurs|copy[12]                    ;
-; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|PWM_GEN:moteurs|compteur[28]                ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|wpos[11]                   ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|rpos[22]                   ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|wpos[9]                    ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|rpos[31]                   ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx3|wpos[3]                    ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx3|rpos[6]                    ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx4|wpos[24]                   ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx4|rpos[28]                   ;
-; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com2|compt[25]                  ;
-; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com4|compt[19]                  ;
-; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com1|compt[14]                  ;
-; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com3|compt[15]                  ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|rpos[13]                   ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|rpos[25]                   ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx3|rpos[18]                   ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx4|rpos[11]                   ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|wpos[11]                   ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|wpos[23]                   ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx3|wpos[4]                    ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx4|wpos[31]                   ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP_UNIOC|SOFT_RESET[4]                               ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|PWM_GEN:moteurs|diviseur[26]                ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|diviseur[11]            ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |TOP_UNIOC|PWM_GEN:moteurs|copy[0]                     ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|PWM_GEN:moteurs|compteur[23]                ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|wpos[22]                   ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|rpos[29]                   ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|wpos[23]                   ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|rpos[18]                   ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com2|compt[17]                  ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com4|compt[11]                  ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com1|compt[8]                   ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com3|compt[9]                   ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|rpos[20]                   ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|rpos[19]                   ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|wpos[3]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|wpos[17]                   ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |TOP_UNIOC|SOFT_RESET[4]                               ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|MOTEUR1[5]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|MOTEUR2[1]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO1[13]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO1[7]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO2[13]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO2[2]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO3[13]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|MOTEUR2[5]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO1[11]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO1[3]                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO2[10]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO2[3]                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO3[8]                                   ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO3[3]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO4[8]                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO4[12]                                  ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO4[7]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO5[15]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO5[1]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO6[8]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO6[6]                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO5[12]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO5[4]                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO6[15]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO6[3]                                   ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO7[13]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO7[4]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO8[11]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO8[3]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO9[8]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO9[4]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO10[9]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO10[7]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO11[14]                                 ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO7[3]                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO8[8]                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO8[6]                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO9[14]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO9[2]                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO10[8]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO10[5]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO11[13]                                 ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO11[1]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO12[9]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO12[0]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO13[10]                                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO13[2]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO14[15]                                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO14[3]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO15[15]                                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO15[5]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO16[13]                                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO16[5]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|MOTEUR3[6]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|MOTEUR4[0]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|RELATION[22]                                ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|RELATION[11]                                ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|RELATION[0]                                 ;
-; 5:1                ; 9 bits    ; 27 LEs        ; 9 LEs                ; 18 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart|buffSortie[6] ;
-; 5:1                ; 9 bits    ; 27 LEs        ; 9 LEs                ; 18 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart|buffSortie[9] ;
-; 5:1                ; 9 bits    ; 27 LEs        ; 9 LEs                ; 18 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx3|UART_RX:uart|buffSortie[2] ;
-; 5:1                ; 9 bits    ; 27 LEs        ; 9 LEs                ; 18 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx4|UART_RX:uart|buffSortie[2] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|UART_TX:uart|buffSortie[1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|UART_TX:uart|buffSortie[1] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx3|UART_TX:uart|buffSortie[7] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx4|UART_TX:uart|buffSortie[4] ;
-; 5:1                ; 30 bits   ; 90 LEs        ; 60 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|UART_TX:uart|delayer[29]   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO12[13]                                 ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO12[4]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO13[9]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO13[7]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO14[10]                                 ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO14[2]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO15[10]                                 ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO15[3]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO16[10]                                 ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO16[3]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|MOTEUR3[1]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|MOTEUR4[1]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|RELATION[17]                                ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|RELATION[9]                                 ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|RELATION[1]                                 ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart|buffSortie[9] ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart|buffSortie[8] ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|UART_TX:uart|buffSortie[0] ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|UART_TX:uart|buffSortie[7] ;
+; 5:1                ; 30 bits   ; 90 LEs        ; 60 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|UART_TX:uart|delayer[3]    ;
 ; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|UART_TX:uart|etat[1]       ;
-; 5:1                ; 30 bits   ; 90 LEs        ; 60 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|UART_TX:uart|delayer[8]    ;
-; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|UART_TX:uart|etat[7]       ;
-; 5:1                ; 30 bits   ; 90 LEs        ; 60 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx3|UART_TX:uart|delayer[26]   ;
-; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx3|UART_TX:uart|etat[4]       ;
-; 5:1                ; 30 bits   ; 90 LEs        ; 60 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx4|UART_TX:uart|delayer[12]   ;
-; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx4|UART_TX:uart|etat[10]      ;
-; 6:1                ; 30 bits   ; 120 LEs       ; 60 LEs               ; 60 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|compteur[23]            ;
-; 6:1                ; 60 bits   ; 240 LEs       ; 60 LEs               ; 180 LEs                ; Yes        ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|intPosX[4]   ;
-; 6:1                ; 25 bits   ; 100 LEs       ; 50 LEs               ; 50 LEs                 ; Yes        ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|intRot[9]    ;
-; 6:1                ; 30 bits   ; 120 LEs       ; 60 LEs               ; 60 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart|delayer[20]   ;
-; 6:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart|etat[2]       ;
-; 6:1                ; 30 bits   ; 120 LEs       ; 60 LEs               ; 60 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart|delayer[13]   ;
-; 6:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart|etat[8]       ;
-; 6:1                ; 30 bits   ; 120 LEs       ; 60 LEs               ; 60 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx3|UART_RX:uart|delayer[6]    ;
-; 6:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx3|UART_RX:uart|etat[4]       ;
-; 6:1                ; 30 bits   ; 120 LEs       ; 60 LEs               ; 60 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx4|UART_RX:uart|delayer[21]   ;
-; 6:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx4|UART_RX:uart|etat[3]       ;
+; 5:1                ; 30 bits   ; 90 LEs        ; 60 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|UART_TX:uart|delayer[25]   ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|UART_TX:uart|etat[8]       ;
+; 6:1                ; 30 bits   ; 120 LEs       ; 60 LEs               ; 60 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|compteur[24]            ;
+; 6:1                ; 60 bits   ; 240 LEs       ; 60 LEs               ; 180 LEs                ; Yes        ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|intPosY[10]  ;
+; 6:1                ; 25 bits   ; 100 LEs       ; 50 LEs               ; 50 LEs                 ; Yes        ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|intRot[10]   ;
+; 6:1                ; 30 bits   ; 120 LEs       ; 60 LEs               ; 60 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart|delayer[28]   ;
+; 6:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart|etat[7]       ;
+; 6:1                ; 30 bits   ; 120 LEs       ; 60 LEs               ; 60 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart|delayer[11]   ;
+; 6:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart|etat[9]       ;
 ; 8:1                ; 5 bits    ; 25 LEs        ; 15 LEs               ; 10 LEs                 ; Yes        ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|intRot[30]   ;
-; 12:1               ; 30 bits   ; 240 LEs       ; 30 LEs               ; 210 LEs                ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com0[1]                 ;
-; 12:1               ; 30 bits   ; 240 LEs       ; 30 LEs               ; 210 LEs                ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com1[28]                ;
-; 12:1               ; 30 bits   ; 240 LEs       ; 30 LEs               ; 210 LEs                ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com2[16]                ;
-; 12:1               ; 30 bits   ; 240 LEs       ; 30 LEs               ; 210 LEs                ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com3[7]                 ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|PWM_GEN:moteurs|diviseur[0]                 ;
+; 12:1               ; 30 bits   ; 240 LEs       ; 30 LEs               ; 210 LEs                ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com0[26]                ;
+; 12:1               ; 30 bits   ; 240 LEs       ; 30 LEs               ; 210 LEs                ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com1[5]                 ;
+; 12:1               ; 30 bits   ; 240 LEs       ; 30 LEs               ; 210 LEs                ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com2[13]                ;
+; 12:1               ; 30 bits   ; 240 LEs       ; 30 LEs               ; 210 LEs                ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com3[1]                 ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|PWM_GEN:moteurs|diviseur[31]                ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|diviseur[0]             ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|PWM_GEN:moteurs|compteur[0]                 ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com2|compt[31]                  ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com4|compt[31]                  ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com1|compt[0]                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com1|compt[31]                  ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com3|compt[31]                  ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|UART_TX:uart|delayer[31]   ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|UART_TX:uart|delayer[0]    ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|UART_TX:uart|delayer[0]    ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx3|UART_TX:uart|delayer[0]    ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx4|UART_TX:uart|delayer[31]   ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|compteur[31]            ;
 ; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|intPosX[31]  ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart|delayer[31]   ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart|delayer[0]    ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart|delayer[31]   ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx3|UART_RX:uart|delayer[0]    ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx4|UART_RX:uart|delayer[31]   ;
-; 12:1               ; 2 bits    ; 16 LEs        ; 2 LEs                ; 14 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com0[31]                ;
-; 12:1               ; 2 bits    ; 16 LEs        ; 2 LEs                ; 14 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com1[31]                ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 2 LEs                ; 14 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com0[0]                 ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 2 LEs                ; 14 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com1[0]                 ;
 ; 12:1               ; 2 bits    ; 16 LEs        ; 2 LEs                ; 14 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com2[31]                ;
 ; 12:1               ; 2 bits    ; 16 LEs        ; 2 LEs                ; 14 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com3[31]                ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|Add4         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|Add2         ;
 ; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TOP_UNIOC|UART_TX_FIFO:tx1|rpos                       ;
 ; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TOP_UNIOC|UART_TX_FIFO:tx2|rpos                       ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TOP_UNIOC|UART_TX_FIFO:tx3|rpos                       ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TOP_UNIOC|UART_TX_FIFO:tx4|rpos                       ;
 ; 4:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; No         ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|Add2         ;
 ; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TOP_UNIOC|UART_RX_FIFO:rx1|rpos                       ;
 ; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TOP_UNIOC|UART_RX_FIFO:rx2|rpos                       ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TOP_UNIOC|UART_RX_FIFO:rx3|rpos                       ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TOP_UNIOC|UART_RX_FIFO:rx4|rpos                       ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |TOP_UNIOC|UART_RX_FIFO:rx4|Add0                       ;
-; 127:1              ; 2 bits    ; 168 LEs       ; 106 LEs              ; 62 LEs                 ; No         ; |TOP_UNIOC|Mux1                                        ;
-; 130:1              ; 4 bits    ; 344 LEs       ; 224 LEs              ; 120 LEs                ; No         ; |TOP_UNIOC|Mux5                                        ;
-; 130:1              ; 2 bits    ; 172 LEs       ; 116 LEs              ; 56 LEs                 ; No         ; |TOP_UNIOC|Mux7                                        ;
+; 103:1              ; 2 bits    ; 136 LEs       ; 100 LEs              ; 36 LEs                 ; No         ; |TOP_UNIOC|Mux1                                        ;
+; 106:1              ; 4 bits    ; 280 LEs       ; 208 LEs              ; 72 LEs                 ; No         ; |TOP_UNIOC|Mux5                                        ;
+; 106:1              ; 2 bits    ; 140 LEs       ; 106 LEs              ; 34 LEs                 ; No         ; |TOP_UNIOC|Mux7                                        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 
 
@@ -909,24 +709,6 @@ Note: All latches listed above may not be present at the end of synthesis due to
 
 
 +----------------------------------------------------------------------------------------------+
-; Source assignments for UART_TX_FIFO:tx3|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated ;
-+---------------------------------+--------------------+------+--------------------------------+
-; Assignment                      ; Value              ; From ; To                             ;
-+---------------------------------+--------------------+------+--------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                              ;
-+---------------------------------+--------------------+------+--------------------------------+
-
-
-+----------------------------------------------------------------------------------------------+
-; Source assignments for UART_TX_FIFO:tx4|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated ;
-+---------------------------------+--------------------+------+--------------------------------+
-; Assignment                      ; Value              ; From ; To                             ;
-+---------------------------------+--------------------+------+--------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                              ;
-+---------------------------------+--------------------+------+--------------------------------+
-
-
-+----------------------------------------------------------------------------------------------+
 ; Source assignments for UART_RX_FIFO:rx1|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated ;
 +---------------------------------+--------------------+------+--------------------------------+
 ; Assignment                      ; Value              ; From ; To                             ;
@@ -937,24 +719,6 @@ Note: All latches listed above may not be present at the end of synthesis due to
 
 +----------------------------------------------------------------------------------------------+
 ; Source assignments for UART_RX_FIFO:rx2|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated ;
-+---------------------------------+--------------------+------+--------------------------------+
-; Assignment                      ; Value              ; From ; To                             ;
-+---------------------------------+--------------------+------+--------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                              ;
-+---------------------------------+--------------------+------+--------------------------------+
-
-
-+----------------------------------------------------------------------------------------------+
-; Source assignments for UART_RX_FIFO:rx3|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated ;
-+---------------------------------+--------------------+------+--------------------------------+
-; Assignment                      ; Value              ; From ; To                             ;
-+---------------------------------+--------------------+------+--------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                              ;
-+---------------------------------+--------------------+------+--------------------------------+
-
-
-+----------------------------------------------------------------------------------------------+
-; Source assignments for UART_RX_FIFO:rx4|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated ;
 +---------------------------------+--------------------+------+--------------------------------+
 ; Assignment                      ; Value              ; From ; To                             ;
 +---------------------------------+--------------------+------+--------------------------------+
@@ -1034,128 +798,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +-----------------------------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: UART_TX_FIFO:tx2|altsyncram:fifo_rtl_0 ;
-+------------------------------------+----------------------+-----------------------------+
-; Parameter Name                     ; Value                ; Type                        ;
-+------------------------------------+----------------------+-----------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                     ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                  ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE              ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                     ;
-; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                     ;
-; WIDTH_A                            ; 8                    ; Untyped                     ;
-; WIDTHAD_A                          ; 6                    ; Untyped                     ;
-; NUMWORDS_A                         ; 64                   ; Untyped                     ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                     ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                     ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                     ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                     ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                     ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                     ;
-; WIDTH_B                            ; 8                    ; Untyped                     ;
-; WIDTHAD_B                          ; 6                    ; Untyped                     ;
-; NUMWORDS_B                         ; 64                   ; Untyped                     ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                     ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                     ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                     ;
-; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                     ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                     ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                     ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                     ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                     ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                     ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                     ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                     ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                     ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                     ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                     ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                     ;
-; BYTE_SIZE                          ; 8                    ; Untyped                     ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                     ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                     ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                     ;
-; INIT_FILE                          ; UNUSED               ; Untyped                     ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                     ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                     ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                     ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                     ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                     ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                     ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                     ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                     ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                     ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                     ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                     ;
-; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                     ;
-; CBXI_PARAMETER                     ; altsyncram_m5c1      ; Untyped                     ;
-+------------------------------------+----------------------+-----------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: UART_TX_FIFO:tx3|altsyncram:fifo_rtl_0 ;
-+------------------------------------+----------------------+-----------------------------+
-; Parameter Name                     ; Value                ; Type                        ;
-+------------------------------------+----------------------+-----------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                     ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                  ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE              ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                     ;
-; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                     ;
-; WIDTH_A                            ; 8                    ; Untyped                     ;
-; WIDTHAD_A                          ; 6                    ; Untyped                     ;
-; NUMWORDS_A                         ; 64                   ; Untyped                     ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                     ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                     ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                     ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                     ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                     ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                     ;
-; WIDTH_B                            ; 8                    ; Untyped                     ;
-; WIDTHAD_B                          ; 6                    ; Untyped                     ;
-; NUMWORDS_B                         ; 64                   ; Untyped                     ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                     ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                     ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                     ;
-; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                     ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                     ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                     ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                     ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                     ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                     ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                     ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                     ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                     ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                     ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                     ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                     ;
-; BYTE_SIZE                          ; 8                    ; Untyped                     ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                     ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                     ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                     ;
-; INIT_FILE                          ; UNUSED               ; Untyped                     ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                     ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                     ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                     ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                     ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                     ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                     ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                     ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                     ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                     ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                     ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                     ;
-; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                     ;
-; CBXI_PARAMETER                     ; altsyncram_m5c1      ; Untyped                     ;
-+------------------------------------+----------------------+-----------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: UART_TX_FIFO:tx4|altsyncram:fifo_rtl_0 ;
 +------------------------------------+----------------------+-----------------------------+
 ; Parameter Name                     ; Value                ; Type                        ;
 +------------------------------------+----------------------+-----------------------------+
@@ -1337,128 +979,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: UART_RX_FIFO:rx3|altsyncram:fifo_rtl_0 ;
-+------------------------------------+----------------------+-----------------------------+
-; Parameter Name                     ; Value                ; Type                        ;
-+------------------------------------+----------------------+-----------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                     ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                  ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE              ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                     ;
-; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                     ;
-; WIDTH_A                            ; 8                    ; Untyped                     ;
-; WIDTHAD_A                          ; 6                    ; Untyped                     ;
-; NUMWORDS_A                         ; 64                   ; Untyped                     ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                     ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                     ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                     ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                     ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                     ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                     ;
-; WIDTH_B                            ; 8                    ; Untyped                     ;
-; WIDTHAD_B                          ; 6                    ; Untyped                     ;
-; NUMWORDS_B                         ; 64                   ; Untyped                     ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                     ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                     ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                     ;
-; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                     ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                     ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                     ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                     ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                     ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                     ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                     ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                     ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                     ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                     ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                     ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                     ;
-; BYTE_SIZE                          ; 8                    ; Untyped                     ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                     ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                     ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                     ;
-; INIT_FILE                          ; UNUSED               ; Untyped                     ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                     ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                     ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                     ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                     ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                     ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                     ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                     ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                     ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                     ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                     ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                     ;
-; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                     ;
-; CBXI_PARAMETER                     ; altsyncram_m5c1      ; Untyped                     ;
-+------------------------------------+----------------------+-----------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: UART_RX_FIFO:rx4|altsyncram:fifo_rtl_0 ;
-+------------------------------------+----------------------+-----------------------------+
-; Parameter Name                     ; Value                ; Type                        ;
-+------------------------------------+----------------------+-----------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                     ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                  ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE              ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                     ;
-; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                     ;
-; WIDTH_A                            ; 8                    ; Untyped                     ;
-; WIDTHAD_A                          ; 6                    ; Untyped                     ;
-; NUMWORDS_A                         ; 64                   ; Untyped                     ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                     ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                     ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                     ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                     ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                     ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                     ;
-; WIDTH_B                            ; 8                    ; Untyped                     ;
-; WIDTHAD_B                          ; 6                    ; Untyped                     ;
-; NUMWORDS_B                         ; 64                   ; Untyped                     ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                     ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                     ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                     ;
-; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                     ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                     ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                     ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                     ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                     ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                     ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                     ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                     ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                     ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                     ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                     ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                     ;
-; BYTE_SIZE                          ; 8                    ; Untyped                     ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                     ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                     ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                     ;
-; INIT_FILE                          ; UNUSED               ; Untyped                     ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                     ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                     ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                     ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                     ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                     ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                     ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                     ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                     ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                     ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                     ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                     ;
-; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                     ;
-; CBXI_PARAMETER                     ; altsyncram_m5c1      ; Untyped                     ;
-+------------------------------------+----------------------+-----------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +------------------------------------------------------------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|altsyncram:TABLE_rtl_0 ;
 +------------------------------------+------------------------------------------------+----------------------------------+
@@ -1525,7 +1045,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+-----------------------------------------------------------------------+
 ; Name                                      ; Value                                                                 ;
 +-------------------------------------------+-----------------------------------------------------------------------+
-; Number of entity instances                ; 9                                                                     ;
+; Number of entity instances                ; 5                                                                     ;
 ; Entity Instance                           ; UART_TX_FIFO:tx1|altsyncram:fifo_rtl_0                                ;
 ;     -- OPERATION_MODE                     ; DUAL_PORT                                                             ;
 ;     -- WIDTH_A                            ; 8                                                                     ;
@@ -1538,28 +1058,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                  ;
 ;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                             ;
 ; Entity Instance                           ; UART_TX_FIFO:tx2|altsyncram:fifo_rtl_0                                ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                                             ;
-;     -- WIDTH_A                            ; 8                                                                     ;
-;     -- NUMWORDS_A                         ; 64                                                                    ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                          ;
-;     -- WIDTH_B                            ; 8                                                                     ;
-;     -- NUMWORDS_B                         ; 64                                                                    ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                                                                ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                          ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                  ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                             ;
-; Entity Instance                           ; UART_TX_FIFO:tx3|altsyncram:fifo_rtl_0                                ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                                             ;
-;     -- WIDTH_A                            ; 8                                                                     ;
-;     -- NUMWORDS_A                         ; 64                                                                    ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                          ;
-;     -- WIDTH_B                            ; 8                                                                     ;
-;     -- NUMWORDS_B                         ; 64                                                                    ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                                                                ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                          ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                  ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                             ;
-; Entity Instance                           ; UART_TX_FIFO:tx4|altsyncram:fifo_rtl_0                                ;
 ;     -- OPERATION_MODE                     ; DUAL_PORT                                                             ;
 ;     -- WIDTH_A                            ; 8                                                                     ;
 ;     -- NUMWORDS_A                         ; 64                                                                    ;
@@ -1592,28 +1090,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                          ;
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                  ;
 ;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                             ;
-; Entity Instance                           ; UART_RX_FIFO:rx3|altsyncram:fifo_rtl_0                                ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                                             ;
-;     -- WIDTH_A                            ; 8                                                                     ;
-;     -- NUMWORDS_A                         ; 64                                                                    ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                          ;
-;     -- WIDTH_B                            ; 8                                                                     ;
-;     -- NUMWORDS_B                         ; 64                                                                    ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                                                                ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                          ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                  ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                             ;
-; Entity Instance                           ; UART_RX_FIFO:rx4|altsyncram:fifo_rtl_0                                ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                                             ;
-;     -- WIDTH_A                            ; 8                                                                     ;
-;     -- NUMWORDS_A                         ; 64                                                                    ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                          ;
-;     -- WIDTH_B                            ; 8                                                                     ;
-;     -- NUMWORDS_B                         ; 64                                                                    ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                                                                ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                          ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                  ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                             ;
 ; Entity Instance                           ; COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|altsyncram:TABLE_rtl_0 ;
 ;     -- OPERATION_MODE                     ; BIDIR_DUAL_PORT                                                       ;
 ;     -- WIDTH_A                            ; 12                                                                    ;
@@ -1626,6 +1102,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                  ;
 ;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                             ;
 +-------------------------------------------+-----------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "XRAM_SLAVE:xram"                                                                              ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; address[15..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------+
@@ -1642,7 +1127,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:20     ;
+; Top            ; 00:00:21     ;
 +----------------+--------------+
 
 
@@ -1652,7 +1137,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Jan 16 17:34:01 2014
+    Info: Processing started: Thu Jan 30 22:25:47 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off exmachine -c exmachine
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file uart_tx_fifo.vhd
@@ -1734,6 +1219,11 @@ Info (12021): Found 2 design units, including 1 entities, in source file top_uni
     Info (12022): Found design unit 1: TOP_UNIOC-comportement
     Info (12023): Found entity 1: TOP_UNIOC
 Info (12127): Elaborating entity "TOP_UNIOC" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at TOP_UNIOC.vhd(46): used implicit default value for signal "SPI_MISO_2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at TOP_UNIOC.vhd(224): object "tx3c" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at TOP_UNIOC.vhd(224): object "tx4c" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at TOP_UNIOC.vhd(224): object "rx3c" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at TOP_UNIOC.vhd(224): object "rx4c" assigned a value but never read
 Info (12128): Elaborating entity "PWM_GEN" for hierarchy "PWM_GEN:moteurs"
 Info (12128): Elaborating entity "SERVO_SERIAL" for hierarchy "SERVO_SERIAL:servos"
 Info (12128): Elaborating entity "TIME_GENERATOR" for hierarchy "TIME_GENERATOR:timer"
@@ -1767,13 +1257,9 @@ Info (10041): Inferred latch for "addr_ff[14]" at XRAM_SLAVE.vhd(36)
 Info (10041): Inferred latch for "addr_ff[15]" at XRAM_SLAVE.vhd(36)
 Warning (276020): Inferred RAM node "UART_TX_FIFO:tx1|fifo_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (276020): Inferred RAM node "UART_TX_FIFO:tx2|fifo_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
-Warning (276020): Inferred RAM node "UART_TX_FIFO:tx3|fifo_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
-Warning (276020): Inferred RAM node "UART_TX_FIFO:tx4|fifo_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (276020): Inferred RAM node "UART_RX_FIFO:rx1|fifo_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (276020): Inferred RAM node "UART_RX_FIFO:rx2|fifo_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
-Warning (276020): Inferred RAM node "UART_RX_FIFO:rx3|fifo_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
-Warning (276020): Inferred RAM node "UART_RX_FIFO:rx4|fifo_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
-Info (19000): Inferred 9 megafunctions from design logic
+Info (19000): Inferred 5 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "UART_TX_FIFO:tx1|fifo_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
         Info (286033): Parameter WIDTH_A set to 8
@@ -1804,36 +1290,6 @@ Info (19000): Inferred 9 megafunctions from design logic
         Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "UART_TX_FIFO:tx3|fifo_rtl_0" 
-        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
-        Info (286033): Parameter WIDTH_A set to 8
-        Info (286033): Parameter WIDTHAD_A set to 6
-        Info (286033): Parameter NUMWORDS_A set to 64
-        Info (286033): Parameter WIDTH_B set to 8
-        Info (286033): Parameter WIDTHAD_B set to 6
-        Info (286033): Parameter NUMWORDS_B set to 64
-        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
-        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
-        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
-        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
-        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
-        Info (286033): Parameter INDATA_ACLR_A set to NONE
-        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "UART_TX_FIFO:tx4|fifo_rtl_0" 
-        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
-        Info (286033): Parameter WIDTH_A set to 8
-        Info (286033): Parameter WIDTHAD_A set to 6
-        Info (286033): Parameter NUMWORDS_A set to 64
-        Info (286033): Parameter WIDTH_B set to 8
-        Info (286033): Parameter WIDTHAD_B set to 6
-        Info (286033): Parameter NUMWORDS_B set to 64
-        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
-        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
-        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
-        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
-        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
-        Info (286033): Parameter INDATA_ACLR_A set to NONE
-        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
     Info (276029): Inferred altsyncram megafunction from the following design logic: "UART_RX_FIFO:rx1|fifo_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
         Info (286033): Parameter WIDTH_A set to 8
@@ -1850,36 +1306,6 @@ Info (19000): Inferred 9 megafunctions from design logic
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
     Info (276029): Inferred altsyncram megafunction from the following design logic: "UART_RX_FIFO:rx2|fifo_rtl_0" 
-        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
-        Info (286033): Parameter WIDTH_A set to 8
-        Info (286033): Parameter WIDTHAD_A set to 6
-        Info (286033): Parameter NUMWORDS_A set to 64
-        Info (286033): Parameter WIDTH_B set to 8
-        Info (286033): Parameter WIDTHAD_B set to 6
-        Info (286033): Parameter NUMWORDS_B set to 64
-        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
-        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
-        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
-        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
-        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
-        Info (286033): Parameter INDATA_ACLR_A set to NONE
-        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "UART_RX_FIFO:rx3|fifo_rtl_0" 
-        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
-        Info (286033): Parameter WIDTH_A set to 8
-        Info (286033): Parameter WIDTHAD_A set to 6
-        Info (286033): Parameter NUMWORDS_A set to 64
-        Info (286033): Parameter WIDTH_B set to 8
-        Info (286033): Parameter WIDTHAD_B set to 6
-        Info (286033): Parameter NUMWORDS_B set to 64
-        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
-        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
-        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
-        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
-        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
-        Info (286033): Parameter INDATA_ACLR_A set to NONE
-        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "UART_RX_FIFO:rx4|fifo_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
         Info (286033): Parameter WIDTH_A set to 8
         Info (286033): Parameter WIDTHAD_A set to 6
@@ -1955,19 +1381,35 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
     Info (12023): Found entity 1: altsyncram_pdp1
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "DIRBUF2" is stuck at GND
-Info (17049): 202 registers lost all their fanouts during netlist optimizations.
+    Warning (13410): Pin "SPI_MISO_2" is stuck at GND
+Info (17049): 150 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 4676 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 25 input pins
+Warning (21074): Design contains 14 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "ADDR[0]"
+    Warning (15610): No output dependent on input pin "ADDR[1]"
+    Warning (15610): No output dependent on input pin "ADDR[2]"
+    Warning (15610): No output dependent on input pin "ADDR[3]"
+    Warning (15610): No output dependent on input pin "ADDR[4]"
+    Warning (15610): No output dependent on input pin "ADDR[5]"
+    Warning (15610): No output dependent on input pin "ADDR[6]"
+    Warning (15610): No output dependent on input pin "ADDR[7]"
+    Warning (15610): No output dependent on input pin "SPI_MOSI_1"
+    Warning (15610): No output dependent on input pin "SPI_MOSI_2"
+    Warning (15610): No output dependent on input pin "SPI_H_1"
+    Warning (15610): No output dependent on input pin "SPI_H_2"
+    Warning (15610): No output dependent on input pin "SPI_SS_1"
+    Warning (15610): No output dependent on input pin "SPI_SS_2"
+Info (21057): Implemented 3674 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 29 input pins
     Info (21059): Implemented 15 output pins
     Info (21060): Implemented 8 bidirectional pins
-    Info (21061): Implemented 4552 logic cells
-    Info (21064): Implemented 76 RAM segments
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 14 warnings
-    Info: Peak virtual memory: 539 megabytes
-    Info: Processing ended: Thu Jan 16 17:34:25 2014
-    Info: Elapsed time: 00:00:24
-    Info: Total CPU time (on all processors): 00:00:23
+    Info (21061): Implemented 3578 logic cells
+    Info (21064): Implemented 44 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 31 warnings
+    Info: Peak virtual memory: 529 megabytes
+    Info: Processing ended: Thu Jan 30 22:26:16 2014
+    Info: Elapsed time: 00:00:29
+    Info: Total CPU time (on all processors): 00:00:21
 
 

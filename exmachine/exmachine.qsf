@@ -140,12 +140,16 @@ set_global_assignment -name VHDL_FILE SERVO_SERIAL.vhd
 set_global_assignment -name VHDL_FILE XRAM_SLAVE.vhd
 set_global_assignment -name VHDL_FILE COMPTEUR_32.vhd
 set_global_assignment -name VHDL_FILE TOP_UNIOC.vhd
-set_location_assignment PIN_141 -to UART_RX_1
-set_location_assignment PIN_97 -to UART_TX_1
-set_location_assignment PIN_136 -to UART_RX_2
-set_location_assignment PIN_120 -to UART_TX_2
-set_location_assignment PIN_115 -to UART_TX_3
-set_location_assignment PIN_114 -to UART_TX_4
-set_location_assignment PIN_133 -to UART_RX_3
-set_location_assignment PIN_122 -to UART_RX_4
+set_location_assignment PIN_136 -to UART_RX_1
+set_location_assignment PIN_120 -to UART_TX_1
+set_location_assignment PIN_141 -to UART_RX_2
+set_location_assignment PIN_97 -to UART_TX_2
+set_location_assignment PIN_114 -to SPI_MISO_1
+set_location_assignment PIN_115 -to SPI_MISO_2
+set_location_assignment PIN_122 -to SPI_MOSI_1
+set_location_assignment PIN_133 -to SPI_MOSI_2
+set_location_assignment PIN_121 -to SPI_H_1
+set_location_assignment PIN_129 -to SPI_H_2
+set_location_assignment PIN_125 -to SPI_SS_1
+set_location_assignment PIN_134 -to SPI_SS_2
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
