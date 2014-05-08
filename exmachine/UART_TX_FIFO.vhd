@@ -16,6 +16,7 @@ entity UART_TX_FIFO is port(
 	RESET        : in  STD_LOGIC;
 	TX           : out STD_LOGIC;
 	WRITE_STROBE : in  STD_LOGIC;
+	BR           : in  STD_LOGIC_VECTOR(15 downto 0);
 	WRITE_DATA   : in  STD_LOGIC_VECTOR(7 downto 0);
 	AVAILABLE    : out STD_LOGIC_VECTOR(7 downto 0)
 );
@@ -25,6 +26,7 @@ component UART_TX is Port (
 	H      : in  STD_LOGIC;
 	RESET  : in  STD_LOGIC;
 	TX     : out STD_LOGIC;
+	BR     : in  STD_LOGIC_VECTOR(15 downto 0);
 	VAR    : in  STD_LOGIC_VECTOR(7 downto 0);
 	STROBE : in  STD_LOGIC;
 	READY  : out STD_LOGIC
@@ -42,6 +44,7 @@ begin
 		RESET  => RESET,
 		TX     => TX,
 		VAR    => varout,
+		BR     => BR,
 		STROBE => commande,
 		READY  => pret
 	);

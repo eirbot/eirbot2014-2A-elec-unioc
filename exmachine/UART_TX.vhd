@@ -15,6 +15,7 @@ entity UART_TX is Port (
 	H      : in  STD_LOGIC;
 	RESET  : in  STD_LOGIC;
 	TX     : out STD_LOGIC;
+	BR     : in  STD_LOGIC_VECTOR(15 downto 0);
 	VAR    : in  STD_LOGIC_VECTOR(7 downto 0);
 	STROBE : in  STD_LOGIC;
 	READY  : out STD_LOGIC
@@ -54,15 +55,15 @@ begin
 				if(etat="10000000000")then
 					if(STROBE='1')then
 						etat <= "00000000001";
-						delayer <= H_FREQ/BAUD;
-				    buffSortie <= VAR;
+						delayer <= TO_INTEGER(UNSIGNED(BR(15 downto 3)));
+						buffSortie <= VAR;
 					end if;
 				else
 					if(delayer /= 0)then
 						delayer <= delayer -1;
 					else
 						etat <= etat(9 downto 0)&'0';
-						delayer <= H_FREQ/BAUD;
+						delayer <= TO_INTEGER(UNSIGNED(BR(15 downto 3)));
 					end if;
 				end if;
 			end if;

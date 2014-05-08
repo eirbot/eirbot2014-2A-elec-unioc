@@ -16,6 +16,7 @@ entity UART_RX_FIFO is port(
 	RESET       : in  STD_LOGIC;
 	RX          : in  STD_LOGIC;
 	READ_STROBE : in  STD_LOGIC;
+	BR				: in  STD_LOGIC_VECTOR(15 downto 0);
 	READ_DATA   : out STD_LOGIC_VECTOR(7 downto 0);
 	AVAILABLE   : out STD_LOGIC_VECTOR(7 downto 0)
 );
@@ -25,6 +26,7 @@ component UART_RX is Port (
 	H     : in  STD_LOGIC;
 	RESET : in  STD_LOGIC;
 	RX    : in  STD_LOGIC;
+	BR		: in  STD_LOGIC_VECTOR(15 downto 0);
 	VAR   : out STD_LOGIC_VECTOR(7 downto 0);
 	READY : out STD_LOGIC
 );
@@ -39,6 +41,7 @@ begin
 	uart: UART_RX port map ( 
 		H     => H,
 		RESET => RESET,
+		BR		=> BR,
 		RX    => RX,
 		VAR   => varin,
 		READY => rcv
@@ -64,7 +67,7 @@ begin
 					if(rpos=63)then
 						rpos <= 0;
 					else
-						rpos <= wpos +1;
+						rpos <= rpos +1;
 					end if;
 				end if;
 			end if;

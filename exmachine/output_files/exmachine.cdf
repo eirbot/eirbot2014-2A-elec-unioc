@@ -3,8 +3,8 @@ JedecChain;
 	FileRevision(JESD32A);
 	DefaultMfr(6E);
 
-	P ActionCode(Vfy)
-		Device PartName(EPCS1) Path("C:/Users/Makara/Documents/GitHub/elec_2014/exmachine/output_files/") File("exmachine.pof") MfrSpec(OpMask(2) Child_OpMask(1 2));
+	P ActionCode(Cfg)
+		Device PartName(EPCS1) Path("C:/Users/Makara/Documents/GitHub/elec_2014/exmachine/output_files/") File("exmachine.pof") MfrSpec(OpMask(3) Child_OpMask(1 3));
 
 ChainEnd;
 

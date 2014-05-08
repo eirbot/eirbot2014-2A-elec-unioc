@@ -15,26 +15,28 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
-entity COUNTEUR_XYR_HIRES is
-    Port ( 
-          CODEUR1 : IN STD_LOGIC_VECTOR (1  downto 0);
-          CODEUR2 : IN STD_LOGIC_VECTOR (1  downto 0);
-			 RELATION: IN STD_LOGIC_VECTOR (23 downto 0);
-          POSX    : OUT STD_LOGIC_VECTOR (31 downto 0);
-          POSY    : OUT STD_LOGIC_VECTOR (31 downto 0);
-          ROT     : OUT STD_LOGIC_VECTOR (15 downto 0);  --0-360 degrees+7 bits
-          RESET   : IN STD_LOGIC;
-			 H       : IN STD_LOGIC
-    );
+entity COUNTEUR_XYR_HIRES is Port ( 
+	CODEUR1 : IN  STD_LOGIC_VECTOR (1  downto 0);
+	CODEUR2 : IN  STD_LOGIC_VECTOR (1  downto 0);
+	RELATION: IN  STD_LOGIC_VECTOR (23 downto 0);
+	POSX    : OUT STD_LOGIC_VECTOR (31 downto 0);
+	POSY    : OUT STD_LOGIC_VECTOR (31 downto 0);
+	ROT     : OUT STD_LOGIC_VECTOR (15 downto 0);  --0-360 degrees+7 bits
+	RESET   : IN  STD_LOGIC;
+	H       : IN  STD_LOGIC
+);
 end COUNTEUR_XYR_HIRES;
 
 architecture Behavioral of COUNTEUR_XYR_HIRES is
-signal intRot : Integer; --degrees (9 bit) * (23) => 32 bits
-signal intPosX : Integer; --pas (32 bit) * 14 bits => 46 bits
-signal intPosY : Integer; --pas (32 bit) * 14 bits => 46 bits
-signal buffPosX : std_logic_vector(46 downto 0); 
-signal buffPosY : std_logic_vector(46 downto 0); 
+--signal intPosX : Integer; --pas (32 bit) * 14 bits => 46 bits
+--signal intPosY : Integer; --pas (32 bit) * 14 bits => 46 bits
+signal buffPosX : std_logic_vector(45 downto 0); 
+signal buffPosY : std_logic_vector(45 downto 0); 
 signal buffRot :  std_logic_vector(31 downto 0); 
+signal subDecRot,  subIncRot  : std_logic_vector(31 downto 0);
+signal nextDecRot, nextIncRot : std_logic_vector(31 downto 0);
+signal nextDecX,   nextIncX   : std_logic_vector(45 downto 0);
+signal nextDecY,   nextIncY   : std_logic_vector(45 downto 0);
 --signal lastCod1, lastCod2: std_logic_vector(1 downto 0);
 signal SINUS, COSINUS: STD_LOGIC_VECTOR(15 downto 0);
 
@@ -45,98 +47,130 @@ component TABLE_SINUS is Port (
 	COSINUS : out STD_LOGIC_VECTOR(15 downto 0)
 );
 end component;
+component ADDER_46 is Port ( 
+	A    : IN  STD_LOGIC_VECTOR (45 downto 0);
+	B    : IN  STD_LOGIC_VECTOR (45 downto 0);
+	C    : OUT STD_LOGIC_VECTOR (45 downto 0);
+	COUT : OUT STD_LOGIC;
+	CIN  : IN  STD_LOGIC
+);
+end component;
 begin
-  POSX <= buffPosX(46 downto 15);
-  POSY <= buffPosY(46 downto 15);
-  ROT  <=  buffRot(31 downto 16);
-  
-  buffPosX <= std_logic_vector(to_unsigned(intPosX,47));
-  buffPosY <= std_logic_vector(to_unsigned(intPosY,47));
-  buffRot  <= std_logic_vector(to_unsigned(intRot,32)) ;
-  
+	POSX <= buffPosX(45 downto 14);
+	POSY <= buffPosY(45 downto 14);
+	ROT  <=  buffRot(30 downto 15);
+	subDecRot <= STD_LOGIC_VECTOR(UNSIGNED(buffRot)-resize(UNSIGNED(RELATION),32));
+	subIncRot <= STD_LOGIC_VECTOR(UNSIGNED(buffRot)+resize(UNSIGNED(RELATION),32));
+	
+	--subDecRot <= buffRot + RELATION;--STD_LOGIC_VECTOR(TO_UNSIGNED(TO_INTEGER(UNSIGNED(buffRot)) - TO_INTEGER(UNSIGNED(RELATION)),32));
+	--subIncRot <= STD_LOGIC_VECTOR(TO_UNSIGNED(TO_INTEGER(UNSIGNED(buffRot)) + TO_INTEGER(UNSIGNED(RELATION)),32));
+	nextIncRot(23 downto 0) <= subIncRot(23 downto 0);
+	nextDecRot(23 downto 0) <= subDecRot(23 downto 0);
+	async : process(subIncRot, subDecRot)
+	begin
+		if(subIncRot(31 downto 24)=x"5A")then
+			nextIncRot(31 downto 24) <= x"00";
+		else
+			nextIncRot(31 downto 24) <= subIncRot(31 downto 24);
+		end if;
+		if(subDecRot(30 downto 24)="1111111")then
+			nextDecRot(31 downto 24) <= x"59";
+		else
+			nextDecRot(31 downto 24) <= subDecRot(31 downto 24);
+		end if;	
+	end process;
 	sin:TABLE_SINUS PORT MAP(
 		H => H,
-		ANGLE => buffRot(31 downto 16),
+		ANGLE => buffRot(30 downto 15),
 		SINUS => SINUS,
 		COSINUS => COSINUS
 	);
-  
-  onHorloge : process (H)
-  begin
+	addx: ADDER_46 PORT MAP ( 
+		A    =>buffPosX,
+		B    =>("0000000000000000000000000000000"&COSINUS(14 downto 0)),
+		C    =>nextIncX,
+		COUT =>open,
+		CIN  =>'0'
+	);
+	subx: ADDER_46 PORT MAP ( 
+		A    =>buffPosX,
+		B    =>not("0000000000000000000000000000000"&COSINUS(14 downto 0)),
+		C    =>nextDecX,
+		COUT =>open,
+		CIN  =>'1'
+	);
+	--------------------------------------------------------	
+	addy: ADDER_46 PORT MAP ( 
+		A    =>buffPosY,
+		B    =>("0000000000000000000000000000000"&SINUS(14 downto 0)),
+		C    =>nextIncY,
+		COUT =>open,
+		CIN  =>'0'
+	);
+	suby: ADDER_46 PORT MAP ( 
+		A    =>buffPosY,
+		B    =>not("0000000000000000000000000000000"&SINUS(14 downto 0)),
+		C    =>nextDecY,
+		COUT =>open,
+		CIN  =>'1'
+	);
+	onHorloge : process (H)
+	begin
 		if(H'event and H='1')then
 			if(RESET='1')then
-				intPosX<=0;
-				intPosY<=0;
-				intRot <=0;
-				--lastCod1 <= CODEUR1;
-				--lastCod2 <= CODEUR2;
+				buffPosX <= (others=>'0');
+				buffPosY <= (others=>'0');
+				buffRot <= (others=>'0');
 			else
-				
-				--if( lastCod1(0)/= CODEUR1(0))then
-					if(CODEUR1(0)='1')then
-						intRot <= intRot + TO_INTEGER(UNSIGNED(RELATION));
-						if(COSINUS(15)='0')then --cosinus>0
-							intPosX <= intPosX + TO_INTEGER(UNSIGNED(COSINUS(14 downto 0)));
-						else
-							intPosX <= intPosX - TO_INTEGER(UNSIGNED(COSINUS(14 downto 0)));
-						end if;
-						if(SINUS(15)='0')then
-							intPosY <= intPosY - TO_INTEGER(UNSIGNED(SINUS(14 downto 0)));
-						else
-							intPosY <= intPosY + TO_INTEGER(UNSIGNED(SINUS(14 downto 0)));
-						end if;
-					--end if;
-					--lastCod1(0) <= CODEUR1(0);
-				--elsif(lastCod1(1)/= CODEUR1(1))then
-					elsif(CODEUR1(1)='1')then
-						intRot <= intRot - TO_INTEGER(UNSIGNED(RELATION));
-						if(COSINUS(15)='0')then --cosinus>0
-							intPosX <=
-							intPosX - TO_INTEGER(UNSIGNED(COSINUS(14 downto 0)));
-						else
-							intPosX <= intPosX + TO_INTEGER(UNSIGNED(COSINUS(14 downto 0)));
-						end if;
-						if(SINUS(15)='0')then
-							intPosY <= intPosY + TO_INTEGER(UNSIGNED(SINUS(14 downto 0)));
-						else
-							intPosY <= intPosY - TO_INTEGER(UNSIGNED(SINUS(14 downto 0)));
-						end if;
-					--end if;
-					--lastCod1(1) <= CODEUR1(1);
-				--elsif(lastCod2(0)/= CODEUR2(0))then
-					elsif(CODEUR2(0)='1')then
-						intRot <= intRot + TO_INTEGER(UNSIGNED(RELATION));
-						if(COSINUS(15)='0')then --cosinus>0, mais ici on subtraient
-							intPosX <= intPosX - TO_INTEGER(UNSIGNED(COSINUS(14 downto 0)));
-						else
-							intPosX <= intPosX + TO_INTEGER(UNSIGNED(COSINUS(14 downto 0)));
-						end if;
-						if(SINUS(15)='0')then
-							intPosY <= intPosY + TO_INTEGER(UNSIGNED(SINUS(14 downto 0)));
-						else
-							intPosY <= intPosY - TO_INTEGER(UNSIGNED(SINUS(14 downto 0)));
-						end if;
-					--end if;
-					--lastCod2(0) <= CODEUR2(0);
-				--elsif(lastCod2(1)/= CODEUR2(1))then
-					elsif(CODEUR2(1)='1')then
-						intRot <= intRot - TO_INTEGER(UNSIGNED(RELATION));
-						if(COSINUS(15)='0')then --cosinus>0
-							intPosX <= intPosX + TO_INTEGER(UNSIGNED(COSINUS(14 downto 0)));
-						else
-							intPosX <= intPosX - TO_INTEGER(UNSIGNED(COSINUS(14 downto 0)));
-						end if;
-						if(SINUS(15)='0')then
-							intPosY <= intPosY - TO_INTEGER(UNSIGNED(SINUS(14 downto 0)));
-						else
-							intPosY <= intPosY + TO_INTEGER(UNSIGNED(SINUS(14 downto 0)));
-						end if;
-					--end if;
-					--lastCod2(1) <= CODEUR2(1);
+				if(CODEUR1(0)='1')then
+					buffRot <= nextIncRot;
+					if(COSINUS(15)='0')then --cosinus>0
+						buffPosX <= nextIncX;
 					else
-						if(intRot<0)then intRot <= intRot + 360*256*256*128;
-						elsif(intRot>=360*256*256*128)then intRot <= intRot - 360*256*256*128;  end if;
+						buffPosX <= nextDecX;
 					end if;
+					if(SINUS(15)='0')then
+						buffPosY <= nextDecY;
+					else
+						buffPosY <= nextIncY;
+					end if;
+				elsif(CODEUR1(1)='1')then
+					buffRot <= nextDecRot;
+					if(COSINUS(15)='0')then --cosinus>0
+						buffPosX <= nextDecX;
+					else
+						buffPosX <= nextIncX;
+					end if;
+					if(SINUS(15)='0')then
+						buffPosY <= nextIncY;
+					else
+						buffPosY <= nextDecY;
+					end if;
+				elsif(CODEUR2(0)='1')then
+					buffRot <= nextIncRot;
+					if(COSINUS(15)='0')then --cosinus>0
+						buffPosX <= nextDecX;
+					else
+						buffPosX <= nextIncX;
+					end if;
+					if(SINUS(15)='0')then
+						buffPosY <= nextIncY;
+					else
+						buffPosY <= nextDecY;
+					end if;
+				elsif(CODEUR2(1)='1')then
+					buffRot <= nextDecRot;
+					if(COSINUS(15)='0')then --cosinus>0
+						buffPosX <= nextIncX;
+					else
+						buffPosX <= nextDecX;
+					end if;
+					if(SINUS(15)='0')then
+						buffPosY <= nextDecY;
+					else
+						buffPosY <= nextIncY;
+					end if;
+				end if;
 			end if;
 		end if;
 	end process;

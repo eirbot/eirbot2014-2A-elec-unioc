@@ -1,5 +1,5 @@
 Analysis & Synthesis report for exmachine
-Thu Jan 30 22:26:16 2014
+Thu Apr 03 09:17:55 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -34,9 +34,12 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  26. Parameter Settings for Inferred Entity Instance: COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|altsyncram:TABLE_rtl_0
  27. altsyncram Parameter Settings by Entity Instance
  28. Port Connectivity Checks: "XRAM_SLAVE:xram"
- 29. Port Connectivity Checks: "COUNTEUR_XYR_HIRES:counterxyr1"
- 30. Elapsed Time Per Partition
- 31. Analysis & Synthesis Messages
+ 29. Port Connectivity Checks: "COUNTEUR_XYR_HIRES:counterxyr1|ADDER_46:suby"
+ 30. Port Connectivity Checks: "COUNTEUR_XYR_HIRES:counterxyr1|ADDER_46:addy"
+ 31. Port Connectivity Checks: "COUNTEUR_XYR_HIRES:counterxyr1|ADDER_46:subx"
+ 32. Port Connectivity Checks: "COUNTEUR_XYR_HIRES:counterxyr1|ADDER_46:addx"
+ 33. Elapsed Time Per Partition
+ 34. Analysis & Synthesis Messages
 
 
 
@@ -62,15 +65,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jan 30 22:26:16 2014           ;
+; Analysis & Synthesis Status        ; Successful - Thu Apr 03 09:17:55 2014           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; exmachine                                       ;
 ; Top-level Entity Name              ; TOP_UNIOC                                       ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 3,542                                           ;
-;     Total combinational functions  ; 2,953                                           ;
-;     Dedicated logic registers      ; 1,656                                           ;
-; Total registers                    ; 1656                                            ;
+; Total logic elements               ; 3,657                                           ;
+;     Total combinational functions  ; 3,040                                           ;
+;     Dedicated logic registers      ; 1,680                                           ;
+; Total registers                    ; 1680                                            ;
 ; Total pins                         ; 52                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 45,248                                          ;
@@ -184,6 +187,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +------------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path               ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                        ; Library ;
 +------------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------------------+---------+
+; ADDER_46.vhd                                   ; yes             ; User VHDL File                                        ; C:/Users/Makara/Documents/GitHub/elec_2014/exmachine/ADDER_46.vhd                                   ;         ;
 ; UART_TX_FIFO.vhd                               ; yes             ; User VHDL File                                        ; C:/Users/Makara/Documents/GitHub/elec_2014/exmachine/UART_TX_FIFO.vhd                               ;         ;
 ; UART_TX.vhd                                    ; yes             ; User VHDL File                                        ; C:/Users/Makara/Documents/GitHub/elec_2014/exmachine/UART_TX.vhd                                    ;         ;
 ; UART_RX_FIFO.vhd                               ; yes             ; User VHDL File                                        ; C:/Users/Makara/Documents/GitHub/elec_2014/exmachine/UART_RX_FIFO.vhd                               ;         ;
@@ -217,29 +221,29 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 3,542 ;
+; Estimated Total logic elements              ; 3,657 ;
 ;                                             ;       ;
-; Total combinational functions               ; 2953  ;
+; Total combinational functions               ; 3040  ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 1381  ;
-;     -- 3 input functions                    ; 653   ;
-;     -- <=2 input functions                  ; 919   ;
+;     -- 4 input functions                    ; 1532  ;
+;     -- 3 input functions                    ; 565   ;
+;     -- <=2 input functions                  ; 943   ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 2140  ;
-;     -- arithmetic mode                      ; 813   ;
+;     -- normal mode                          ; 2291  ;
+;     -- arithmetic mode                      ; 749   ;
 ;                                             ;       ;
-; Total registers                             ; 1656  ;
-;     -- Dedicated logic registers            ; 1656  ;
+; Total registers                             ; 1680  ;
+;     -- Dedicated logic registers            ; 1680  ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
 ; I/O pins                                    ; 52    ;
 ; Total memory bits                           ; 45248 ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ; Maximum fan-out node                        ; H     ;
-; Maximum fan-out                             ; 1700  ;
-; Total fan-out                               ; 14836 ;
-; Average fan-out                             ; 3.15  ;
+; Maximum fan-out                             ; 1724  ;
+; Total fan-out                               ; 15474 ;
+; Average fan-out                             ; 3.21  ;
 +---------------------------------------------+-------+
 
 
@@ -248,7 +252,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                             ; Library Name ;
 +----------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------+--------------+
-; |TOP_UNIOC                                   ; 2953 (534)        ; 1656 (349)   ; 45248       ; 0            ; 0       ; 0         ; 52   ; 0            ; |TOP_UNIOC                                                                                                      ; work         ;
+; |TOP_UNIOC                                   ; 3040 (605)        ; 1680 (403)   ; 45248       ; 0            ; 0       ; 0         ; 52   ; 0            ; |TOP_UNIOC                                                                                                      ; work         ;
 ;    |COMPTEUR_32:com1|                        ; 65 (65)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COMPTEUR_32:com1                                                                                     ; work         ;
 ;    |COMPTEUR_32:com2|                        ; 65 (65)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COMPTEUR_32:com2                                                                                     ; work         ;
 ;    |COMPTEUR_32:com3|                        ; 65 (65)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COMPTEUR_32:com3                                                                                     ; work         ;
@@ -257,27 +261,31 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;    |COUNTER_ROTATIF:counterrot2|             ; 28 (28)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTER_ROTATIF:counterrot2                                                                          ; work         ;
 ;    |COUNTER_ROTATIF:counterrot3|             ; 28 (28)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTER_ROTATIF:counterrot3                                                                          ; work         ;
 ;    |COUNTER_ROTATIF:counterrot4|             ; 28 (28)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTER_ROTATIF:counterrot4                                                                          ; work         ;
-;    |COUNTEUR_XYR_HIRES:counterxyr1|          ; 293 (286)         ; 96 (96)      ; 43200       ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1                                                                       ; work         ;
+;    |COUNTEUR_XYR_HIRES:counterxyr1|          ; 412 (280)         ; 116 (116)    ; 43200       ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1                                                                       ; work         ;
+;       |ADDER_46:addx|                        ; 28 (28)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|ADDER_46:addx                                                         ; work         ;
+;       |ADDER_46:addy|                        ; 30 (30)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|ADDER_46:addy                                                         ; work         ;
+;       |ADDER_46:subx|                        ; 26 (26)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|ADDER_46:subx                                                         ; work         ;
+;       |ADDER_46:suby|                        ; 41 (41)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|ADDER_46:suby                                                         ; work         ;
 ;       |TABLE_SINUS:sin|                      ; 7 (7)             ; 0 (0)        ; 43200       ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin                                                       ; work         ;
 ;          |altsyncram:TABLE_rtl_0|            ; 0 (0)             ; 0 (0)        ; 43200       ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|altsyncram:TABLE_rtl_0                                ; work         ;
 ;             |altsyncram_pdp1:auto_generated| ; 0 (0)             ; 0 (0)        ; 43200       ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|altsyncram:TABLE_rtl_0|altsyncram_pdp1:auto_generated ; work         ;
 ;    |PWM_GEN:moteurs|                         ; 191 (191)         ; 82 (82)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|PWM_GEN:moteurs                                                                                      ; work         ;
-;    |SERVO_SERIAL:servos|                     ; 495 (495)         ; 325 (325)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|SERVO_SERIAL:servos                                                                                  ; work         ;
+;    |SERVO_SERIAL:servos|                     ; 479 (479)         ; 325 (325)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|SERVO_SERIAL:servos                                                                                  ; work         ;
 ;    |TIME_GENERATOR:timer|                    ; 156 (156)         ; 106 (106)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|TIME_GENERATOR:timer                                                                                 ; work         ;
-;    |UART_RX_FIFO:rx1|                        ; 236 (126)         ; 130 (79)     ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx1                                                                                     ; work         ;
-;       |UART_RX:uart|                         ; 110 (110)         ; 51 (51)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart                                                                        ; work         ;
+;    |UART_RX_FIFO:rx1|                        ; 189 (57)          ; 105 (53)     ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx1                                                                                     ; work         ;
+;       |UART_RX:uart|                         ; 132 (132)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart                                                                        ; work         ;
 ;       |altsyncram:fifo_rtl_0|                ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx1|altsyncram:fifo_rtl_0                                                               ; work         ;
 ;          |altsyncram_m5c1:auto_generated|    ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx1|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated                                ; work         ;
-;    |UART_RX_FIFO:rx2|                        ; 256 (146)         ; 130 (79)     ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx2                                                                                     ; work         ;
-;       |UART_RX:uart|                         ; 110 (110)         ; 51 (51)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart                                                                        ; work         ;
+;    |UART_RX_FIFO:rx2|                        ; 210 (78)          ; 105 (53)     ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx2                                                                                     ; work         ;
+;       |UART_RX:uart|                         ; 132 (132)         ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart                                                                        ; work         ;
 ;       |altsyncram:fifo_rtl_0|                ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx2|altsyncram:fifo_rtl_0                                                               ; work         ;
 ;          |altsyncram_m5c1:auto_generated|    ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_RX_FIFO:rx2|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated                                ; work         ;
-;    |UART_TX_FIFO:tx1|                        ; 200 (70)          ; 105 (54)     ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx1                                                                                     ; work         ;
-;       |UART_TX:uart|                         ; 130 (130)         ; 51 (51)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx1|UART_TX:uart                                                                        ; work         ;
+;    |UART_TX_FIFO:tx1|                        ; 203 (70)          ; 105 (54)     ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx1                                                                                     ; work         ;
+;       |UART_TX:uart|                         ; 133 (133)         ; 51 (51)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx1|UART_TX:uart                                                                        ; work         ;
 ;       |altsyncram:fifo_rtl_0|                ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx1|altsyncram:fifo_rtl_0                                                               ; work         ;
 ;          |altsyncram_m5c1:auto_generated|    ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx1|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated                                ; work         ;
-;    |UART_TX_FIFO:tx2|                        ; 200 (70)          ; 105 (54)     ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx2                                                                                     ; work         ;
-;       |UART_TX:uart|                         ; 130 (130)         ; 51 (51)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx2|UART_TX:uart                                                                        ; work         ;
+;    |UART_TX_FIFO:tx2|                        ; 203 (70)          ; 105 (54)     ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx2                                                                                     ; work         ;
+;       |UART_TX:uart|                         ; 133 (133)         ; 51 (51)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx2|UART_TX:uart                                                                        ; work         ;
 ;       |altsyncram:fifo_rtl_0|                ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx2|altsyncram:fifo_rtl_0                                                               ; work         ;
 ;          |altsyncram_m5c1:auto_generated|    ; 0 (0)             ; 0 (0)        ; 512         ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|UART_TX_FIFO:tx2|altsyncram:fifo_rtl_0|altsyncram_m5c1:auto_generated                                ; work         ;
 ;    |XRAM_SLAVE:xram|                         ; 20 (20)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UNIOC|XRAM_SLAVE:xram                                                                                      ; work         ;
@@ -316,108 +324,139 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+---------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                      ;
-+----------------------------------------------------------------+----------------------------------------+
-; Register name                                                  ; Reason for Removal                     ;
-+----------------------------------------------------------------+----------------------------------------+
-; COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|COSINUS[12..15] ; Stuck at GND due to stuck port data_in ;
-; COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|SINUS[12..15]   ; Stuck at GND due to stuck port data_in ;
-; UART_TX_FIFO:tx1|fifo_rtl_0_bypass[12]                         ; Merged with UART_TX_FIFO:tx1|rpos[5]   ;
-; UART_TX_FIFO:tx1|fifo_rtl_0_bypass[10]                         ; Merged with UART_TX_FIFO:tx1|rpos[4]   ;
-; UART_TX_FIFO:tx1|fifo_rtl_0_bypass[8]                          ; Merged with UART_TX_FIFO:tx1|rpos[3]   ;
-; UART_TX_FIFO:tx1|fifo_rtl_0_bypass[6]                          ; Merged with UART_TX_FIFO:tx1|rpos[2]   ;
-; UART_TX_FIFO:tx1|fifo_rtl_0_bypass[4]                          ; Merged with UART_TX_FIFO:tx1|rpos[1]   ;
-; UART_TX_FIFO:tx1|fifo_rtl_0_bypass[2]                          ; Merged with UART_TX_FIFO:tx1|rpos[0]   ;
-; UART_TX_FIFO:tx2|fifo_rtl_0_bypass[12]                         ; Merged with UART_TX_FIFO:tx2|rpos[5]   ;
-; UART_TX_FIFO:tx2|fifo_rtl_0_bypass[10]                         ; Merged with UART_TX_FIFO:tx2|rpos[4]   ;
-; UART_TX_FIFO:tx2|fifo_rtl_0_bypass[8]                          ; Merged with UART_TX_FIFO:tx2|rpos[3]   ;
-; UART_TX_FIFO:tx2|fifo_rtl_0_bypass[6]                          ; Merged with UART_TX_FIFO:tx2|rpos[2]   ;
-; UART_TX_FIFO:tx2|fifo_rtl_0_bypass[4]                          ; Merged with UART_TX_FIFO:tx2|rpos[1]   ;
-; UART_TX_FIFO:tx2|fifo_rtl_0_bypass[2]                          ; Merged with UART_TX_FIFO:tx2|rpos[0]   ;
-; UART_RX_FIFO:rx1|fifo_rtl_0_bypass[6]                          ; Merged with UART_RX_FIFO:rx1|rpos[2]   ;
-; UART_RX_FIFO:rx1|fifo_rtl_0_bypass[4]                          ; Merged with UART_RX_FIFO:rx1|rpos[1]   ;
-; UART_RX_FIFO:rx1|fifo_rtl_0_bypass[2]                          ; Merged with UART_RX_FIFO:rx1|rpos[0]   ;
-; UART_RX_FIFO:rx1|fifo_rtl_0_bypass[8]                          ; Merged with UART_RX_FIFO:rx1|rpos[3]   ;
-; UART_RX_FIFO:rx1|fifo_rtl_0_bypass[10]                         ; Merged with UART_RX_FIFO:rx1|rpos[4]   ;
-; UART_RX_FIFO:rx1|fifo_rtl_0_bypass[12]                         ; Merged with UART_RX_FIFO:rx1|rpos[5]   ;
-; UART_RX_FIFO:rx2|fifo_rtl_0_bypass[6]                          ; Merged with UART_RX_FIFO:rx2|rpos[2]   ;
-; UART_RX_FIFO:rx2|fifo_rtl_0_bypass[4]                          ; Merged with UART_RX_FIFO:rx2|rpos[1]   ;
-; UART_RX_FIFO:rx2|fifo_rtl_0_bypass[2]                          ; Merged with UART_RX_FIFO:rx2|rpos[0]   ;
-; UART_RX_FIFO:rx2|fifo_rtl_0_bypass[8]                          ; Merged with UART_RX_FIFO:rx2|rpos[3]   ;
-; UART_RX_FIFO:rx2|fifo_rtl_0_bypass[10]                         ; Merged with UART_RX_FIFO:rx2|rpos[4]   ;
-; UART_RX_FIFO:rx2|fifo_rtl_0_bypass[12]                         ; Merged with UART_RX_FIFO:rx2|rpos[5]   ;
-; UART_TX_FIFO:tx1|rpos[6..31]                                   ; Lost fanout                            ;
-; UART_TX_FIFO:tx2|rpos[6..31]                                   ; Lost fanout                            ;
-; SERVO_SERIAL:servos|com0[13..31]                               ; Lost fanout                            ;
-; SERVO_SERIAL:servos|com1[13..31]                               ; Lost fanout                            ;
-; SERVO_SERIAL:servos|com2[13..31]                               ; Lost fanout                            ;
-; SERVO_SERIAL:servos|com3[13..31]                               ; Lost fanout                            ;
-; TIME_GENERATOR:timer|int_sec[10..31]                           ; Lost fanout                            ;
-; Total Number of Removed Registers = 182                        ;                                        ;
-+----------------------------------------------------------------+----------------------------------------+
++-------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                    ;
++--------------------------------------------------------------+----------------------------------------+
+; Register name                                                ; Reason for Removal                     ;
++--------------------------------------------------------------+----------------------------------------+
+; COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|COSINUS[0..3] ; Stuck at GND due to stuck port data_in ;
+; COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|SINUS[0..3]   ; Stuck at GND due to stuck port data_in ;
+; COUNTEUR_XYR_HIRES:counterxyr1|buffPosY[0..3]                ; Lost fanout                            ;
+; COUNTEUR_XYR_HIRES:counterxyr1|buffPosX[0..3]                ; Lost fanout                            ;
+; UART_TX_FIFO:tx1|fifo_rtl_0_bypass[12]                       ; Merged with UART_TX_FIFO:tx1|rpos[5]   ;
+; UART_TX_FIFO:tx1|fifo_rtl_0_bypass[10]                       ; Merged with UART_TX_FIFO:tx1|rpos[4]   ;
+; UART_TX_FIFO:tx1|fifo_rtl_0_bypass[8]                        ; Merged with UART_TX_FIFO:tx1|rpos[3]   ;
+; UART_TX_FIFO:tx1|fifo_rtl_0_bypass[6]                        ; Merged with UART_TX_FIFO:tx1|rpos[2]   ;
+; UART_TX_FIFO:tx1|fifo_rtl_0_bypass[4]                        ; Merged with UART_TX_FIFO:tx1|rpos[1]   ;
+; UART_TX_FIFO:tx1|fifo_rtl_0_bypass[2]                        ; Merged with UART_TX_FIFO:tx1|rpos[0]   ;
+; UART_TX_FIFO:tx2|fifo_rtl_0_bypass[12]                       ; Merged with UART_TX_FIFO:tx2|rpos[5]   ;
+; UART_TX_FIFO:tx2|fifo_rtl_0_bypass[10]                       ; Merged with UART_TX_FIFO:tx2|rpos[4]   ;
+; UART_TX_FIFO:tx2|fifo_rtl_0_bypass[8]                        ; Merged with UART_TX_FIFO:tx2|rpos[3]   ;
+; UART_TX_FIFO:tx2|fifo_rtl_0_bypass[6]                        ; Merged with UART_TX_FIFO:tx2|rpos[2]   ;
+; UART_TX_FIFO:tx2|fifo_rtl_0_bypass[4]                        ; Merged with UART_TX_FIFO:tx2|rpos[1]   ;
+; UART_TX_FIFO:tx2|fifo_rtl_0_bypass[2]                        ; Merged with UART_TX_FIFO:tx2|rpos[0]   ;
+; UART_RX_FIFO:rx1|fifo_rtl_0_bypass[12]                       ; Merged with UART_RX_FIFO:rx1|rpos[5]   ;
+; UART_RX_FIFO:rx1|fifo_rtl_0_bypass[10]                       ; Merged with UART_RX_FIFO:rx1|rpos[4]   ;
+; UART_RX_FIFO:rx1|fifo_rtl_0_bypass[8]                        ; Merged with UART_RX_FIFO:rx1|rpos[3]   ;
+; UART_RX_FIFO:rx1|fifo_rtl_0_bypass[6]                        ; Merged with UART_RX_FIFO:rx1|rpos[2]   ;
+; UART_RX_FIFO:rx1|fifo_rtl_0_bypass[4]                        ; Merged with UART_RX_FIFO:rx1|rpos[1]   ;
+; UART_RX_FIFO:rx1|fifo_rtl_0_bypass[2]                        ; Merged with UART_RX_FIFO:rx1|rpos[0]   ;
+; UART_RX_FIFO:rx2|fifo_rtl_0_bypass[12]                       ; Merged with UART_RX_FIFO:rx2|rpos[5]   ;
+; UART_RX_FIFO:rx2|fifo_rtl_0_bypass[10]                       ; Merged with UART_RX_FIFO:rx2|rpos[4]   ;
+; UART_RX_FIFO:rx2|fifo_rtl_0_bypass[8]                        ; Merged with UART_RX_FIFO:rx2|rpos[3]   ;
+; UART_RX_FIFO:rx2|fifo_rtl_0_bypass[6]                        ; Merged with UART_RX_FIFO:rx2|rpos[2]   ;
+; UART_RX_FIFO:rx2|fifo_rtl_0_bypass[4]                        ; Merged with UART_RX_FIFO:rx2|rpos[1]   ;
+; UART_RX_FIFO:rx2|fifo_rtl_0_bypass[2]                        ; Merged with UART_RX_FIFO:rx2|rpos[0]   ;
+; UART_TX_FIFO:tx1|rpos[6..31]                                 ; Lost fanout                            ;
+; UART_TX_FIFO:tx2|rpos[6..31]                                 ; Lost fanout                            ;
+; UART_RX_FIFO:rx1|rpos[6..31]                                 ; Lost fanout                            ;
+; UART_RX_FIFO:rx2|rpos[6..31]                                 ; Lost fanout                            ;
+; SERVO_SERIAL:servos|com0[13..31]                             ; Lost fanout                            ;
+; SERVO_SERIAL:servos|com1[13..31]                             ; Lost fanout                            ;
+; SERVO_SERIAL:servos|com2[13..31]                             ; Lost fanout                            ;
+; SERVO_SERIAL:servos|com3[13..31]                             ; Lost fanout                            ;
+; TIME_GENERATOR:timer|int_sec[10..31]                         ; Lost fanout                            ;
+; Total Number of Removed Registers = 242                      ;                                        ;
++--------------------------------------------------------------+----------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                          ;
-+------------------------------+--------------------+----------------------------------------------------------------------------------+
-; Register name                ; Reason for Removal ; Registers Removed due to This Register                                           ;
-+------------------------------+--------------------+----------------------------------------------------------------------------------+
-; UART_TX_FIFO:tx1|rpos[31]    ; Lost Fanouts       ; UART_TX_FIFO:tx1|rpos[30], UART_TX_FIFO:tx1|rpos[29], UART_TX_FIFO:tx1|rpos[28], ;
-;                              ;                    ; UART_TX_FIFO:tx1|rpos[27], UART_TX_FIFO:tx1|rpos[26], UART_TX_FIFO:tx1|rpos[25], ;
-;                              ;                    ; UART_TX_FIFO:tx1|rpos[24], UART_TX_FIFO:tx1|rpos[23], UART_TX_FIFO:tx1|rpos[22], ;
-;                              ;                    ; UART_TX_FIFO:tx1|rpos[21], UART_TX_FIFO:tx1|rpos[20], UART_TX_FIFO:tx1|rpos[19], ;
-;                              ;                    ; UART_TX_FIFO:tx1|rpos[18], UART_TX_FIFO:tx1|rpos[17], UART_TX_FIFO:tx1|rpos[16], ;
-;                              ;                    ; UART_TX_FIFO:tx1|rpos[15], UART_TX_FIFO:tx1|rpos[14], UART_TX_FIFO:tx1|rpos[13], ;
-;                              ;                    ; UART_TX_FIFO:tx1|rpos[12], UART_TX_FIFO:tx1|rpos[11], UART_TX_FIFO:tx1|rpos[10], ;
-;                              ;                    ; UART_TX_FIFO:tx1|rpos[9], UART_TX_FIFO:tx1|rpos[8], UART_TX_FIFO:tx1|rpos[7],    ;
-;                              ;                    ; UART_TX_FIFO:tx1|rpos[6]                                                         ;
-; UART_TX_FIFO:tx2|rpos[31]    ; Lost Fanouts       ; UART_TX_FIFO:tx2|rpos[30], UART_TX_FIFO:tx2|rpos[29], UART_TX_FIFO:tx2|rpos[28], ;
-;                              ;                    ; UART_TX_FIFO:tx2|rpos[27], UART_TX_FIFO:tx2|rpos[26], UART_TX_FIFO:tx2|rpos[25], ;
-;                              ;                    ; UART_TX_FIFO:tx2|rpos[24], UART_TX_FIFO:tx2|rpos[23], UART_TX_FIFO:tx2|rpos[22], ;
-;                              ;                    ; UART_TX_FIFO:tx2|rpos[21], UART_TX_FIFO:tx2|rpos[20], UART_TX_FIFO:tx2|rpos[19], ;
-;                              ;                    ; UART_TX_FIFO:tx2|rpos[18], UART_TX_FIFO:tx2|rpos[17], UART_TX_FIFO:tx2|rpos[16], ;
-;                              ;                    ; UART_TX_FIFO:tx2|rpos[15], UART_TX_FIFO:tx2|rpos[14], UART_TX_FIFO:tx2|rpos[13], ;
-;                              ;                    ; UART_TX_FIFO:tx2|rpos[12], UART_TX_FIFO:tx2|rpos[11], UART_TX_FIFO:tx2|rpos[10], ;
-;                              ;                    ; UART_TX_FIFO:tx2|rpos[9], UART_TX_FIFO:tx2|rpos[8], UART_TX_FIFO:tx2|rpos[7],    ;
-;                              ;                    ; UART_TX_FIFO:tx2|rpos[6]                                                         ;
-; SERVO_SERIAL:servos|com0[31] ; Lost Fanouts       ; SERVO_SERIAL:servos|com0[30], SERVO_SERIAL:servos|com0[29],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com0[28], SERVO_SERIAL:servos|com0[27],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com0[26], SERVO_SERIAL:servos|com0[25],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com0[24], SERVO_SERIAL:servos|com0[23],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com0[22], SERVO_SERIAL:servos|com0[21],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com0[20], SERVO_SERIAL:servos|com0[19],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com0[18], SERVO_SERIAL:servos|com0[17],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com0[16], SERVO_SERIAL:servos|com0[15],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com0[14], SERVO_SERIAL:servos|com0[13]                       ;
-; SERVO_SERIAL:servos|com1[31] ; Lost Fanouts       ; SERVO_SERIAL:servos|com1[30], SERVO_SERIAL:servos|com1[29],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com1[28], SERVO_SERIAL:servos|com1[27],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com1[26], SERVO_SERIAL:servos|com1[25],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com1[24], SERVO_SERIAL:servos|com1[23],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com1[22], SERVO_SERIAL:servos|com1[21],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com1[20], SERVO_SERIAL:servos|com1[19],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com1[18], SERVO_SERIAL:servos|com1[17],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com1[16], SERVO_SERIAL:servos|com1[15],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com1[14], SERVO_SERIAL:servos|com1[13]                       ;
-; SERVO_SERIAL:servos|com2[31] ; Lost Fanouts       ; SERVO_SERIAL:servos|com2[30], SERVO_SERIAL:servos|com2[29],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com2[28], SERVO_SERIAL:servos|com2[27],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com2[26], SERVO_SERIAL:servos|com2[25],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com2[24], SERVO_SERIAL:servos|com2[23],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com2[22], SERVO_SERIAL:servos|com2[21],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com2[20], SERVO_SERIAL:servos|com2[19],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com2[18], SERVO_SERIAL:servos|com2[17],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com2[16], SERVO_SERIAL:servos|com2[15],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com2[14], SERVO_SERIAL:servos|com2[13]                       ;
-; SERVO_SERIAL:servos|com3[31] ; Lost Fanouts       ; SERVO_SERIAL:servos|com3[30], SERVO_SERIAL:servos|com3[29],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com3[28], SERVO_SERIAL:servos|com3[27],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com3[26], SERVO_SERIAL:servos|com3[25],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com3[24], SERVO_SERIAL:servos|com3[23],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com3[22], SERVO_SERIAL:servos|com3[21],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com3[20], SERVO_SERIAL:servos|com3[19],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com3[18], SERVO_SERIAL:servos|com3[17],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com3[16], SERVO_SERIAL:servos|com3[15],                      ;
-;                              ;                    ; SERVO_SERIAL:servos|com3[14], SERVO_SERIAL:servos|com3[13]                       ;
-+------------------------------+--------------------+----------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                              ;
++-----------------------------------------------------------+---------------------------+----------------------------------------------------------------------------------+
+; Register name                                             ; Reason for Removal        ; Registers Removed due to This Register                                           ;
++-----------------------------------------------------------+---------------------------+----------------------------------------------------------------------------------+
+; UART_TX_FIFO:tx1|rpos[31]                                 ; Lost Fanouts              ; UART_TX_FIFO:tx1|rpos[30], UART_TX_FIFO:tx1|rpos[29], UART_TX_FIFO:tx1|rpos[28], ;
+;                                                           ;                           ; UART_TX_FIFO:tx1|rpos[27], UART_TX_FIFO:tx1|rpos[26], UART_TX_FIFO:tx1|rpos[25], ;
+;                                                           ;                           ; UART_TX_FIFO:tx1|rpos[24], UART_TX_FIFO:tx1|rpos[23], UART_TX_FIFO:tx1|rpos[22], ;
+;                                                           ;                           ; UART_TX_FIFO:tx1|rpos[21], UART_TX_FIFO:tx1|rpos[20], UART_TX_FIFO:tx1|rpos[19], ;
+;                                                           ;                           ; UART_TX_FIFO:tx1|rpos[18], UART_TX_FIFO:tx1|rpos[17], UART_TX_FIFO:tx1|rpos[16], ;
+;                                                           ;                           ; UART_TX_FIFO:tx1|rpos[15], UART_TX_FIFO:tx1|rpos[14], UART_TX_FIFO:tx1|rpos[13], ;
+;                                                           ;                           ; UART_TX_FIFO:tx1|rpos[12], UART_TX_FIFO:tx1|rpos[11], UART_TX_FIFO:tx1|rpos[10], ;
+;                                                           ;                           ; UART_TX_FIFO:tx1|rpos[9], UART_TX_FIFO:tx1|rpos[8], UART_TX_FIFO:tx1|rpos[7],    ;
+;                                                           ;                           ; UART_TX_FIFO:tx1|rpos[6]                                                         ;
+; UART_TX_FIFO:tx2|rpos[31]                                 ; Lost Fanouts              ; UART_TX_FIFO:tx2|rpos[30], UART_TX_FIFO:tx2|rpos[29], UART_TX_FIFO:tx2|rpos[28], ;
+;                                                           ;                           ; UART_TX_FIFO:tx2|rpos[27], UART_TX_FIFO:tx2|rpos[26], UART_TX_FIFO:tx2|rpos[25], ;
+;                                                           ;                           ; UART_TX_FIFO:tx2|rpos[24], UART_TX_FIFO:tx2|rpos[23], UART_TX_FIFO:tx2|rpos[22], ;
+;                                                           ;                           ; UART_TX_FIFO:tx2|rpos[21], UART_TX_FIFO:tx2|rpos[20], UART_TX_FIFO:tx2|rpos[19], ;
+;                                                           ;                           ; UART_TX_FIFO:tx2|rpos[18], UART_TX_FIFO:tx2|rpos[17], UART_TX_FIFO:tx2|rpos[16], ;
+;                                                           ;                           ; UART_TX_FIFO:tx2|rpos[15], UART_TX_FIFO:tx2|rpos[14], UART_TX_FIFO:tx2|rpos[13], ;
+;                                                           ;                           ; UART_TX_FIFO:tx2|rpos[12], UART_TX_FIFO:tx2|rpos[11], UART_TX_FIFO:tx2|rpos[10], ;
+;                                                           ;                           ; UART_TX_FIFO:tx2|rpos[9], UART_TX_FIFO:tx2|rpos[8], UART_TX_FIFO:tx2|rpos[7],    ;
+;                                                           ;                           ; UART_TX_FIFO:tx2|rpos[6]                                                         ;
+; UART_RX_FIFO:rx1|rpos[31]                                 ; Lost Fanouts              ; UART_RX_FIFO:rx1|rpos[30], UART_RX_FIFO:rx1|rpos[29], UART_RX_FIFO:rx1|rpos[28], ;
+;                                                           ;                           ; UART_RX_FIFO:rx1|rpos[27], UART_RX_FIFO:rx1|rpos[26], UART_RX_FIFO:rx1|rpos[25], ;
+;                                                           ;                           ; UART_RX_FIFO:rx1|rpos[24], UART_RX_FIFO:rx1|rpos[23], UART_RX_FIFO:rx1|rpos[22], ;
+;                                                           ;                           ; UART_RX_FIFO:rx1|rpos[21], UART_RX_FIFO:rx1|rpos[20], UART_RX_FIFO:rx1|rpos[19], ;
+;                                                           ;                           ; UART_RX_FIFO:rx1|rpos[18], UART_RX_FIFO:rx1|rpos[17], UART_RX_FIFO:rx1|rpos[16], ;
+;                                                           ;                           ; UART_RX_FIFO:rx1|rpos[15], UART_RX_FIFO:rx1|rpos[14], UART_RX_FIFO:rx1|rpos[13], ;
+;                                                           ;                           ; UART_RX_FIFO:rx1|rpos[12], UART_RX_FIFO:rx1|rpos[11], UART_RX_FIFO:rx1|rpos[10], ;
+;                                                           ;                           ; UART_RX_FIFO:rx1|rpos[9], UART_RX_FIFO:rx1|rpos[8], UART_RX_FIFO:rx1|rpos[7],    ;
+;                                                           ;                           ; UART_RX_FIFO:rx1|rpos[6]                                                         ;
+; UART_RX_FIFO:rx2|rpos[31]                                 ; Lost Fanouts              ; UART_RX_FIFO:rx2|rpos[30], UART_RX_FIFO:rx2|rpos[29], UART_RX_FIFO:rx2|rpos[28], ;
+;                                                           ;                           ; UART_RX_FIFO:rx2|rpos[27], UART_RX_FIFO:rx2|rpos[26], UART_RX_FIFO:rx2|rpos[25], ;
+;                                                           ;                           ; UART_RX_FIFO:rx2|rpos[24], UART_RX_FIFO:rx2|rpos[23], UART_RX_FIFO:rx2|rpos[22], ;
+;                                                           ;                           ; UART_RX_FIFO:rx2|rpos[21], UART_RX_FIFO:rx2|rpos[20], UART_RX_FIFO:rx2|rpos[19], ;
+;                                                           ;                           ; UART_RX_FIFO:rx2|rpos[18], UART_RX_FIFO:rx2|rpos[17], UART_RX_FIFO:rx2|rpos[16], ;
+;                                                           ;                           ; UART_RX_FIFO:rx2|rpos[15], UART_RX_FIFO:rx2|rpos[14], UART_RX_FIFO:rx2|rpos[13], ;
+;                                                           ;                           ; UART_RX_FIFO:rx2|rpos[12], UART_RX_FIFO:rx2|rpos[11], UART_RX_FIFO:rx2|rpos[10], ;
+;                                                           ;                           ; UART_RX_FIFO:rx2|rpos[9], UART_RX_FIFO:rx2|rpos[8], UART_RX_FIFO:rx2|rpos[7],    ;
+;                                                           ;                           ; UART_RX_FIFO:rx2|rpos[6]                                                         ;
+; SERVO_SERIAL:servos|com0[31]                              ; Lost Fanouts              ; SERVO_SERIAL:servos|com0[30], SERVO_SERIAL:servos|com0[29],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com0[28], SERVO_SERIAL:servos|com0[27],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com0[26], SERVO_SERIAL:servos|com0[25],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com0[24], SERVO_SERIAL:servos|com0[23],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com0[22], SERVO_SERIAL:servos|com0[21],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com0[20], SERVO_SERIAL:servos|com0[19],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com0[18], SERVO_SERIAL:servos|com0[17],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com0[16], SERVO_SERIAL:servos|com0[15],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com0[14], SERVO_SERIAL:servos|com0[13]                       ;
+; SERVO_SERIAL:servos|com1[31]                              ; Lost Fanouts              ; SERVO_SERIAL:servos|com1[30], SERVO_SERIAL:servos|com1[29],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com1[28], SERVO_SERIAL:servos|com1[27],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com1[26], SERVO_SERIAL:servos|com1[25],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com1[24], SERVO_SERIAL:servos|com1[23],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com1[22], SERVO_SERIAL:servos|com1[21],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com1[20], SERVO_SERIAL:servos|com1[19],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com1[18], SERVO_SERIAL:servos|com1[17],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com1[16], SERVO_SERIAL:servos|com1[15],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com1[14], SERVO_SERIAL:servos|com1[13]                       ;
+; SERVO_SERIAL:servos|com2[31]                              ; Lost Fanouts              ; SERVO_SERIAL:servos|com2[30], SERVO_SERIAL:servos|com2[29],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com2[28], SERVO_SERIAL:servos|com2[27],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com2[26], SERVO_SERIAL:servos|com2[25],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com2[24], SERVO_SERIAL:servos|com2[23],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com2[22], SERVO_SERIAL:servos|com2[21],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com2[20], SERVO_SERIAL:servos|com2[19],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com2[18], SERVO_SERIAL:servos|com2[17],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com2[16], SERVO_SERIAL:servos|com2[15],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com2[14], SERVO_SERIAL:servos|com2[13]                       ;
+; SERVO_SERIAL:servos|com3[31]                              ; Lost Fanouts              ; SERVO_SERIAL:servos|com3[30], SERVO_SERIAL:servos|com3[29],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com3[28], SERVO_SERIAL:servos|com3[27],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com3[26], SERVO_SERIAL:servos|com3[25],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com3[24], SERVO_SERIAL:servos|com3[23],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com3[22], SERVO_SERIAL:servos|com3[21],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com3[20], SERVO_SERIAL:servos|com3[19],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com3[18], SERVO_SERIAL:servos|com3[17],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com3[16], SERVO_SERIAL:servos|com3[15],                      ;
+;                                                           ;                           ; SERVO_SERIAL:servos|com3[14], SERVO_SERIAL:servos|com3[13]                       ;
+; COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|SINUS[0]   ; Stuck at GND              ; COUNTEUR_XYR_HIRES:counterxyr1|buffPosY[0],                                      ;
+;                                                           ; due to stuck port data_in ; COUNTEUR_XYR_HIRES:counterxyr1|buffPosY[1],                                      ;
+;                                                           ;                           ; COUNTEUR_XYR_HIRES:counterxyr1|buffPosY[2],                                      ;
+;                                                           ;                           ; COUNTEUR_XYR_HIRES:counterxyr1|buffPosY[3]                                       ;
+; COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|COSINUS[2] ; Stuck at GND              ; COUNTEUR_XYR_HIRES:counterxyr1|buffPosX[1],                                      ;
+;                                                           ; due to stuck port data_in ; COUNTEUR_XYR_HIRES:counterxyr1|buffPosX[2],                                      ;
+;                                                           ;                           ; COUNTEUR_XYR_HIRES:counterxyr1|buffPosX[3]                                       ;
+; COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|COSINUS[1] ; Stuck at GND              ; COUNTEUR_XYR_HIRES:counterxyr1|buffPosX[0]                                       ;
+;                                                           ; due to stuck port data_in ;                                                                                  ;
++-----------------------------------------------------------+---------------------------+----------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -425,57 +464,51 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1656  ;
-; Number of registers using Synchronous Clear  ; 92    ;
-; Number of registers using Synchronous Load   ; 6     ;
+; Total registers                              ; 1680  ;
+; Number of registers using Synchronous Clear  ; 294   ;
+; Number of registers using Synchronous Load   ; 2     ;
 ; Number of registers using Asynchronous Clear ; 106   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1261  ;
+; Number of registers using Clock Enable       ; 1268  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------+
-; Inverted Register Statistics                         ;
-+--------------------------------------------+---------+
-; Inverted Register                          ; Fan out ;
-+--------------------------------------------+---------+
-; PWM_GEN:moteurs|diviseur[0]                ; 2       ;
-; PWM_GEN:moteurs|diviseur[31]               ; 2       ;
-; PWM_GEN:moteurs|compteur[0]                ; 5       ;
-; PWM_GEN:moteurs|compteur[31]               ; 2       ;
-; SERVO_SERIAL:servos|diviseur[0]            ; 2       ;
-; SERVO_SERIAL:servos|diviseur[31]           ; 2       ;
-; SERVO_SERIAL:servos|compteur[31]           ; 2       ;
-; SERVO_SERIAL:servos|compteur[0]            ; 4       ;
-; SERVO_SERIAL:servos|com0[0]                ; 6       ;
-; SERVO_SERIAL:servos|com1[0]                ; 5       ;
-; SERVO_SERIAL:servos|com2[0]                ; 5       ;
-; SERVO_SERIAL:servos|com3[0]                ; 6       ;
-; UART_TX_FIFO:tx1|UART_TX:uart|delayer[0]   ; 2       ;
-; UART_TX_FIFO:tx1|UART_TX:uart|delayer[31]  ; 2       ;
-; UART_TX_FIFO:tx2|UART_TX:uart|delayer[0]   ; 2       ;
-; UART_TX_FIFO:tx2|UART_TX:uart|delayer[31]  ; 2       ;
-; COMPTEUR_32:com4|compt[0]                  ; 2       ;
-; COMPTEUR_32:com3|compt[0]                  ; 2       ;
-; COMPTEUR_32:com1|compt[0]                  ; 2       ;
-; COMPTEUR_32:com2|compt[0]                  ; 2       ;
-; COUNTEUR_XYR_HIRES:counterxyr1|intPosX[31] ; 9       ;
-; COUNTEUR_XYR_HIRES:counterxyr1|intPosY[31] ; 2       ;
-; COMPTEUR_32:com4|compt[31]                 ; 2       ;
-; COUNTEUR_XYR_HIRES:counterxyr1|intRot[31]  ; 9       ;
-; COMPTEUR_32:com2|compt[31]                 ; 2       ;
-; COMPTEUR_32:com1|compt[31]                 ; 2       ;
-; COMPTEUR_32:com3|compt[31]                 ; 2       ;
-; COUNTEUR_XYR_HIRES:counterxyr1|intRot[0]   ; 3       ;
-; COUNTEUR_XYR_HIRES:counterxyr1|intPosY[0]  ; 1       ;
-; COUNTEUR_XYR_HIRES:counterxyr1|intPosX[0]  ; 1       ;
-; UART_RX_FIFO:rx2|UART_RX:uart|delayer[0]   ; 3       ;
-; UART_RX_FIFO:rx2|UART_RX:uart|delayer[31]  ; 3       ;
-; UART_RX_FIFO:rx1|UART_RX:uart|delayer[0]   ; 3       ;
-; UART_RX_FIFO:rx1|UART_RX:uart|delayer[31]  ; 3       ;
-; Total number of inverted registers = 34    ;         ;
-+--------------------------------------------+---------+
++-----------------------------------------------------+
+; Inverted Register Statistics                        ;
++-------------------------------------------+---------+
+; Inverted Register                         ; Fan out ;
++-------------------------------------------+---------+
+; PWM_GEN:moteurs|diviseur[0]               ; 2       ;
+; PWM_GEN:moteurs|diviseur[31]              ; 2       ;
+; PWM_GEN:moteurs|compteur[0]               ; 5       ;
+; PWM_GEN:moteurs|compteur[31]              ; 2       ;
+; SERVO_SERIAL:servos|diviseur[0]           ; 2       ;
+; SERVO_SERIAL:servos|diviseur[31]          ; 2       ;
+; SERVO_SERIAL:servos|compteur[31]          ; 2       ;
+; SERVO_SERIAL:servos|compteur[0]           ; 6       ;
+; SERVO_SERIAL:servos|com0[0]               ; 6       ;
+; SERVO_SERIAL:servos|com1[0]               ; 6       ;
+; SERVO_SERIAL:servos|com2[0]               ; 6       ;
+; SERVO_SERIAL:servos|com3[0]               ; 6       ;
+; UART_TX_FIFO:tx1|UART_TX:uart|delayer[0]  ; 3       ;
+; UART_TX_FIFO:tx1|UART_TX:uart|delayer[31] ; 3       ;
+; UART_TX_FIFO:tx2|UART_TX:uart|delayer[0]  ; 3       ;
+; UART_TX_FIFO:tx2|UART_TX:uart|delayer[31] ; 3       ;
+; COMPTEUR_32:com1|compt[0]                 ; 2       ;
+; COMPTEUR_32:com2|compt[0]                 ; 2       ;
+; COMPTEUR_32:com3|compt[0]                 ; 2       ;
+; COMPTEUR_32:com4|compt[0]                 ; 2       ;
+; COMPTEUR_32:com1|compt[31]                ; 2       ;
+; COMPTEUR_32:com2|compt[31]                ; 2       ;
+; COMPTEUR_32:com3|compt[31]                ; 2       ;
+; COMPTEUR_32:com4|compt[31]                ; 2       ;
+; UART_RX_FIFO:rx2|UART_RX:uart|delayer[0]  ; 3       ;
+; UART_RX_FIFO:rx2|UART_RX:uart|delayer[31] ; 3       ;
+; UART_RX_FIFO:rx1|UART_RX:uart|delayer[0]  ; 3       ;
+; UART_RX_FIFO:rx1|UART_RX:uart|delayer[31] ; 3       ;
+; Total number of inverted registers = 28   ;         ;
++-------------------------------------------+---------+
 
 
 +----------------------------------------------------------------------+
@@ -575,8 +608,8 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +---------------------------------------------------------------+------------------------------------------------------------+------+
 ; Register Name                                                 ; Megafunction                                               ; Type ;
 +---------------------------------------------------------------+------------------------------------------------------------+------+
-; COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|SINUS[0..11]   ; COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|TABLE_rtl_0 ; RAM  ;
-; COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|COSINUS[0..11] ; COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|TABLE_rtl_0 ; RAM  ;
+; COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|SINUS[4..15]   ; COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|TABLE_rtl_0 ; RAM  ;
+; COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|COSINUS[4..15] ; COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin|TABLE_rtl_0 ; RAM  ;
 +---------------------------------------------------------------+------------------------------------------------------------+------+
 
 
@@ -585,108 +618,111 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 3:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|PWM_GEN:moteurs|diviseur[26]                ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|PWM_GEN:moteurs|diviseur[19]                ;
 ; 3:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|diviseur[11]            ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |TOP_UNIOC|PWM_GEN:moteurs|copy[0]                     ;
-; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|PWM_GEN:moteurs|compteur[23]                ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|wpos[22]                   ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|rpos[29]                   ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|wpos[23]                   ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|rpos[18]                   ;
-; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com2|compt[17]                  ;
-; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com4|compt[11]                  ;
-; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com1|compt[8]                   ;
-; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com3|compt[9]                   ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|rpos[20]                   ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|rpos[19]                   ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|wpos[3]                    ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|wpos[17]                   ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |TOP_UNIOC|PWM_GEN:moteurs|copy[10]                    ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|PWM_GEN:moteurs|compteur[6]                 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|wpos[2]                    ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|rpos[8]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|wpos[28]                   ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|rpos[13]                   ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com4|compt[28]                  ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com2|compt[19]                  ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com1|compt[17]                  ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com3|compt[7]                   ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|rpos[19]                   ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|rpos[20]                   ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|wpos[15]                   ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|wpos[30]                   ;
 ; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |TOP_UNIOC|SOFT_RESET[4]                               ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|MOTEUR1[5]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|MOTEUR2[5]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO1[11]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO1[3]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO2[10]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO2[3]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO3[8]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO3[3]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO4[12]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO4[7]                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|MOTEUR1[0]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|MOTEUR2[2]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO1[15]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO1[2]                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO2[8]                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO2[4]                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO3[10]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO3[5]                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO4[10]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO4[1]                                   ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO5[12]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO5[4]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO6[15]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO6[3]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO7[13]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO7[3]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO8[8]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO8[6]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO9[14]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO5[5]                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO6[12]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO6[1]                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO7[14]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO7[5]                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO8[14]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO8[4]                                   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO9[10]                                  ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO9[2]                                   ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO10[8]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO10[5]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO11[13]                                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO11[1]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO12[13]                                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO12[4]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO13[9]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO10[15]                                 ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO10[3]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO11[15]                                 ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO11[3]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO12[8]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO12[7]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO13[13]                                 ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO13[7]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO14[10]                                 ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO14[15]                                 ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO14[2]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO15[10]                                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO15[3]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO16[10]                                 ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO15[15]                                 ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO15[0]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO16[9]                                  ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|SERVO16[3]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|MOTEUR3[1]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|MOTEUR4[1]                                  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|RELATION[17]                                ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|RELATION[9]                                 ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|RELATION[1]                                 ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart|buffSortie[9] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart|buffSortie[8] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|UART_TX:uart|buffSortie[0] ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|UART_TX:uart|buffSortie[7] ;
-; 5:1                ; 30 bits   ; 90 LEs        ; 60 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|UART_TX:uart|delayer[3]    ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|BR1[7]                                      ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|BR1[15]                                     ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|BR2[5]                                      ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|BR2[10]                                     ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|MOTEUR3[6]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|MOTEUR4[2]                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|RELATION[19]                                ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|RELATION[10]                                ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TOP_UNIOC|RELATION[4]                                 ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 9 LEs                ; 18 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart|buffSortie[4] ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 9 LEs                ; 18 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart|buffSortie[6] ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|UART_TX:uart|buffSortie[1] ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|UART_TX:uart|buffSortie[4] ;
+; 5:1                ; 18 bits   ; 54 LEs        ; 18 LEs               ; 36 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|UART_TX:uart|delayer[30]   ;
 ; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|UART_TX:uart|etat[1]       ;
-; 5:1                ; 30 bits   ; 90 LEs        ; 60 LEs               ; 30 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|UART_TX:uart|delayer[25]   ;
-; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|UART_TX:uart|etat[8]       ;
-; 6:1                ; 30 bits   ; 120 LEs       ; 60 LEs               ; 60 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|compteur[24]            ;
-; 6:1                ; 60 bits   ; 240 LEs       ; 60 LEs               ; 180 LEs                ; Yes        ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|intPosY[10]  ;
-; 6:1                ; 25 bits   ; 100 LEs       ; 50 LEs               ; 50 LEs                 ; Yes        ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|intRot[10]   ;
-; 6:1                ; 30 bits   ; 120 LEs       ; 60 LEs               ; 60 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart|delayer[28]   ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|UART_TX:uart|delayer[11]   ;
+; 5:1                ; 18 bits   ; 54 LEs        ; 18 LEs               ; 36 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|UART_TX:uart|delayer[24]   ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|UART_TX:uart|etat[10]      ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|UART_TX:uart|delayer[4]    ;
+; 6:1                ; 30 bits   ; 120 LEs       ; 60 LEs               ; 60 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|compteur[16]            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|buffPosX[4]  ;
+; 6:1                ; 24 bits   ; 96 LEs        ; 48 LEs               ; 48 LEs                 ; Yes        ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|buffRot[17]  ;
+; 6:1                ; 18 bits   ; 72 LEs        ; 18 LEs               ; 54 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart|delayer[19]   ;
 ; 6:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart|etat[7]       ;
-; 6:1                ; 30 bits   ; 120 LEs       ; 60 LEs               ; 60 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart|delayer[11]   ;
-; 6:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart|etat[9]       ;
-; 8:1                ; 5 bits    ; 25 LEs        ; 15 LEs               ; 10 LEs                 ; Yes        ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|intRot[30]   ;
-; 12:1               ; 30 bits   ; 240 LEs       ; 30 LEs               ; 210 LEs                ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com0[26]                ;
-; 12:1               ; 30 bits   ; 240 LEs       ; 30 LEs               ; 210 LEs                ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com1[5]                 ;
-; 12:1               ; 30 bits   ; 240 LEs       ; 30 LEs               ; 210 LEs                ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com2[13]                ;
-; 12:1               ; 30 bits   ; 240 LEs       ; 30 LEs               ; 210 LEs                ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com3[1]                 ;
+; 6:1                ; 11 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart|delayer[8]    ;
+; 6:1                ; 18 bits   ; 72 LEs        ; 18 LEs               ; 54 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart|delayer[18]   ;
+; 6:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart|etat[8]       ;
+; 6:1                ; 11 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart|delayer[1]    ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|buffRot[24]  ;
+; 6:1                ; 41 bits   ; 164 LEs       ; 82 LEs               ; 82 LEs                 ; Yes        ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|buffPosY[37] ;
+; 6:1                ; 41 bits   ; 164 LEs       ; 82 LEs               ; 82 LEs                 ; Yes        ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|buffPosX[41] ;
+; 12:1               ; 30 bits   ; 240 LEs       ; 30 LEs               ; 210 LEs                ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com0[12]                ;
+; 12:1               ; 30 bits   ; 240 LEs       ; 30 LEs               ; 210 LEs                ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com1[24]                ;
+; 12:1               ; 30 bits   ; 240 LEs       ; 30 LEs               ; 210 LEs                ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com2[12]                ;
+; 12:1               ; 30 bits   ; 240 LEs       ; 30 LEs               ; 210 LEs                ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com3[23]                ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|PWM_GEN:moteurs|diviseur[31]                ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|diviseur[0]             ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|PWM_GEN:moteurs|compteur[0]                 ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com2|compt[31]                  ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com4|compt[31]                  ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com1|compt[31]                  ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com3|compt[31]                  ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx1|UART_TX:uart|delayer[0]    ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |TOP_UNIOC|UART_TX_FIFO:tx2|UART_TX:uart|delayer[0]    ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|compteur[31]            ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|intPosX[31]  ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx1|UART_RX:uart|delayer[0]    ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP_UNIOC|UART_RX_FIFO:rx2|UART_RX:uart|delayer[31]   ;
-; 12:1               ; 2 bits    ; 16 LEs        ; 2 LEs                ; 14 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com0[0]                 ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com2|compt[0]                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com1|compt[0]                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UNIOC|COMPTEUR_32:com3|compt[0]                   ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|compteur[0]             ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 2 LEs                ; 14 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com0[31]                ;
 ; 12:1               ; 2 bits    ; 16 LEs        ; 2 LEs                ; 14 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com1[0]                 ;
-; 12:1               ; 2 bits    ; 16 LEs        ; 2 LEs                ; 14 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com2[31]                ;
-; 12:1               ; 2 bits    ; 16 LEs        ; 2 LEs                ; 14 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com3[31]                ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|Add2         ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 2 LEs                ; 14 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com2[0]                 ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 2 LEs                ; 14 LEs                 ; Yes        ; |TOP_UNIOC|SERVO_SERIAL:servos|com3[0]                 ;
 ; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TOP_UNIOC|UART_TX_FIFO:tx1|rpos                       ;
 ; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TOP_UNIOC|UART_TX_FIFO:tx2|rpos                       ;
-; 4:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; No         ; |TOP_UNIOC|COUNTEUR_XYR_HIRES:counterxyr1|Add2         ;
 ; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TOP_UNIOC|UART_RX_FIFO:rx1|rpos                       ;
 ; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TOP_UNIOC|UART_RX_FIFO:rx2|rpos                       ;
-; 103:1              ; 2 bits    ; 136 LEs       ; 100 LEs              ; 36 LEs                 ; No         ; |TOP_UNIOC|Mux1                                        ;
-; 106:1              ; 4 bits    ; 280 LEs       ; 208 LEs              ; 72 LEs                 ; No         ; |TOP_UNIOC|Mux5                                        ;
-; 106:1              ; 2 bits    ; 140 LEs       ; 106 LEs              ; 34 LEs                 ; No         ; |TOP_UNIOC|Mux7                                        ;
+; 258:1              ; 2 bits    ; 344 LEs       ; 112 LEs              ; 232 LEs                ; No         ; |TOP_UNIOC|Mux1                                        ;
+; 258:1              ; 4 bits    ; 688 LEs       ; 232 LEs              ; 456 LEs                ; No         ; |TOP_UNIOC|Mux5                                        ;
+; 258:1              ; 2 bits    ; 344 LEs       ; 116 LEs              ; 228 LEs                ; No         ; |TOP_UNIOC|Mux7                                        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 
 
@@ -1114,11 +1150,46 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "COUNTEUR_XYR_HIRES:counterxyr1"                                                          ;
+; Port Connectivity Checks: "COUNTEUR_XYR_HIRES:counterxyr1|ADDER_46:suby"                                            ;
 +-----------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port      ; Type   ; Severity ; Details                                                                             ;
 +-----------+--------+----------+-------------------------------------------------------------------------------------+
-; rot[7..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; b[45..15] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cout      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; cin       ; Input  ; Info     ; Stuck at VCC                                                                        ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "COUNTEUR_XYR_HIRES:counterxyr1|ADDER_46:addy"                                            ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; b[45..15] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cout      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "COUNTEUR_XYR_HIRES:counterxyr1|ADDER_46:subx"                                            ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; b[45..15] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cout      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; cin       ; Input  ; Info     ; Stuck at VCC                                                                        ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "COUNTEUR_XYR_HIRES:counterxyr1|ADDER_46:addx"                                            ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; b[45..15] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cout      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
 +-----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -1127,7 +1198,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:21     ;
+; Top            ; 00:00:16     ;
 +----------------+--------------+
 
 
@@ -1137,9 +1208,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Thu Jan 30 22:25:47 2014
+    Info: Processing started: Thu Apr 03 09:17:27 2014
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off exmachine -c exmachine
 Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file adder_46.vhd
+    Info (12022): Found design unit 1: ADDER_46-Behavioral
+    Info (12023): Found entity 1: ADDER_46
 Info (12021): Found 2 design units, including 1 entities, in source file uart_tx_fifo.vhd
     Info (12022): Found design unit 1: UART_TX_FIFO-Behavioral
     Info (12023): Found entity 1: UART_TX_FIFO
@@ -1220,18 +1294,29 @@ Info (12021): Found 2 design units, including 1 entities, in source file top_uni
     Info (12023): Found entity 1: TOP_UNIOC
 Info (12127): Elaborating entity "TOP_UNIOC" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at TOP_UNIOC.vhd(46): used implicit default value for signal "SPI_MISO_2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10036): Verilog HDL or VHDL warning at TOP_UNIOC.vhd(224): object "tx3c" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at TOP_UNIOC.vhd(224): object "tx4c" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at TOP_UNIOC.vhd(224): object "rx3c" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at TOP_UNIOC.vhd(224): object "rx4c" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at TOP_UNIOC.vhd(226): object "tx3c" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at TOP_UNIOC.vhd(226): object "tx4c" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at TOP_UNIOC.vhd(226): object "rx3c" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at TOP_UNIOC.vhd(226): object "rx4c" assigned a value but never read
+Warning (10492): VHDL Process Statement warning at TOP_UNIOC.vhd(556): signal "BR1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TOP_UNIOC.vhd(557): signal "BR1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TOP_UNIOC.vhd(558): signal "BR2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TOP_UNIOC.vhd(559): signal "BR2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TOP_UNIOC.vhd(622): signal "readstrobe" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TOP_UNIOC.vhd(622): signal "ADDRESS" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TOP_UNIOC.vhd(623): signal "readstrobe" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TOP_UNIOC.vhd(623): signal "ADDRESS" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TOP_UNIOC.vhd(624): signal "readstrobe" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TOP_UNIOC.vhd(624): signal "ADDRESS" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TOP_UNIOC.vhd(625): signal "readstrobe" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at TOP_UNIOC.vhd(625): signal "ADDRESS" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Info (12128): Elaborating entity "PWM_GEN" for hierarchy "PWM_GEN:moteurs"
 Info (12128): Elaborating entity "SERVO_SERIAL" for hierarchy "SERVO_SERIAL:servos"
 Info (12128): Elaborating entity "TIME_GENERATOR" for hierarchy "TIME_GENERATOR:timer"
 Info (12128): Elaborating entity "COUNTER_ROTATIF" for hierarchy "COUNTER_ROTATIF:counterrot1"
 Info (12128): Elaborating entity "COUNTEUR_XYR_HIRES" for hierarchy "COUNTEUR_XYR_HIRES:counterxyr1"
-Warning (10639): VHDL warning at CONTEUR_XYR_HIRES.vhd(137): constant value overflow
-Warning (10639): VHDL warning at CONTEUR_XYR_HIRES.vhd(138): constant value overflow
 Info (12128): Elaborating entity "TABLE_SINUS" for hierarchy "COUNTEUR_XYR_HIRES:counterxyr1|TABLE_SINUS:sin"
+Info (12128): Elaborating entity "ADDER_46" for hierarchy "COUNTEUR_XYR_HIRES:counterxyr1|ADDER_46:addx"
 Info (12128): Elaborating entity "COMPTEUR_32" for hierarchy "COMPTEUR_32:com1"
 Info (12128): Elaborating entity "UART_TX_FIFO" for hierarchy "UART_TX_FIFO:tx1"
 Info (12128): Elaborating entity "UART_TX" for hierarchy "UART_TX_FIFO:tx1|UART_TX:uart"
@@ -1382,7 +1467,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alts
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "DIRBUF2" is stuck at GND
     Warning (13410): Pin "SPI_MISO_2" is stuck at GND
-Info (17049): 150 registers lost all their fanouts during netlist optimizations.
+Info (17049): 210 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 14 input pin(s) that do not drive logic
@@ -1400,16 +1485,16 @@ Warning (21074): Design contains 14 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SPI_H_2"
     Warning (15610): No output dependent on input pin "SPI_SS_1"
     Warning (15610): No output dependent on input pin "SPI_SS_2"
-Info (21057): Implemented 3674 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3793 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 29 input pins
     Info (21059): Implemented 15 output pins
     Info (21060): Implemented 8 bidirectional pins
-    Info (21061): Implemented 3578 logic cells
+    Info (21061): Implemented 3697 logic cells
     Info (21064): Implemented 44 RAM segments
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 31 warnings
-    Info: Peak virtual memory: 529 megabytes
-    Info: Processing ended: Thu Jan 30 22:26:16 2014
-    Info: Elapsed time: 00:00:29
-    Info: Total CPU time (on all processors): 00:00:21
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 41 warnings
+    Info: Peak virtual memory: 534 megabytes
+    Info: Processing ended: Thu Apr 03 09:17:55 2014
+    Info: Elapsed time: 00:00:28
+    Info: Total CPU time (on all processors): 00:00:17
 
 

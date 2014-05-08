@@ -182,6 +182,7 @@ component UART_TX_FIFO is port(
 	RESET        : in  STD_LOGIC;
 	TX           : out STD_LOGIC;
 	WRITE_STROBE : in  STD_LOGIC;
+	BR           : in  STD_LOGIC_VECTOR(15 downto 0);
 	WRITE_DATA   : in  STD_LOGIC_VECTOR(7 downto 0);
 	AVAILABLE    : out STD_LOGIC_VECTOR(7 downto 0)
 );
@@ -191,6 +192,7 @@ component UART_RX_FIFO is port(
 	RESET       : in  STD_LOGIC;
 	RX          : in  STD_LOGIC;
 	READ_STROBE : in  STD_LOGIC;
+	BR				: in  STD_LOGIC_VECTOR(15 downto 0);
 	READ_DATA   : out STD_LOGIC_VECTOR(7 downto 0);
 	AVAILABLE   : out STD_LOGIC_VECTOR(7 downto 0)
 );
@@ -221,9 +223,14 @@ SIGNAL UART_TX_1_DATA, UART_TX_1_AVA : STD_LOGIC_VECTOR(7 downto 0);
 SIGNAL UART_TX_2_DATA, UART_TX_2_AVA : STD_LOGIC_VECTOR(7 downto 0);
 SIGNAL UART_TX_3_DATA, UART_TX_3_AVA : STD_LOGIC_VECTOR(7 downto 0);
 SIGNAL UART_TX_4_DATA, UART_TX_4_AVA : STD_LOGIC_VECTOR(7 downto 0);
-SIGNAL tx1c, tx2c, tx3c, tx4c, rx1c, rx2c, rx3c, rx4c: STD_LOGIC; 
-
+SIGNAL tx1c, tx2c, tx3c, tx4c, rx1c, rx2c, rx3c, rx4c: STD_LOGIC;
+CONSTANT retardRead : Integer := 10; 
+signal retardReadStrobe1: STD_LOGIC_VECTOR(retardRead downto 0);
+signal retardReadStrobe2: STD_LOGIC_VECTOR(retardRead downto 0);
+signal retardReadStrobe3: STD_LOGIC_VECTOR(retardRead downto 0);
+signal retardReadStrobe4: STD_LOGIC_VECTOR(retardRead downto 0);
 Signal writestrobe, readstrobe, comm: STD_LOGIC;
+Signal BR1, BR2, BR3, BR4: STD_LOGIC_VECTOR(15 downto 0);
 --Signal inta: Integer;
 begin
 	-----------------------------MEMORY MAP----------------------------
@@ -389,6 +396,7 @@ begin
 		RESET        => RESET,
 		TX           => UART_TX_1,
 		WRITE_STROBE => tx1c,
+		BR           => BR1,--x"A2C0",
 		WRITE_DATA   => UART_TX_1_DATA,
 		AVAILABLE    => UART_TX_1_AVA
 	);
@@ -397,6 +405,7 @@ begin
 		RESET       => RESET,
 		RX          => UART_RX_1,
 		READ_STROBE => rx1c,
+		BR          => BR1,--x"A2C0",
 		READ_DATA   => UART_RX_1_DATA,
 		AVAILABLE   => UART_RX_1_AVA
 	);
@@ -405,6 +414,7 @@ begin
 		RESET        => RESET,
 		TX           => UART_TX_2,
 		WRITE_STROBE => tx2c,
+		BR           => BR2,--x"A2C0",
 		WRITE_DATA   => UART_TX_2_DATA,
 		AVAILABLE    => UART_TX_2_AVA
 	);
@@ -413,6 +423,7 @@ begin
 		RESET       => RESET,
 		RX          => UART_RX_2,
 		READ_STROBE => rx2c,
+		BR          => BR2,--x"A2C0",
 		READ_DATA   => UART_RX_2_DATA,
 		AVAILABLE   => UART_RX_2_AVA
 	);
@@ -456,10 +467,10 @@ UART_TX_4_AVA  <= "00000000";
 --		H      => H,
 --		RESET  => RESET,
 --		ENABLE => MILIS_FPGA(7) and not( MILIS_FPGA(6)or MILIS_FPGA(5)or MILIS_FPGA(4)or MILIS_FPGA(3)or MILIS_FPGA(2)or MILIS_FPGA(1)),
---		VAR1   => COMPT1,
---		VAR2   => COMPT2,
---		VAR3   => COMPT3,
---		VAR4   => COMPT4,
+--		VAR1   => POSX_FPGA,
+--		VAR2   => POSY_FPGA,
+--		VAR3   => "00000000000000000000000"&ROT_FPGA(15 downto 7),
+--		VAR4   => "0000000000000000000000"&SEC_FPGA,
 --		SERIAL => SPI_MISO_2
 --	);
 --	rx4: UART_RX_FIFO port map(
@@ -542,6 +553,11 @@ UART_TX_4_AVA  <= "00000000";
 			when x"29"=> DATA_OUT <= UART_TX_2_DATA;
 			when x"2A"=> DATA_OUT <= UART_TX_3_DATA;
 			when x"2B"=> DATA_OUT <= UART_TX_4_DATA;
+			when x"30"=> DATA_OUT <= BR1(7 downto 0);
+			when x"31"=> DATA_OUT <= BR1(15 downto 8);
+			when x"32"=> DATA_OUT <= BR2(7 downto 0);
+			when x"33"=> DATA_OUT <= BR2(15 downto 8);
+			
 			---...			when x"007F"=> DATA_OUT <= SOFT_RESET;
 			when x"80"=> DATA_OUT <= MICROS_FPGA(7 downto 0);
 			when x"81"=> DATA_OUT <= "000000"&MICROS_FPGA(9 downto 8);
@@ -554,12 +570,12 @@ UART_TX_4_AVA  <= "00000000";
 			when x"88"=> DATA_OUT <= POSX_FPGA(7  downto 0 );
 			when x"89"=> DATA_OUT <= POSX_FPGA(15 downto 8 );
 			when x"8A"=> DATA_OUT <= POSX_FPGA(23 downto 16);
-			when x"8B"=> DATA_OUT <= POSX_FPGA(31 downto 24);
-			when x"8C"=> DATA_OUT <= POSX_FPGA(7  downto 0 );
+			when x"8B"=> DATA_OUT <= POSX_FPGA(31 downto 24);			
+			when x"8C"=> DATA_OUT <= POSY_FPGA(7  downto 0 );
 			when x"8D"=> DATA_OUT <= POSY_FPGA(15 downto 8 );
 			when x"8E"=> DATA_OUT <= POSY_FPGA(23 downto 16);
 			when x"8F"=> DATA_OUT <= POSY_FPGA(31 downto 24);
-			when x"90"=> DATA_OUT <= POSY_FPGA(7  downto 0 );
+			when x"90"=> DATA_OUT <= ROT_FPGA(7  downto 0 );
 			when x"91"=> DATA_OUT <= ROT_FPGA(15 downto 8 );
 			when x"92"=> DATA_OUT <= "00000000";--avec ça, il est possible de lire le ROT comme
 			when x"93"=> DATA_OUT <= "00000000";--s'il etait une variable 32bits
@@ -600,11 +616,32 @@ UART_TX_4_AVA  <= "00000000";
 	tx2c <= '1' when ((writestrobe='1')and(ADDRESS(7 downto 0)=x"29"))else '0';
 	tx3c <= '1' when ((writestrobe='1')and(ADDRESS(7 downto 0)=x"2A"))else '0';
 	tx4c <= '1' when ((writestrobe='1')and(ADDRESS(7 downto 0)=x"2B"))else '0';
-	
-	rx1c <= '1' when ((readstrobe='1')and(ADDRESS(7 downto 0)=x"A8"))else '0';
-	rx2c <= '1' when ((readstrobe='1')and(ADDRESS(7 downto 0)=x"A9"))else '0';
-	rx3c <= '1' when ((readstrobe='1')and(ADDRESS(7 downto 0)=x"AA"))else '0';
-	rx4c <= '1' when ((readstrobe='1')and(ADDRESS(7 downto 0)=x"AB"))else '0';
+	retard: Process(H)
+	variable a, b, c, d: STD_LOGIC;
+	begin
+		if((readstrobe='1')and(ADDRESS(7 downto 0)=x"A8"))then a:='1'; else a:= '0'; end if;
+		if((readstrobe='1')and(ADDRESS(7 downto 0)=x"A9"))then b:='1'; else b:= '0'; end if;
+		if((readstrobe='1')and(ADDRESS(7 downto 0)=x"AA"))then c:='1'; else c:= '0'; end if;
+		if((readstrobe='1')and(ADDRESS(7 downto 0)=x"AB"))then d:='1'; else d:= '0'; end if;
+		
+		if(H'event and H='1')then
+		   if(RESET='1')then
+				retardReadStrobe1 <= (others=>'0');
+				retardReadStrobe2 <= (others=>'0');
+				retardReadStrobe3 <= (others=>'0');
+				retardReadStrobe4 <= (others=>'0');
+			else
+				retardReadStrobe1 <= retardReadStrobe1(retardRead-1 downto 0) & a;
+				retardReadStrobe2 <= retardReadStrobe2(retardRead-1 downto 0) & b;
+				retardReadStrobe3 <= retardReadStrobe3(retardRead-1 downto 0) & c;
+				retardReadStrobe4 <= retardReadStrobe4(retardRead-1 downto 0) & d;
+			end if;
+		end if;
+	end process;
+	rx1c <= retardReadStrobe1(retardRead);
+	rx2c <= retardReadStrobe2(retardRead);
+	rx3c <= retardReadStrobe3(retardRead);
+	rx4c <= retardReadStrobe4(retardRead);
 	
 	Ecriture: Process(H)
 	begin
@@ -632,6 +669,8 @@ UART_TX_4_AVA  <= "00000000";
 				SERVO16 <= "0000000000000000";
 				RELATION <= "000000000000000000000000";
 				SOFT_RESET <= "00000000";
+				BR1 <= x"A2C0";
+				BR2 <= x"A2C0";
 			elsif(writestrobe='1')then
 				--MOTEUR1 <= DATA_IN;
 				--MOTEUR2 <= ADDRESS(15 downto 8);
@@ -679,6 +718,10 @@ UART_TX_4_AVA  <= "00000000";
 					when x"29"=> UART_TX_2_DATA <= DATA_IN;
 					when x"2A"=> UART_TX_3_DATA <= DATA_IN;
 					when x"2B"=> UART_TX_4_DATA <= DATA_IN;
+					when x"30"=> BR1(7 downto 0) <= DATA_IN;
+					when x"31"=> BR1(15 downto 8)<= DATA_IN;
+					when x"32"=> BR2(7 downto 0) <= DATA_IN;
+					when x"33"=> BR2(15 downto 8)<= DATA_IN;
 					---...
 					when x"7F"=> SOFT_RESET <= DATA_IN;
 					when others=> NULL;

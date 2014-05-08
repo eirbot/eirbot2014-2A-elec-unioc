@@ -16,6 +16,7 @@ entity UART_RX is Port (
 	H     : in  STD_LOGIC;
    RESET : in  STD_LOGIC;
 	RX    : in  STD_LOGIC;
+	BR		: in  STD_LOGIC_VECTOR(15 downto 0);
 	VAR   : out STD_LOGIC_VECTOR(7 downto 0);
 	READY : out STD_LOGIC
 );
@@ -41,7 +42,7 @@ begin
 				   READY <= '0';
 					if(RX='0')then
 						etat <= "0000000001";
-						delayer <= H_FREQ/(2*BAUD);
+						delayer <= TO_INTEGER(UNSIGNED(BR(15 downto 4)));
 						buffSortie <= "0000000000";
 					end if;
 				else
@@ -51,11 +52,15 @@ begin
 					else
 						if(etat(9)='1')then
 							etat <= "0000000000";
-							READY <= '1';
+							if((buffSortie(1)='0')and(RX='1'))then
+								READY <= '1';
+							else
+								READY <= '0';
+							end if;
 						else
 							buffSortie <= RX & buffSortie(9 downto 1);
 							etat <= etat(8 downto 0)&'0';
-							delayer <= H_FREQ/BAUD;
+							delayer <= TO_INTEGER(UNSIGNED(BR(15 downto 3)));
 						   READY <= '0';
 						end if;
 					end if;
