@@ -22,6 +22,9 @@ entity COUNTEUR_XYR_HIRES is Port (
 	POSX    : OUT STD_LOGIC_VECTOR (31 downto 0);
 	POSY    : OUT STD_LOGIC_VECTOR (31 downto 0);
 	ROT     : OUT STD_LOGIC_VECTOR (15 downto 0);  --0-360 degrees+7 bits
+	RESET_X : IN  STD_LOGIC_VECTOR (31 downto 0);
+	RESET_Y : IN  STD_LOGIC_VECTOR (31 downto 0);
+	RESET_R : IN  STD_LOGIC_VECTOR (15 downto 0);
 	RESET   : IN  STD_LOGIC;
 	H       : IN  STD_LOGIC
 );
@@ -118,9 +121,9 @@ begin
 	begin
 		if(H'event and H='1')then
 			if(RESET='1')then
-				buffPosX <= (others=>'0');
-				buffPosY <= (others=>'0');
-				buffRot <= (others=>'0');
+				buffPosX <= RESET_X & "00000000000000";
+				buffPosY <= RESET_Y & "00000000000000";
+				buffRot  <= RESET_R & "0000000000000000";
 			else
 				if(CODEUR1(0)='1')then
 					buffRot <= nextIncRot;

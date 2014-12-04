@@ -1,5 +1,5 @@
 Flow report for exmachine
-Thu Apr 03 09:18:38 2014
+Thu Dec 04 06:46:58 2014
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,17 +40,17 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Thu Apr 03 09:18:38 2014           ;
+; Flow Status                        ; Successful - Thu Dec 04 06:46:58 2014           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; exmachine                                       ;
 ; Top-level Entity Name              ; TOP_UNIOC                                       ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C5T144C8                                     ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 3,357 / 4,608 ( 73 % )                          ;
-;     Total combinational functions  ; 3,040 / 4,608 ( 66 % )                          ;
-;     Dedicated logic registers      ; 1,680 / 4,608 ( 36 % )                          ;
-; Total registers                    ; 1680                                            ;
+; Total logic elements               ; 3,448 / 4,608 ( 75 % )                          ;
+;     Total combinational functions  ; 3,054 / 4,608 ( 66 % )                          ;
+;     Dedicated logic registers      ; 1,760 / 4,608 ( 38 % )                          ;
+; Total registers                    ; 1760                                            ;
 ; Total pins                         ; 52 / 89 ( 58 % )                                ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 45,248 / 119,808 ( 38 % )                       ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/03/2014 09:17:28 ;
+; Start date & time ; 12/04/2014 06:46:06 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; exmachine           ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +----------------------------------------+---------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                        ; Value                                 ; Default Value ; Entity Name ; Section Id                        ;
 +----------------------------------------+---------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                  ; 35633682855355.139650944703196        ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                  ; 35633682855355.141767196506140        ; --            ; --          ; --                                ;
 ; EDA_BOARD_DESIGN_BOUNDARY_SCAN_TOOL    ; BSDL (Boundary Scan)                  ; <None>        ; --          ; --                                ;
 ; EDA_BOARD_DESIGN_SIGNAL_INTEGRITY_TOOL ; IBIS (Signal Integrity)               ; <None>        ; --          ; --                                ;
 ; EDA_BOARD_DESIGN_SYMBOL_TOOL           ; FPGA Xchange (Symbol)                 ; <None>        ; --          ; --                                ;
@@ -108,10 +108,10 @@ applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:25     ; 1.0                     ; 530 MB              ; 00:00:16                           ;
-; Fitter               ; 00:00:36     ; 1.0                     ; 617 MB              ; 00:00:31                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 406 MB              ; 00:00:01                           ;
-; Total                ; 00:01:02     ; --                      ; --                  ; 00:00:48                           ;
+; Analysis & Synthesis ; 00:00:17     ; 1.0                     ; 534 MB              ; 00:00:17                           ;
+; Fitter               ; 00:00:31     ; 1.0                     ; 612 MB              ; 00:00:31                           ;
+; Assembler            ; 00:00:01     ; 1.0                     ; 417 MB              ; 00:00:01                           ;
+; Total                ; 00:00:49     ; --                      ; --                  ; 00:00:49                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

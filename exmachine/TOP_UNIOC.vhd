@@ -122,6 +122,9 @@ COMPONENT COUNTEUR_XYR_HIRES is Port (
 	POSX    : OUT STD_LOGIC_VECTOR (31 downto 0);
 	POSY    : OUT STD_LOGIC_VECTOR (31 downto 0);
 	ROT     : OUT STD_LOGIC_VECTOR (15 downto 0);  --0-360 degrees + 7 bits
+	RESET_X : IN  STD_LOGIC_VECTOR (31 downto 0);
+	RESET_Y : IN  STD_LOGIC_VECTOR (31 downto 0);
+	RESET_R : IN  STD_LOGIC_VECTOR (15 downto 0);
 	RESET   : IN STD_LOGIC;
 	H       : IN STD_LOGIC
 );
@@ -214,6 +217,8 @@ SIGNAL SOFT_RESET : STD_LOGIC_VECTOR(7 downto 0);
 SIGNAL MILIS_FPGA, MICROS_FPGA, SEC_FPGA : STD_LOGIC_VECTOR(9 downto 0);
 SIGNAL POSX_FPGA, POSY_FPGA: STD_LOGIC_VECTOR(31 downto 0);
 SIGNAL ROT_FPGA: STD_LOGIC_VECTOR(15 downto 0);
+SIGNAL RESET_X_FPGA, RESET_Y_FPGA: STD_LOGIC_VECTOR(31 downto 0);
+SIGNAL RESET_R_FPGA: STD_LOGIC_VECTOR(15 downto 0);
 SIGNAL COMPT1,  COMPT2,  COMPT3,  COMPT4  : STD_LOGIC_VECTOR(31 downto 0);
 SIGNAL UART_RX_1_DATA, UART_RX_1_AVA : STD_LOGIC_VECTOR(7 downto 0);
 SIGNAL UART_RX_2_DATA, UART_RX_2_AVA : STD_LOGIC_VECTOR(7 downto 0);
@@ -359,6 +364,9 @@ begin
 		POSX    => POSX_FPGA,
 		POSY    => POSY_FPGA,
 		ROT     => ROT_FPGA,
+		RESET_X => RESET_X_FPGA,
+		RESET_Y => RESET_Y_FPGA,
+		RESET_R => RESET_R_FPGA,
 		RESET   => RESET or SOFT_RESET(4),
 		H       => H
 	);
@@ -647,30 +655,33 @@ UART_TX_4_AVA  <= "00000000";
 	begin
 		if(H'event and H='1')then
 			if(RESET='1')then
-				MOTEUR1 <= "00000000";
-				MOTEUR2 <= "00000000";
-				MOTEUR3 <= "00000000";
-				MOTEUR4 <= "00000000";
-				SERVO1 <= "0000000000000000";
-				SERVO2 <= "0000000000000000";
-				SERVO3 <= "0000000000000000";
-				SERVO4 <= "0000000000000000";
-				SERVO5 <= "0000000000000000";
-				SERVO6 <= "0000000000000000";
-				SERVO7 <= "0000000000000000";
-				SERVO8 <= "0000000000000000";
-				SERVO9 <= "0000000000000000";
-				SERVO10 <= "0000000000000000";
-				SERVO11 <= "0000000000000000";
-				SERVO12 <= "0000000000000000";
-				SERVO13 <= "0000000000000000";
-				SERVO14 <= "0000000000000000";
-				SERVO15 <= "0000000000000000";
-				SERVO16 <= "0000000000000000";
-				RELATION <= "000000000000000000000000";
+				MOTEUR1 <= (others =>'0');
+				MOTEUR2 <= (others =>'0');
+				MOTEUR3 <= (others =>'0');
+				MOTEUR4 <= (others =>'0');
+				SERVO1 <= (others =>'0');
+				SERVO2 <= (others =>'0');
+				SERVO3 <= (others =>'0');
+				SERVO4 <= (others =>'0');
+				SERVO5 <= (others =>'0');
+				SERVO6 <= (others =>'0');
+				SERVO7 <= (others =>'0');
+				SERVO8 <= (others =>'0');
+				SERVO9 <= (others =>'0');
+				SERVO10 <= (others =>'0');
+				SERVO11 <= (others =>'0');
+				SERVO12 <= (others =>'0');
+				SERVO13 <= (others =>'0');
+				SERVO14 <= (others =>'0');
+				SERVO15 <= (others =>'0');
+				SERVO16 <= (others =>'0');
+				RELATION <= (others =>'0');
 				SOFT_RESET <= "00000000";
 				BR1 <= x"A2C0";
 				BR2 <= x"A2C0";
+				RESET_X_FPGA <= (others =>'0');
+				RESET_Y_FPGA <= (others =>'0');
+				RESET_R_FPGA <= (others =>'0');
 			elsif(writestrobe='1')then
 				--MOTEUR1 <= DATA_IN;
 				--MOTEUR2 <= ADDRESS(15 downto 8);
@@ -722,6 +733,16 @@ UART_TX_4_AVA  <= "00000000";
 					when x"31"=> BR1(15 downto 8)<= DATA_IN;
 					when x"32"=> BR2(7 downto 0) <= DATA_IN;
 					when x"33"=> BR2(15 downto 8)<= DATA_IN;
+					when x"34"=> RESET_X_FPGA(7  downto 0 ) <= DATA_IN;
+					when x"35"=> RESET_X_FPGA(15 downto 8 ) <= DATA_IN;
+					when x"36"=> RESET_X_FPGA(23 downto 16) <= DATA_IN;
+					when x"37"=> RESET_X_FPGA(31 downto 24) <= DATA_IN;		
+					when x"38"=> RESET_Y_FPGA(7  downto 0 ) <= DATA_IN;
+					when x"39"=> RESET_Y_FPGA(15 downto 8 ) <= DATA_IN;
+					when x"3A"=> RESET_Y_FPGA(23 downto 16) <= DATA_IN;
+					when x"3B"=> RESET_Y_FPGA(31 downto 24) <= DATA_IN;
+					when x"3C"=> RESET_R_FPGA(7  downto 0 ) <= DATA_IN;
+					when x"3D"=> RESET_R_FPGA(15 downto 8 ) <= DATA_IN;
 					---...
 					when x"7F"=> SOFT_RESET <= DATA_IN;
 					when others=> NULL;
